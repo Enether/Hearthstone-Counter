@@ -16,12 +16,18 @@ namespace Hearthstone_Counter
         string eMessage;
         int wins;
         int losses;
+        //int priestwins;
+        //int priestlosses;
+        Priest Priest = new Priest();
        // StreamWriter winsWriter = new StreamWriter("Wins.txt", false);
        // StreamWriter lossesWriter = new StreamWriter("Losses.txt");
 
         public Form1()
-        {          
+        {
+            
             InitializeComponent();
+            priestWinButton.Hide();
+            priestLoseButton.Hide();
             ReadWins();
             label1.Text = "Won: " + wins;
             WriteWins(wins);
@@ -104,6 +110,37 @@ namespace Hearthstone_Counter
                 lossesWriter.Write(T);
                 lossesWriter.Flush();
             }
-        }    
+        }
+
+
+        // PRIEST
+        private void priestbutton_Click(object sender, EventArgs e)
+        {
+            winButton.Hide();
+            loseButton.Hide();
+            priestLoseButton.Show();
+            priestWinButton.Show();
+            Priest.ReadPriestWins();
+            label1.Text = "Won: " + Priest.priestwins;
+            Priest.WritePriestWins(Priest.priestwins);
+            Priest.ReadPriestLosses();
+            lostLabel.Text = "Lost: " + Priest.priestlosses;
+            Priest.WritePriestLosses(Priest.priestlosses);
+        }
+
+        private void priestWinButton_Click(object sender, EventArgs e)
+        {
+            Priest.priestwins++;
+            label1.Text = "Won: " + Priest.priestwins;
+            Priest.WritePriestWins(Priest.priestwins);
+        }
+
+        private void priestLoseButton_Click(object sender, EventArgs e)
+        {
+            Priest.priestlosses++;
+            lostLabel.Text = "Lost: " + Priest.priestlosses;
+            Priest.WritePriestLosses(Priest.priestlosses);
+        }
+        //PRIEST
     }
 }
