@@ -9,6 +9,8 @@ namespace Hearthstone_Counter
 {
     class Priest
     {
+        
+       
         public int priestwins;
         public int priestlosses;
         string eMessage;
@@ -18,6 +20,7 @@ namespace Hearthstone_Counter
             {
                 priestwinsWriter.Write(T);
                 priestwinsWriter.Flush();
+                
             }
 
         }
@@ -67,6 +70,39 @@ namespace Hearthstone_Counter
             {
                 WritePriestWins(0);
             }
+        }
+        public void priestButtonCLICKED(HSCounter hsc)
+        {
+            ShowandHideButtons(hsc);                 
+            ReadPriestWins();
+            hsc.label1.Text = "Won: " + priestwins;
+            WritePriestWins(priestwins);
+            ReadPriestLosses();
+            hsc.lostLabel.Text = "Lost: " + priestlosses;
+            WritePriestLosses(priestlosses);
+        }
+        public void priestLoseButtonCLICKED(HSCounter hsc)
+        {           
+            priestlosses++;
+            hsc.lostLabel.Text = "Lost: " + priestlosses;
+            WritePriestLosses(priestlosses);
+            hsc.otherlosebutton();
+        }
+        public void priestWinButtonCLICKED(HSCounter hsc)
+        {           
+            priestwins++;
+            hsc.label1.Text = "Won: " + priestwins;
+            WritePriestWins(priestwins);
+            hsc.otherwinbutton();          
+        }     
+        public void ShowandHideButtons(HSCounter hsc)
+        {
+            hsc.priestLoseButton.Show();
+            hsc.priestWinButton.Show();
+            hsc.winButton.Hide();
+            hsc.loseButton.Hide();
+            hsc.paladinWinButton.Hide();
+            hsc.paladinLoseButton.Hide();
         }
     }
 }
