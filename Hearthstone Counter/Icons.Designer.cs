@@ -73,9 +73,49 @@ namespace Hearthstone_Counter {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap DefaultIconSelected {
+            get {
+                object obj = ResourceManager.GetObject("DefaultIconSelected", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap DruidIcon {
             get {
                 object obj = ResourceManager.GetObject("DruidIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap DruidIconSelected {
+            get {
+                object obj = ResourceManager.GetObject("DruidIconSelected", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap hunter_4 {
+            get {
+                object obj = ResourceManager.GetObject("hunter_4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap hunterSelected {
+            get {
+                object obj = ResourceManager.GetObject("hunterSelected", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -93,9 +133,29 @@ namespace Hearthstone_Counter {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap MageIconSelected {
+            get {
+                object obj = ResourceManager.GetObject("MageIconSelected", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap PaladinIcon {
             get {
                 object obj = ResourceManager.GetObject("PaladinIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PaladinIconSelected {
+            get {
+                object obj = ResourceManager.GetObject("PaladinIconSelected", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -113,9 +173,29 @@ namespace Hearthstone_Counter {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap priestSelected {
+            get {
+                object obj = ResourceManager.GetObject("priestSelected", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap RogueIcon {
             get {
                 object obj = ResourceManager.GetObject("RogueIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap RogueIconSelected {
+            get {
+                object obj = ResourceManager.GetObject("RogueIconSelected", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -133,6 +213,16 @@ namespace Hearthstone_Counter {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ShamanIconSelected {
+            get {
+                object obj = ResourceManager.GetObject("ShamanIconSelected", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap WarlockIcon {
             get {
                 object obj = ResourceManager.GetObject("WarlockIcon", resourceCulture);
@@ -143,9 +233,29 @@ namespace Hearthstone_Counter {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap WarlockIconSelected {
+            get {
+                object obj = ResourceManager.GetObject("WarlockIconSelected", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap WarriorIcon {
             get {
                 object obj = ResourceManager.GetObject("WarriorIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap WarriorIconSelected {
+            get {
+                object obj = ResourceManager.GetObject("WarriorIconSelected", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

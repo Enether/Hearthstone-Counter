@@ -67,17 +67,20 @@
       <DependentUpon>class.resx</DependentUpon>
     </Compile>
     <Compile Include="DefaultCounter.cs" />
+    <Compile Include="Druid.cs" />
     <Compile Include="HSCounter.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="HSCounter.Designer.cs">
       <DependentUpon>HSCounter.cs</DependentUpon>
     </Compile>
+    <Compile Include="Hunter.cs" />
     <Compile Include="Icons.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Icons.resx</DependentUpon>
     </Compile>
+    <Compile Include="Mage.cs" />
     <Compile Include="Paladin.cs" />
     <Compile Include="Priest.cs" />
     <Compile Include="Program.cs" />
@@ -87,6 +90,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resource1.resx</DependentUpon>
     </Compile>
+    <Compile Include="Rogue.cs" />
+    <Compile Include="Shaman.cs" />
+    <Compile Include="Warlock.cs" />
+    <Compile Include="Warrior.cs" />
     <EmbeddedResource Include="class.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>class.Designer.cs</LastGenOutput>
@@ -168,6 +175,48 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\DefaultIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hunter_4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\priesticonSelected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\priest_12d.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WarlockIconSelected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PaladinIconSelected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RogueIconSelected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MageIconSelected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WarriorIconSelected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ShamanIconSelected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hunterSelected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\priestSelected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hearthstone2.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DruidIconSelected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DefaultIconSelected.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

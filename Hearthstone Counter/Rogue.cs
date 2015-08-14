@@ -7,35 +7,35 @@ using System.IO;
 
 namespace Hearthstone_Counter
 {
-    class Paladin
+    class Rogue
     {
         public bool selected;
-        public int paladinwins;
-        public int paladinlosses;
+        public int roguewins;
+        public int roguelosses;
         string eMessage;
-        public void WritePaladinWins(int T)
+        public void WriteRogueWins(int T)
         {
-            using (StreamWriter paladinwinsWriter = new StreamWriter("PaladinWins.txt", false))
+            using (StreamWriter roguewinsWriter = new StreamWriter("RogueWins.txt", false))
             {
-                paladinwinsWriter.Write(T);
-                paladinwinsWriter.Flush();
+                roguewinsWriter.Write(T);
+                roguewinsWriter.Flush();
             }
         }
-        public void WritePaladinLosses(int T)
+        public void WriteRogueLosses(int T)
         {
-            using (StreamWriter paladinlossesWriter = new StreamWriter("PaladinLosses.txt", false))
+            using (StreamWriter roguelossesWriter = new StreamWriter("RogueLosses.txt", false))
             {
-                paladinlossesWriter.Write(T);
-                paladinlossesWriter.Flush();
+                roguelossesWriter.Write(T);
+                roguelossesWriter.Flush();
             }
         }
-        public void ReadPaladinLosses()
+        public void ReadRogueLosses()
         {
             try
             {
-                using (StreamReader readpaladinLosses = new StreamReader("PaladinLosses.txt"))
+                using (StreamReader readrogueLosses = new StreamReader("RogueLosses.txt"))
                 {
-                    paladinlosses = int.Parse(readpaladinLosses.ReadLine());
+                    roguelosses = int.Parse(readrogueLosses.ReadLine());
                 }
             }
             catch (Exception e)
@@ -46,16 +46,16 @@ namespace Hearthstone_Counter
 
             finally
             {
-                WritePaladinLosses(0);
+                WriteRogueLosses(0);
             }
         }
-        public void ReadPaladinWins()
+        public void ReadRogueWins()
         {
             try
             {
-                using (StreamReader readpaladinWins = new StreamReader("PaladinWins.txt"))
+                using (StreamReader readrogueWins = new StreamReader("RogueWins.txt"))
                 {
-                    paladinwins = int.Parse(readpaladinWins.ReadLine());
+                    roguewins = int.Parse(readrogueWins.ReadLine());
                 }
             }
             catch (Exception e)
@@ -65,45 +65,45 @@ namespace Hearthstone_Counter
             }
             finally
             {
-                WritePaladinWins(0);
+                WriteRogueWins(0);
             }
         }
-        public void paladinButtonCLICKED(HSCounter hsc)
+        public void rogueButtonCLICKED(HSCounter hsc)
         {
-            paladinButtonIsSelected(hsc);
+            rogueButtonIsSelected(hsc);
             DeselectOthers(hsc);
             ShowandHideButtons(hsc);
-            ReadPaladinWins();
-            hsc.label1.Text = "Won: " + paladinwins;
-            WritePaladinWins(paladinwins);
-            ReadPaladinLosses();
-            hsc.lostLabel.Text = "Lost: " + paladinlosses;
-            WritePaladinLosses(paladinlosses);
+            ReadRogueWins();
+            hsc.label1.Text = "Won: " + roguewins;
+            WriteRogueWins(roguewins);
+            ReadRogueLosses();
+            hsc.lostLabel.Text = "Lost: " + roguelosses;
+            WriteRogueLosses(roguelosses);
         }
-        public void paladinLoseButtonCLICKED(HSCounter hsc)
+        public void rogueLoseButtonCLICKED(HSCounter hsc)
         {
-            paladinlosses++;
-            hsc.lostLabel.Text = "Lost: " + paladinlosses;
-            WritePaladinLosses(paladinlosses);
+            roguelosses++;
+            hsc.lostLabel.Text = "Lost: " + roguelosses;
+            WriteRogueLosses(roguelosses);
             hsc.otherlosebutton();
         }
-        public void paladinWinButtonCLICKED(HSCounter hsc)
+        public void rogueWinButtonCLICKED(HSCounter hsc)
         {
-            paladinwins++;
-            hsc.label1.Text = "Won: " + paladinwins;
-            WritePaladinWins(paladinwins);
+            roguewins++;
+            hsc.label1.Text = "Won: " + roguewins;
+            WriteRogueWins(roguewins);
             hsc.otherwinbutton();
         }
-        public void paladinButtonIsSelected(HSCounter hsc)
+        public void rogueButtonIsSelected(HSCounter hsc)
         {
             selected = true;
-            hsc.paladinbutton.Image = global::Hearthstone_Counter.Icons.PaladinIconSelected;
+            hsc.roguebutton.Image = global::Hearthstone_Counter.Icons.RogueIconSelected;
             DeselectOthers(hsc);
         }
         public void IsDeselected(HSCounter hsc)
         {
             selected = false;
-            hsc.paladinbutton.Image = global::Hearthstone_Counter.Icons.PaladinIcon;
+            hsc.roguebutton.Image = global::Hearthstone_Counter.Icons.RogueIcon;
         }
         public void DeselectOthers(HSCounter hsc)
         {
@@ -114,13 +114,15 @@ namespace Hearthstone_Counter
             hsc.DeselectPriest();
             hsc.DeselectShaman();
             hsc.DeselectWarlock();
-            hsc.DeselectRogue();
+            hsc.DeselectPaladin();
             hsc.DeselectWarrior();
         }
         public void ShowandHideButtons(HSCounter hsc)
         {
-            hsc.paladinWinButton.Show();
-            hsc.paladinLoseButton.Show();
+            hsc.rogueWinButton.Show();
+            hsc.rogueLoseButton.Show();
+            hsc.paladinWinButton.Hide();
+            hsc.paladinLoseButton.Hide();
             hsc.priestLoseButton.Hide();
             hsc.priestWinButton.Hide();
             hsc.druidWinButton.Hide();
@@ -133,12 +135,10 @@ namespace Hearthstone_Counter
             hsc.hunterLoseButton.Hide();
             hsc.mageWinButton.Hide();
             hsc.mageLoseButton.Hide();
-            hsc.rogueWinButton.Hide();
-            hsc.rogueLoseButton.Hide();
             hsc.warriorWinButton.Hide();
             hsc.warriorLoseButton.Hide();
             hsc.winButton.Hide();
-            hsc.loseButton.Hide();           
+            hsc.loseButton.Hide();
         }
     }
 }

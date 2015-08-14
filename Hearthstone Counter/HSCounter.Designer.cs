@@ -1,4 +1,6 @@
-﻿namespace Hearthstone_Counter
+﻿using System.Drawing;
+
+namespace Hearthstone_Counter
 {
     partial class HSCounter
     {
@@ -28,7 +30,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HSCounter));
             this.loseButton = new System.Windows.Forms.Button();
             this.winButton = new System.Windows.Forms.Button();
             this.winCount = new System.Windows.Forms.Label();
@@ -36,11 +37,32 @@
             this.lostLabel = new System.Windows.Forms.Label();
             this.priestWinButton = new System.Windows.Forms.Button();
             this.priestLoseButton = new System.Windows.Forms.Button();
-            this.defaultbutton = new System.Windows.Forms.Button();
-            this.priestbutton = new System.Windows.Forms.Button();
-            this.paladinbutton = new System.Windows.Forms.Button();
             this.paladinWinButton = new System.Windows.Forms.Button();
             this.paladinLoseButton = new System.Windows.Forms.Button();
+            this.druidWinButton = new System.Windows.Forms.Button();
+            this.druidLoseButton = new System.Windows.Forms.Button();
+            this.shamanWinButton = new System.Windows.Forms.Button();
+            this.shamanLoseButton = new System.Windows.Forms.Button();
+            this.warlockWinButton = new System.Windows.Forms.Button();
+            this.warlockLoseButton = new System.Windows.Forms.Button();
+            this.hunterWinButton = new System.Windows.Forms.Button();
+            this.hunterLoseButton = new System.Windows.Forms.Button();
+            this.mageWinButton = new System.Windows.Forms.Button();
+            this.mageLoseButton = new System.Windows.Forms.Button();
+            this.rogueWinButton = new System.Windows.Forms.Button();
+            this.rogueLoseButton = new System.Windows.Forms.Button();
+            this.roguebutton = new System.Windows.Forms.Button();
+            this.magebutton = new System.Windows.Forms.Button();
+            this.hunterbutton = new System.Windows.Forms.Button();
+            this.warlockbutton = new System.Windows.Forms.Button();
+            this.shamanbutton = new System.Windows.Forms.Button();
+            this.druidbutton = new System.Windows.Forms.Button();
+            this.paladinbutton = new System.Windows.Forms.Button();
+            this.defaultbutton = new System.Windows.Forms.Button();
+            this.priestbutton = new System.Windows.Forms.Button();
+            this.warriorbutton = new System.Windows.Forms.Button();
+            this.warriorWinButton = new System.Windows.Forms.Button();
+            this.warriorLoseButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // loseButton
@@ -74,6 +96,8 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label1.Location = new System.Drawing.Point(9, 102);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(36, 13);
@@ -83,6 +107,8 @@
             // lostLabel
             // 
             this.lostLabel.AutoSize = true;
+            this.lostLabel.BackColor = System.Drawing.Color.Transparent;
+            this.lostLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.lostLabel.Location = new System.Drawing.Point(404, 102);
             this.lostLabel.Name = "lostLabel";
             this.lostLabel.Size = new System.Drawing.Size(33, 13);
@@ -109,48 +135,6 @@
             this.priestLoseButton.UseVisualStyleBackColor = true;
             this.priestLoseButton.Click += new System.EventHandler(this.priestLoseButton_Click);
             // 
-            // defaultbutton
-            // 
-            this.defaultbutton.BackColor = System.Drawing.Color.Transparent;
-            this.defaultbutton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.defaultbutton.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.defaultbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.defaultbutton.Image = global::Hearthstone_Counter.Icons.DefaultIcon;
-            this.defaultbutton.Location = new System.Drawing.Point(12, 141);
-            this.defaultbutton.Name = "defaultbutton";
-            this.defaultbutton.Size = new System.Drawing.Size(54, 57);
-            this.defaultbutton.TabIndex = 9;
-            this.defaultbutton.UseVisualStyleBackColor = true;
-            this.defaultbutton.Click += new System.EventHandler(this.defaultbutton_Click);
-            // 
-            // priestbutton
-            // 
-            this.priestbutton.BackColor = System.Drawing.Color.Transparent;
-            this.priestbutton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.priestbutton.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.priestbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.priestbutton.Image = ((System.Drawing.Image)(resources.GetObject("priestbutton.Image")));
-            this.priestbutton.Location = new System.Drawing.Point(72, 141);
-            this.priestbutton.Name = "priestbutton";
-            this.priestbutton.Size = new System.Drawing.Size(54, 57);
-            this.priestbutton.TabIndex = 6;
-            this.priestbutton.UseVisualStyleBackColor = true;
-            this.priestbutton.Click += new System.EventHandler(this.priestbutton_Click);
-            // 
-            // paladinbutton
-            // 
-            this.paladinbutton.BackColor = System.Drawing.Color.Transparent;
-            this.paladinbutton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.paladinbutton.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.paladinbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.paladinbutton.Image = global::Hearthstone_Counter.Icons.PaladinIcon;
-            this.paladinbutton.Location = new System.Drawing.Point(132, 141);
-            this.paladinbutton.Name = "paladinbutton";
-            this.paladinbutton.Size = new System.Drawing.Size(54, 57);
-            this.paladinbutton.TabIndex = 10;
-            this.paladinbutton.UseVisualStyleBackColor = true;
-            this.paladinbutton.Click += new System.EventHandler(this.paladinbutton_Click);
-            // 
             // paladinWinButton
             // 
             this.paladinWinButton.Location = new System.Drawing.Point(12, 295);
@@ -171,9 +155,332 @@
             this.paladinLoseButton.UseVisualStyleBackColor = true;
             this.paladinLoseButton.Click += new System.EventHandler(this.paladinLoseButton_Click);
             // 
+            // druidWinButton
+            // 
+            this.druidWinButton.Location = new System.Drawing.Point(12, 295);
+            this.druidWinButton.Name = "druidWinButton";
+            this.druidWinButton.Size = new System.Drawing.Size(98, 42);
+            this.druidWinButton.TabIndex = 14;
+            this.druidWinButton.Text = "Won!";
+            this.druidWinButton.UseVisualStyleBackColor = true;
+            this.druidWinButton.Click += new System.EventHandler(this.druidWinButton_Click);
+            // 
+            // druidLoseButton
+            // 
+            this.druidLoseButton.Location = new System.Drawing.Point(407, 295);
+            this.druidLoseButton.Name = "druidLoseButton";
+            this.druidLoseButton.Size = new System.Drawing.Size(98, 42);
+            this.druidLoseButton.TabIndex = 15;
+            this.druidLoseButton.Text = "Lost.";
+            this.druidLoseButton.UseVisualStyleBackColor = true;
+            this.druidLoseButton.Click += new System.EventHandler(this.druidLoseButton_Click);
+            // 
+            // shamanWinButton
+            // 
+            this.shamanWinButton.Location = new System.Drawing.Point(12, 295);
+            this.shamanWinButton.Name = "shamanWinButton";
+            this.shamanWinButton.Size = new System.Drawing.Size(98, 42);
+            this.shamanWinButton.TabIndex = 17;
+            this.shamanWinButton.Text = "Won!";
+            this.shamanWinButton.UseVisualStyleBackColor = true;
+            this.shamanWinButton.Click += new System.EventHandler(this.shamanWinButton_Click);
+            // 
+            // shamanLoseButton
+            // 
+            this.shamanLoseButton.Location = new System.Drawing.Point(407, 295);
+            this.shamanLoseButton.Name = "shamanLoseButton";
+            this.shamanLoseButton.Size = new System.Drawing.Size(98, 42);
+            this.shamanLoseButton.TabIndex = 18;
+            this.shamanLoseButton.Text = "Lost.";
+            this.shamanLoseButton.UseVisualStyleBackColor = true;
+            this.shamanLoseButton.Click += new System.EventHandler(this.shamanLoseButton_Click);
+            // 
+            // warlockWinButton
+            // 
+            this.warlockWinButton.Location = new System.Drawing.Point(12, 295);
+            this.warlockWinButton.Name = "warlockWinButton";
+            this.warlockWinButton.Size = new System.Drawing.Size(98, 42);
+            this.warlockWinButton.TabIndex = 20;
+            this.warlockWinButton.Text = "Won!";
+            this.warlockWinButton.UseVisualStyleBackColor = true;
+            this.warlockWinButton.Click += new System.EventHandler(this.warlockWinButton_Click);
+            // 
+            // warlockLoseButton
+            // 
+            this.warlockLoseButton.Location = new System.Drawing.Point(407, 295);
+            this.warlockLoseButton.Name = "warlockLoseButton";
+            this.warlockLoseButton.Size = new System.Drawing.Size(98, 42);
+            this.warlockLoseButton.TabIndex = 21;
+            this.warlockLoseButton.Text = "Lost.";
+            this.warlockLoseButton.UseVisualStyleBackColor = true;
+            this.warlockLoseButton.Click += new System.EventHandler(this.warlockLoseButton_Click);
+            // 
+            // hunterWinButton
+            // 
+            this.hunterWinButton.Location = new System.Drawing.Point(12, 295);
+            this.hunterWinButton.Name = "hunterWinButton";
+            this.hunterWinButton.Size = new System.Drawing.Size(98, 42);
+            this.hunterWinButton.TabIndex = 23;
+            this.hunterWinButton.Text = "Won!";
+            this.hunterWinButton.UseVisualStyleBackColor = true;
+            this.hunterWinButton.Click += new System.EventHandler(this.hunterWinButton_Click);
+            // 
+            // hunterLoseButton
+            // 
+            this.hunterLoseButton.Location = new System.Drawing.Point(407, 295);
+            this.hunterLoseButton.Name = "hunterLoseButton";
+            this.hunterLoseButton.Size = new System.Drawing.Size(98, 42);
+            this.hunterLoseButton.TabIndex = 24;
+            this.hunterLoseButton.Text = "Lost.";
+            this.hunterLoseButton.UseVisualStyleBackColor = true;
+            this.hunterLoseButton.Click += new System.EventHandler(this.hunterLoseButton_Click);
+            // 
+            // mageWinButton
+            // 
+            this.mageWinButton.Location = new System.Drawing.Point(12, 295);
+            this.mageWinButton.Name = "mageWinButton";
+            this.mageWinButton.Size = new System.Drawing.Size(98, 42);
+            this.mageWinButton.TabIndex = 26;
+            this.mageWinButton.Text = "Won!";
+            this.mageWinButton.UseVisualStyleBackColor = true;
+            this.mageWinButton.Click += new System.EventHandler(this.mageWinButton_Click);
+            // 
+            // mageLoseButton
+            // 
+            this.mageLoseButton.Location = new System.Drawing.Point(407, 295);
+            this.mageLoseButton.Name = "mageLoseButton";
+            this.mageLoseButton.Size = new System.Drawing.Size(98, 42);
+            this.mageLoseButton.TabIndex = 27;
+            this.mageLoseButton.Text = "Lost.";
+            this.mageLoseButton.UseVisualStyleBackColor = true;
+            this.mageLoseButton.Click += new System.EventHandler(this.mageLoseButton_Click);
+            // 
+            // rogueWinButton
+            // 
+            this.rogueWinButton.Location = new System.Drawing.Point(12, 295);
+            this.rogueWinButton.Name = "rogueWinButton";
+            this.rogueWinButton.Size = new System.Drawing.Size(98, 42);
+            this.rogueWinButton.TabIndex = 29;
+            this.rogueWinButton.Text = "Won!";
+            this.rogueWinButton.UseVisualStyleBackColor = true;
+            this.rogueWinButton.Click += new System.EventHandler(this.rogueWinButton_Click);
+            // 
+            // rogueLoseButton
+            // 
+            this.rogueLoseButton.Location = new System.Drawing.Point(407, 295);
+            this.rogueLoseButton.Name = "rogueLoseButton";
+            this.rogueLoseButton.Size = new System.Drawing.Size(98, 42);
+            this.rogueLoseButton.TabIndex = 30;
+            this.rogueLoseButton.Text = "Lost.";
+            this.rogueLoseButton.UseVisualStyleBackColor = true;
+            this.rogueLoseButton.Click += new System.EventHandler(this.rogueLoseButton_Click);
+            // 
+            // roguebutton
+            // 
+            this.roguebutton.BackColor = System.Drawing.Color.Transparent;
+            this.roguebutton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.roguebutton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.roguebutton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.roguebutton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.roguebutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.roguebutton.Image = global::Hearthstone_Counter.Icons.RogueIcon;
+            this.roguebutton.Location = new System.Drawing.Point(132, 141);
+            this.roguebutton.Name = "roguebutton";
+            this.roguebutton.Size = new System.Drawing.Size(54, 57);
+            this.roguebutton.TabIndex = 28;
+            this.roguebutton.UseVisualStyleBackColor = true;
+            this.roguebutton.Click += new System.EventHandler(this.roguebutton_Click);
+            // 
+            // magebutton
+            // 
+            this.magebutton.BackColor = System.Drawing.Color.Transparent;
+            this.magebutton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.magebutton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.magebutton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.magebutton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.magebutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.magebutton.Image = global::Hearthstone_Counter.Icons.MageIcon;
+            this.magebutton.Location = new System.Drawing.Point(432, 141);
+            this.magebutton.Name = "magebutton";
+            this.magebutton.Size = new System.Drawing.Size(54, 57);
+            this.magebutton.TabIndex = 25;
+            this.magebutton.UseVisualStyleBackColor = true;
+            this.magebutton.Click += new System.EventHandler(this.magebutton_Click);
+            // 
+            // hunterbutton
+            // 
+            this.hunterbutton.BackColor = System.Drawing.Color.Transparent;
+            this.hunterbutton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.hunterbutton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.hunterbutton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.hunterbutton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.hunterbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.hunterbutton.Image = global::Hearthstone_Counter.Icons.hunter_4;
+            this.hunterbutton.Location = new System.Drawing.Point(252, 141);
+            this.hunterbutton.Name = "hunterbutton";
+            this.hunterbutton.Size = new System.Drawing.Size(54, 57);
+            this.hunterbutton.TabIndex = 22;
+            this.hunterbutton.UseVisualStyleBackColor = true;
+            this.hunterbutton.Click += new System.EventHandler(this.hunterbutton_Click);
+            // 
+            // warlockbutton
+            // 
+            this.warlockbutton.BackColor = System.Drawing.Color.Transparent;
+            this.warlockbutton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.warlockbutton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.warlockbutton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.warlockbutton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.warlockbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.warlockbutton.Image = global::Hearthstone_Counter.Icons.WarlockIcon;
+            this.warlockbutton.Location = new System.Drawing.Point(312, 141);
+            this.warlockbutton.Name = "warlockbutton";
+            this.warlockbutton.Size = new System.Drawing.Size(54, 57);
+            this.warlockbutton.TabIndex = 19;
+            this.warlockbutton.UseVisualStyleBackColor = true;
+            this.warlockbutton.Click += new System.EventHandler(this.warlockbutton_Click);
+            // 
+            // shamanbutton
+            // 
+            this.shamanbutton.BackColor = System.Drawing.Color.Transparent;
+            this.shamanbutton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.shamanbutton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.shamanbutton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.shamanbutton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.shamanbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.shamanbutton.Image = global::Hearthstone_Counter.Icons.ShamanIcon;
+            this.shamanbutton.Location = new System.Drawing.Point(12, 204);
+            this.shamanbutton.Name = "shamanbutton";
+            this.shamanbutton.Size = new System.Drawing.Size(54, 57);
+            this.shamanbutton.TabIndex = 16;
+            this.shamanbutton.UseVisualStyleBackColor = true;
+            this.shamanbutton.Click += new System.EventHandler(this.shamanbutton_Click);
+            // 
+            // druidbutton
+            // 
+            this.druidbutton.BackColor = System.Drawing.Color.Transparent;
+            this.druidbutton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.druidbutton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.druidbutton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.druidbutton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.druidbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.druidbutton.Image = global::Hearthstone_Counter.Icons.DruidIcon;
+            this.druidbutton.Location = new System.Drawing.Point(72, 204);
+            this.druidbutton.Name = "druidbutton";
+            this.druidbutton.Size = new System.Drawing.Size(54, 57);
+            this.druidbutton.TabIndex = 13;
+            this.druidbutton.UseVisualStyleBackColor = true;
+            this.druidbutton.Click += new System.EventHandler(this.druidbutton_Click);
+            // 
+            // paladinbutton
+            // 
+            this.paladinbutton.BackColor = System.Drawing.Color.Transparent;
+            this.paladinbutton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.paladinbutton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.paladinbutton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.paladinbutton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.paladinbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.paladinbutton.Image = global::Hearthstone_Counter.Icons.PaladinIcon;
+            this.paladinbutton.Location = new System.Drawing.Point(192, 141);
+            this.paladinbutton.Name = "paladinbutton";
+            this.paladinbutton.Size = new System.Drawing.Size(54, 57);
+            this.paladinbutton.TabIndex = 10;
+            this.paladinbutton.UseVisualStyleBackColor = true;
+            this.paladinbutton.Click += new System.EventHandler(this.paladinbutton_Click);
+            // 
+            // defaultbutton
+            // 
+            this.defaultbutton.BackColor = System.Drawing.Color.Transparent;
+            this.defaultbutton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.defaultbutton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.defaultbutton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.defaultbutton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.defaultbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.defaultbutton.Image = global::Hearthstone_Counter.Icons.DefaultIcon;
+            this.defaultbutton.Location = new System.Drawing.Point(12, 141);
+            this.defaultbutton.Name = "defaultbutton";
+            this.defaultbutton.Size = new System.Drawing.Size(54, 57);
+            this.defaultbutton.TabIndex = 9;
+            this.defaultbutton.UseVisualStyleBackColor = true;
+            this.defaultbutton.Click += new System.EventHandler(this.defaultbutton_Click);
+            // 
+            // priestbutton
+            // 
+            this.priestbutton.BackColor = System.Drawing.Color.Transparent;
+            this.priestbutton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.priestbutton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.priestbutton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.priestbutton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.priestbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.priestbutton.Image = global::Hearthstone_Counter.Icons.priestIcon;
+            this.priestbutton.Location = new System.Drawing.Point(372, 141);
+            this.priestbutton.Name = "priestbutton";
+            this.priestbutton.Size = new System.Drawing.Size(54, 57);
+            this.priestbutton.TabIndex = 6;
+            this.priestbutton.UseVisualStyleBackColor = true;
+            this.priestbutton.Click += new System.EventHandler(this.priestbutton_Click);
+            // 
+            // warriorbutton
+            // 
+            this.warriorbutton.BackColor = System.Drawing.Color.Transparent;
+            this.warriorbutton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.warriorbutton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.warriorbutton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.warriorbutton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.warriorbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.warriorbutton.Image = global::Hearthstone_Counter.Icons.WarriorIcon;
+            this.warriorbutton.Location = new System.Drawing.Point(72, 141);
+            this.warriorbutton.Name = "warriorbutton";
+            this.warriorbutton.Size = new System.Drawing.Size(54, 57);
+            this.warriorbutton.TabIndex = 31;
+            this.warriorbutton.UseVisualStyleBackColor = true;
+            this.warriorbutton.Click += new System.EventHandler(this.warriorbutton_Click);
+            // 
+            // warriorWinButton
+            // 
+            this.warriorWinButton.Location = new System.Drawing.Point(12, 295);
+            this.warriorWinButton.Name = "warriorWinButton";
+            this.warriorWinButton.Size = new System.Drawing.Size(98, 42);
+            this.warriorWinButton.TabIndex = 32;
+            this.warriorWinButton.Text = "Won!";
+            this.warriorWinButton.UseVisualStyleBackColor = true;
+            this.warriorWinButton.Click += new System.EventHandler(this.warriorWinButton_Click);
+            // 
+            // warriorLoseButton
+            // 
+            this.warriorLoseButton.Location = new System.Drawing.Point(407, 295);
+            this.warriorLoseButton.Name = "warriorLoseButton";
+            this.warriorLoseButton.Size = new System.Drawing.Size(98, 42);
+            this.warriorLoseButton.TabIndex = 33;
+            this.warriorLoseButton.Text = "Lost.";
+            this.warriorLoseButton.UseVisualStyleBackColor = true;
+            this.warriorLoseButton.Click += new System.EventHandler(this.warriorLoseButton_Click);
+            // 
             // HSCounter
             // 
+            this.BackColor = System.Drawing.SystemColors.Info;
+            this.BackgroundImage = global::Hearthstone_Counter.Resource1.hearthstone2;
             this.ClientSize = new System.Drawing.Size(517, 349);
+            this.Controls.Add(this.warriorLoseButton);
+            this.Controls.Add(this.warriorWinButton);
+            this.Controls.Add(this.warriorbutton);
+            this.Controls.Add(this.rogueLoseButton);
+            this.Controls.Add(this.rogueWinButton);
+            this.Controls.Add(this.roguebutton);
+            this.Controls.Add(this.mageLoseButton);
+            this.Controls.Add(this.mageWinButton);
+            this.Controls.Add(this.magebutton);
+            this.Controls.Add(this.hunterLoseButton);
+            this.Controls.Add(this.hunterWinButton);
+            this.Controls.Add(this.hunterbutton);
+            this.Controls.Add(this.warlockLoseButton);
+            this.Controls.Add(this.warlockWinButton);
+            this.Controls.Add(this.warlockbutton);
+            this.Controls.Add(this.shamanLoseButton);
+            this.Controls.Add(this.shamanWinButton);
+            this.Controls.Add(this.shamanbutton);
+            this.Controls.Add(this.druidLoseButton);
+            this.Controls.Add(this.druidWinButton);
+            this.Controls.Add(this.druidbutton);
             this.Controls.Add(this.paladinLoseButton);
             this.Controls.Add(this.paladinWinButton);
             this.Controls.Add(this.paladinbutton);
@@ -195,17 +502,38 @@
 
         #endregion
         private System.Windows.Forms.Label winCount;
-        private System.Windows.Forms.Button priestbutton;
         public System.Windows.Forms.Label label1;
         public System.Windows.Forms.Label lostLabel;
         public System.Windows.Forms.Button loseButton;
         public System.Windows.Forms.Button winButton;
         public System.Windows.Forms.Button priestWinButton;
         public System.Windows.Forms.Button priestLoseButton;
-        private System.Windows.Forms.Button defaultbutton;
-        private System.Windows.Forms.Button paladinbutton;
         public System.Windows.Forms.Button paladinWinButton;
         public System.Windows.Forms.Button paladinLoseButton;
+        public System.Windows.Forms.Button druidWinButton;
+        public System.Windows.Forms.Button druidLoseButton;
+        public System.Windows.Forms.Button shamanWinButton;
+        public System.Windows.Forms.Button shamanLoseButton;
+        public System.Windows.Forms.Button warlockWinButton;
+        public System.Windows.Forms.Button warlockLoseButton;
+        public System.Windows.Forms.Button hunterWinButton;
+        public System.Windows.Forms.Button hunterLoseButton;
+        public System.Windows.Forms.Button mageWinButton;
+        public System.Windows.Forms.Button mageLoseButton;
+        public System.Windows.Forms.Button rogueWinButton;
+        public System.Windows.Forms.Button rogueLoseButton;
+        public System.Windows.Forms.Button magebutton;
+        public System.Windows.Forms.Button paladinbutton;
+        public System.Windows.Forms.Button priestbutton;
+        public System.Windows.Forms.Button defaultbutton;
+        public System.Windows.Forms.Button druidbutton;
+        public System.Windows.Forms.Button shamanbutton;
+        public System.Windows.Forms.Button warlockbutton;
+        public System.Windows.Forms.Button hunterbutton;
+        public System.Windows.Forms.Button roguebutton;
+        public System.Windows.Forms.Button warriorbutton;
+        public System.Windows.Forms.Button warriorWinButton;
+        public System.Windows.Forms.Button warriorLoseButton;
     }
 }
 

@@ -59,5 +59,15 @@ namespace Hearthstone_Counter {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap hearthstone2 {
+            get {
+                object obj = ResourceManager.GetObject("hearthstone2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }
