@@ -15,7 +15,7 @@ namespace Hearthstone_Counter
         string eMessage;
         public void WriteWarriorWins(int T)
         {
-            using (StreamWriter warriorwinsWriter = new StreamWriter("WarriorWins.txt", false))
+            using (StreamWriter warriorwinsWriter = new StreamWriter("Textfiles/WarriorWins.txt", false))
             {
                 warriorwinsWriter.Write(T);
                 warriorwinsWriter.Flush();
@@ -23,7 +23,7 @@ namespace Hearthstone_Counter
         }
         public void WriteWarriorLosses(int T)
         {
-            using (StreamWriter warriorlossesWriter = new StreamWriter("WarriorLosses.txt", false))
+            using (StreamWriter warriorlossesWriter = new StreamWriter("Textfiles/WarriorLosses.txt", false))
             {
                 warriorlossesWriter.Write(T);
                 warriorlossesWriter.Flush();
@@ -33,7 +33,7 @@ namespace Hearthstone_Counter
         {
             try
             {
-                using (StreamReader readwarriorLosses = new StreamReader("WarriorLosses.txt"))
+                using (StreamReader readwarriorLosses = new StreamReader("Textfiles/WarriorLosses.txt"))
                 {
                     warriorlosses = int.Parse(readwarriorLosses.ReadLine());
                 }
@@ -53,7 +53,7 @@ namespace Hearthstone_Counter
         {
             try
             {
-                using (StreamReader readwarriorWins = new StreamReader("WarriorWins.txt"))
+                using (StreamReader readwarriorWins = new StreamReader("Textfiles/WarriorWins.txt"))
                 {
                     warriorwins = int.Parse(readwarriorWins.ReadLine());
                 }
@@ -70,9 +70,11 @@ namespace Hearthstone_Counter
         }
         public void warriorButtonCLICKED(HSCounter hsc)
         {
+            ChangeBG(hsc);
             warriorButtonIsSelected(hsc);
             DeselectOthers(hsc);
             ShowandHideButtons(hsc);
+            ShowandHideResetButtons(hsc);
             ReadWarriorWins();
             hsc.label1.Text = "Won: " + warriorwins;
             WriteWarriorWins(warriorwins);
@@ -93,6 +95,17 @@ namespace Hearthstone_Counter
             hsc.label1.Text = "Won: " + warriorwins;
             WriteWarriorWins(warriorwins);
             hsc.otherwinbutton();
+        }
+        public void warriorResetButtonCLICKED(HSCounter hsc)
+        {
+            DefaultCounter dfc = new DefaultCounter();
+            dfc.ReadWins();
+            dfc.ReadLosses();
+            dfc.WriteWins(dfc.wins - warriorwins);
+            dfc.WriteLosses(dfc.losses - warriorlosses);
+            WriteWarriorWins(0);
+            WriteWarriorLosses(0);
+            warriorButtonCLICKED(hsc);
         }
         public void warriorButtonIsSelected(HSCounter hsc)
         {
@@ -117,6 +130,10 @@ namespace Hearthstone_Counter
             hsc.DeselectPaladin();
             hsc.DeselectRogue();
         }
+        private void ChangeBG(HSCounter hsc)
+        {
+            hsc.BackgroundImage = Background.warriorBG;
+        }
         public void ShowandHideButtons(HSCounter hsc)
         {
             hsc.warriorWinButton.Show();
@@ -139,6 +156,19 @@ namespace Hearthstone_Counter
             hsc.rogueLoseButton.Hide();
             hsc.winButton.Hide();
             hsc.loseButton.Hide();
+        }
+        public void ShowandHideResetButtons(HSCounter hsc)
+        {
+            hsc.warriorResetButton.Show();
+            hsc.resetbutton.Hide();
+            hsc.druidResetButton.Hide();
+            hsc.mageResetButton.Hide();
+            hsc.paladinResetButton.Hide();
+            hsc.rogueResetButton.Hide();
+            hsc.shamanResetButton.Hide();
+            hsc.priestResetButton.Hide();
+            hsc.hunterResetButton.Hide();
+            hsc.warlockResetButton.Hide();           
         }
     }
 }

@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Media.Animation;
 
 namespace Hearthstone_Counter
 {
@@ -24,8 +25,7 @@ namespace Hearthstone_Counter
         Priest Priest = new Priest();
         DefaultCounter DFC = new DefaultCounter();
         public HSCounter()
-        {
-            
+        {         
             InitializeComponent();
             DFC.Initialization(this);
         }
@@ -42,6 +42,18 @@ namespace Hearthstone_Counter
         private void winButton_Click(object sender, EventArgs e)
         {
             DFC.winButtonCLICKED(this);
+        }
+        private void resetbutton_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Are you sure that you want to reset your score to 0?", "Reset Score", MessageBoxButtons.YesNo);
+            if(dialogResult == DialogResult.Yes)
+            {
+                DFC.resetButtonCLICKED(this);
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                
+            }
         }
         public void DeselectDefault()
         {
@@ -75,6 +87,18 @@ namespace Hearthstone_Counter
         {
             Priest.priestLoseButtonCLICKED(this);
         }
+        private void priestResetButton_Click(object sender, EventArgs e)
+        {
+            DialogResult priestdialogResult = MessageBox.Show("Are you sure that you want to reset your priest score to 0?", "Reset Priest Score", MessageBoxButtons.YesNo);
+            if (priestdialogResult == DialogResult.Yes)
+            {
+                Priest.priestResetButtonCLICKED(this);
+            }
+            else if (priestdialogResult == DialogResult.No)
+            {
+
+            }
+        }
         public void DeselectPriest()
         {
             Priest.IsDeselected(this);
@@ -85,6 +109,7 @@ namespace Hearthstone_Counter
         {
             Paladin.paladinButtonCLICKED(this);
         }
+         
 
         private void paladinWinButton_Click(object sender, EventArgs e)
         {
@@ -94,6 +119,18 @@ namespace Hearthstone_Counter
         private void paladinLoseButton_Click(object sender, EventArgs e)
         {
             Paladin.paladinLoseButtonCLICKED(this);
+        }
+        private void paladinResetButton_Click(object sender, EventArgs e)
+        {
+            DialogResult paladindialogResult = MessageBox.Show("Are you sure that you want to reset your paladin score to 0?", "Reset Paladin Score", MessageBoxButtons.YesNo);
+            if (paladindialogResult == DialogResult.Yes)
+            {
+                Paladin.paladinResetButtonCLICKED(this);
+            }
+            else if (paladindialogResult == DialogResult.No)
+            {
+
+            }
         }
         public void DeselectPaladin()
         {
@@ -120,6 +157,18 @@ namespace Hearthstone_Counter
         {
             Druid.IsDeselected(this);
         }
+        private void druidResetButton_Click(object sender, EventArgs e)
+        {
+            DialogResult druiddialogResult = MessageBox.Show("Are you sure that you want to reset your druid score to 0?", "Reset Druid Score", MessageBoxButtons.YesNo);
+            if (druiddialogResult == DialogResult.Yes)
+            {
+                Druid.druidResetButtonCLICKED(this);
+            }
+            else if (druiddialogResult == DialogResult.No)
+            {
+
+            }       
+        }
         // Shaman Counter
         private void shamanbutton_Click(object sender, EventArgs e)
         {
@@ -134,6 +183,18 @@ namespace Hearthstone_Counter
         private void shamanLoseButton_Click(object sender, EventArgs e)
         {
             Shaman.shamanLoseButtonCLICKED(this);
+        }
+        private void shamanResetButton_Click(object sender, EventArgs e)
+        {
+            DialogResult shamandialogResult = MessageBox.Show("Are you sure that you want to reset your shaman score to 0?", "Reset Shaman Score", MessageBoxButtons.YesNo);
+            if (shamandialogResult == DialogResult.Yes)
+            {
+                Shaman.shamanResetButtonCLICKED(this);
+            }
+            else if (shamandialogResult == DialogResult.No)
+            {
+
+            }
         }
         public void DeselectShaman()
         {
@@ -153,6 +214,18 @@ namespace Hearthstone_Counter
         private void warlockLoseButton_Click(object sender, EventArgs e)
         {
             Warlock.warlockLoseButtonCLICKED(this);
+        }
+        private void warlockResetButton_Click(object sender, EventArgs e)
+        {
+            DialogResult warlockdialogResult = MessageBox.Show("Are you sure that you want to reset your warlock score to 0?", "Reset Warlock Score", MessageBoxButtons.YesNo);
+            if (warlockdialogResult == DialogResult.Yes)
+            {
+                Warlock.warlockResetButtonCLICKED(this);
+            }
+            else if (warlockdialogResult == DialogResult.No)
+            {
+
+            }
         }
         public void DeselectWarlock()
         {
@@ -174,6 +247,18 @@ namespace Hearthstone_Counter
         {
             Hunter.hunterLoseButtonCLICKED(this);
         }
+        private void hunterResetButton_Click(object sender, EventArgs e)
+        {
+            DialogResult hunterdialogResult = MessageBox.Show("Are you sure that you want to reset your hunter score to 0?", "Reset Hunter Score", MessageBoxButtons.YesNo);
+            if (hunterdialogResult == DialogResult.Yes)
+            {
+                Hunter.hunterResetButtonCLICKED(this);
+            }
+            else if (hunterdialogResult == DialogResult.No)
+            {
+
+            }
+        }
         public void DeselectHunter()
         {
             Hunter.IsDeselected(this);
@@ -194,6 +279,18 @@ namespace Hearthstone_Counter
         {
             Mage.mageLoseButtonCLICKED(this);
         }
+        private void mageResetButton_Click(object sender, EventArgs e)
+        {
+            DialogResult magedialogResult = MessageBox.Show("Are you sure that you want to reset your mage score to 0?", "Reset Mage Score", MessageBoxButtons.YesNo);
+            if (magedialogResult == DialogResult.Yes)
+            {
+                Mage.mageResetButtonCLICKED(this);
+            }
+            else if (magedialogResult == DialogResult.No)
+            {
+
+            }
+        }
         public void DeselectMage()
         {
             Mage.IsDeselected(this);
@@ -213,10 +310,23 @@ namespace Hearthstone_Counter
         {
             Rogue.rogueLoseButtonCLICKED(this);
         }
+        private void rogueResetButton_Click(object sender, EventArgs e)
+        {
+            DialogResult roguedialogResult = MessageBox.Show("Are you sure that you want to reset your rogue score to 0?", "Reset Rogue Score", MessageBoxButtons.YesNo);
+            if (roguedialogResult == DialogResult.Yes)
+            {
+                Rogue.rogueResetButtonCLICKED(this);
+            }
+            else if (roguedialogResult == DialogResult.No)
+            {
+
+            }
+        }
         public void DeselectRogue()
         {
             Rogue.IsDeselected(this);
         }
+        // Warrior Counter
 
         private void warriorbutton_Click(object sender, EventArgs e)
         {
@@ -232,9 +342,21 @@ namespace Hearthstone_Counter
         {
             Warrior.warriorLoseButtonCLICKED(this);
         }
+        private void warriorResetButton_Click(object sender, EventArgs e)
+        {
+            DialogResult warriordialogResult = MessageBox.Show("Are you sure that you want to reset your warrior score to 0?", "Reset Warrior Score", MessageBoxButtons.YesNo);
+            if (warriordialogResult == DialogResult.Yes)
+            {
+                Warrior.warriorResetButtonCLICKED(this);
+            }
+            else if (warriordialogResult == DialogResult.No)
+            {
+
+            }
+        }
         public void DeselectWarrior()
         {
             Warrior.IsDeselected(this);
-        }
+        }       
     }
 }

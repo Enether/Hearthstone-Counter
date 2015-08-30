@@ -15,7 +15,7 @@ namespace Hearthstone_Counter
         string eMessage;
         public void WriteMageWins(int T)
         {
-            using (StreamWriter magewinsWriter = new StreamWriter("MageWins.txt", false))
+            using (StreamWriter magewinsWriter = new StreamWriter("Textfiles/MageWins.txt", false))
             {
                 magewinsWriter.Write(T);
                 magewinsWriter.Flush();
@@ -23,7 +23,7 @@ namespace Hearthstone_Counter
         }
         public void WriteMageLosses(int T)
         {
-            using (StreamWriter magelossesWriter = new StreamWriter("MageLosses.txt", false))
+            using (StreamWriter magelossesWriter = new StreamWriter("Textfiles/MageLosses.txt", false))
             {
                 magelossesWriter.Write(T);
                 magelossesWriter.Flush();
@@ -33,7 +33,7 @@ namespace Hearthstone_Counter
         {
             try
             {
-                using (StreamReader readmageLosses = new StreamReader("MageLosses.txt"))
+                using (StreamReader readmageLosses = new StreamReader("Textfiles/MageLosses.txt"))
                 {
                     magelosses = int.Parse(readmageLosses.ReadLine());
                 }
@@ -53,7 +53,7 @@ namespace Hearthstone_Counter
         {
             try
             {
-                using (StreamReader readmageWins = new StreamReader("MageWins.txt"))
+                using (StreamReader readmageWins = new StreamReader("Textfiles/MageWins.txt"))
                 {
                     magewins = int.Parse(readmageWins.ReadLine());
                 }
@@ -70,8 +70,10 @@ namespace Hearthstone_Counter
         }
         public void mageButtonCLICKED(HSCounter hsc)
         {
+            ChangeBG(hsc);
             mageButtonIsSelected(hsc);
             this.ShowandHideButtons(hsc);
+            this.ShowandHideResetButtons(hsc);
             ReadMageWins();
             hsc.label1.Text = "Won: " + magewins;
             WriteMageWins(magewins);
@@ -92,6 +94,17 @@ namespace Hearthstone_Counter
             hsc.label1.Text = "Won: " + magewins;
             WriteMageWins(magewins);
             hsc.otherwinbutton();
+        }
+        public void mageResetButtonCLICKED(HSCounter hsc)
+        {
+            DefaultCounter dfc = new DefaultCounter();
+            dfc.ReadWins();
+            dfc.ReadLosses();
+            dfc.WriteWins(dfc.wins - magewins);
+            dfc.WriteLosses(dfc.losses - magelosses);
+            WriteMageWins(0);
+            WriteMageLosses(0);
+            mageButtonCLICKED(hsc);
         }
         public void mageButtonIsSelected(HSCounter hsc)
         {
@@ -116,7 +129,10 @@ namespace Hearthstone_Counter
             hsc.DeselectRogue();
             hsc.DeselectWarrior();
         }
-
+        private void ChangeBG(HSCounter hsc)
+        {
+            hsc.BackgroundImage = Background.mageBG;
+        }
         public void ShowandHideButtons(HSCounter hsc)
         {
             hsc.mageWinButton.Show();
@@ -139,6 +155,19 @@ namespace Hearthstone_Counter
             hsc.warriorLoseButton.Hide();
             hsc.winButton.Hide();
             hsc.loseButton.Hide();
+        }
+        public void ShowandHideResetButtons(HSCounter hsc)
+        {
+            hsc.mageResetButton.Show();
+            hsc.resetbutton.Hide();
+            hsc.druidResetButton.Hide();
+            hsc.priestResetButton.Hide();
+            hsc.paladinResetButton.Hide();
+            hsc.shamanResetButton.Hide();
+            hsc.warlockResetButton.Hide();
+            hsc.hunterResetButton.Hide();
+            hsc.rogueResetButton.Hide();
+            hsc.warriorResetButton.Hide();
         }
     }
 }
