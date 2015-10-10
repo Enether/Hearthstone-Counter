@@ -9,64 +9,29 @@ namespace Hearthstone_Counter
 {
     class Warlock
     {
+        WinWriter ww = new WinWriter();
+        LossWriter lw = new LossWriter();
+        WinReader wr = new WinReader();
+        LossReader lr = new LossReader();
         public bool selected;
         public int warlockwins;
         public int warlocklosses;
         string eMessage;
-        public void WriteWarlockWins(int T)
+        public void WriteWins(int T)
         {
-            using (StreamWriter warlockwinsWriter = new StreamWriter("Textfiles/WarlockWins.txt", false))
-            {
-                warlockwinsWriter.Write(T);
-                warlockwinsWriter.Flush();
-            }
+            ww.WriteWarlockWins(T);
         }
-        public void WriteWarlockLosses(int T)
+        public void WriteLosses(int T)
         {
-            using (StreamWriter warlocklossesWriter = new StreamWriter("Textfiles/WarlockLosses.txt", false))
-            {
-                warlocklossesWriter.Write(T);
-                warlocklossesWriter.Flush();
-            }
+            lw.WriteWarlockLosses(T);
         }
-        public void ReadWarlockLosses()
+        public void ReadLosses()
         {
-            try
-            {
-                using (StreamReader readwarlockLosses = new StreamReader("Textfiles/WarlockLosses.txt"))
-                {
-                    warlocklosses = int.Parse(readwarlockLosses.ReadLine());
-                }
-            }
-            catch (Exception e)
-            {
-                eMessage = e.Message;
-                Console.WriteLine(eMessage);
-            }
-
-            finally
-            {
-                WriteWarlockLosses(0);
-            }
+            lr.ReadWarlockLosses(ref warlocklosses);
         }
-        public void ReadWarlockWins()
+        public void ReadWins()
         {
-            try
-            {
-                using (StreamReader readwarlockWins = new StreamReader("Textfiles/WarlockWins.txt"))
-                {
-                    warlockwins = int.Parse(readwarlockWins.ReadLine());
-                }
-            }
-            catch (Exception e)
-            {
-                eMessage = e.Message;
-                Console.WriteLine(eMessage);
-            }
-            finally
-            {
-                WriteWarlockWins(0);
-            }
+            wr.ReadWarlockWins(ref warlockwins);
         }
         public void warlockButtonCLICKED(HSCounter hsc)
         {
@@ -74,25 +39,25 @@ namespace Hearthstone_Counter
             warlockButtonIsSelected(hsc);
             ShowandHideButtons(hsc);
             ShowandHideResetButtons(hsc);
-            ReadWarlockWins();
+            ReadWins();
             hsc.label1.Text = "Won: " + warlockwins;
-            WriteWarlockWins(warlockwins);
-            ReadWarlockLosses();
+            WriteWins(warlockwins);
+            ReadLosses();
             hsc.lostLabel.Text = "Lost: " + warlocklosses;
-            WriteWarlockLosses(warlocklosses);
+            WriteLosses(warlocklosses);
         }
         public void warlockLoseButtonCLICKED(HSCounter hsc)
         {
             warlocklosses++;
             hsc.lostLabel.Text = "Lost: " + warlocklosses;
-            WriteWarlockLosses(warlocklosses);
+            WriteLosses(warlocklosses);
             hsc.otherlosebutton();
         }
         public void warlockWinButtonCLICKED(HSCounter hsc)
         {
             warlockwins++;
             hsc.label1.Text = "Won: " + warlockwins;
-            WriteWarlockWins(warlockwins);
+            WriteWins(warlockwins);
             hsc.otherwinbutton();
         }
         public void warlockResetButtonCLICKED(HSCounter hsc)
@@ -102,8 +67,8 @@ namespace Hearthstone_Counter
             dfc.ReadLosses();
             dfc.WriteWins(dfc.wins - warlockwins);
             dfc.WriteLosses(dfc.losses - warlocklosses);
-            WriteWarlockWins(0);
-            WriteWarlockLosses(0);
+            WriteWins(0);
+            WriteLosses(0);
             warlockButtonCLICKED(hsc);
         }
         public void warlockButtonIsSelected(HSCounter hsc)

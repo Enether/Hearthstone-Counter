@@ -22,7 +22,10 @@ namespace Hearthstone_Counter
         Shaman shaman = new Shaman();
         Warlock warlock = new Warlock();
         Warrior warrior = new Warrior();
-
+        WinWriter ww = new WinWriter();
+        LossWriter lw = new LossWriter();
+        WinReader wr = new WinReader();
+        LossReader lr = new LossReader();
         public void Initialization(HSCounter hsc)
         {
             Directory.CreateDirectory("Textfiles");
@@ -52,61 +55,21 @@ namespace Hearthstone_Counter
         // Writers
         public void WriteWins(int T)
         {
-            using (StreamWriter winsWriter = new StreamWriter("Textfiles/Wins.txt", false))
-            {
-                winsWriter.Write(T);
-                winsWriter.Flush();
-            }
-
+            ww.WriteDefaultWins(T);
         }
         public void WriteLosses(int T)
         {
-            using (StreamWriter lossesWriter = new StreamWriter("Textfiles/Losses.txt", false))
-            {
-                lossesWriter.Write(T);
-                lossesWriter.Flush();
-            }
+            lw.WriteDefaultLosses(T);
         }
         // Readers
         public void ReadWins()
         {
-            try
-            {
-                using (StreamReader readWins = new StreamReader("Textfiles/Wins.txt"))
-                {
-                    wins = int.Parse(readWins.ReadLine());
-                }
-            }
-            catch (Exception e)
-            {
-                eMessage = e.Message;
-                Console.WriteLine(eMessage);
-            }
-            finally
-            {
-                WriteWins(0);
-            }
+            wr.ReadDefaultWins(ref wins);
         }
         
         public void ReadLosses()
         {
-            try
-            {
-                using (StreamReader readLosses = new StreamReader("Textfiles/Losses.txt"))
-                {
-                    losses = int.Parse(readLosses.ReadLine());
-                }
-            }
-            catch (Exception e)
-            {
-                eMessage = e.Message;
-                Console.WriteLine(eMessage);
-            }
-
-            finally
-            {
-                WriteLosses(0);
-            }
+            lr.ReadDefaultLosses(ref losses);
         }
         // Clicked Buttons
         public void loseButtonCLICKED(HSCounter hsc)
@@ -130,32 +93,32 @@ namespace Hearthstone_Counter
         }
         public void resetClassesScores(HSCounter hsc)
         {
-            druid.WriteDruidWins(0);
-            druid.WriteDruidLosses(0);
+            druid.WriteWins(0);
+            druid.WriteLosses(0);
 
-            hunter.WriteHunterWins(0);
-            hunter.WriteHunterLosses(0);
+            hunter.WriteWins(0);
+            hunter.WriteLosses(0);
 
-            mage.WriteMageWins(0);
-            mage.WriteMageLosses(0);
+            mage.WriteWins(0);
+            mage.WriteLosses(0);
 
-            paladin.WritePaladinWins(0);
-            paladin.WritePaladinLosses(0);
+            paladin.WriteWins(0);
+            paladin.WriteLosses(0);
 
-            priest.WritePriestWins(0);
-            priest.WritePriestLosses(0);
+            priest.WriteWins(0);
+            priest.WriteLosses(0);
 
-            rogue.WriteRogueWins(0);
-            rogue.WriteRogueLosses(0);
+            rogue.WriteWins(0);
+            rogue.WriteLosses(0);
 
-            shaman.WriteShamanWins(0);
-            shaman.WriteShamanLosses(0);
+            shaman.WriteWins(0);
+            shaman.WriteLosses(0);
 
-            warlock.WriteWarlockWins(0);
-            warlock.WriteWarlockLosses(0);
+            warlock.WriteWins(0);
+            warlock.WriteLosses(0);
 
-            warrior.WriteWarriorWins(0);
-            warrior.WriteWarriorLosses(0);
+            warrior.WriteWins(0);
+            warrior.WriteLosses(0);
         }
         public void otherwinButtonCLICKED()
         {

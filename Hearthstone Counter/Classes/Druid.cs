@@ -8,65 +8,30 @@ using System.IO;
 namespace Hearthstone_Counter
 {
     class Druid
-    {     
+    {
+        WinWriter ww = new WinWriter();
+        LossWriter lw = new LossWriter();
+        WinReader wr = new WinReader();
+        LossReader lr = new LossReader();
         public bool selected;
         public int druidwins;
         public int druidlosses;
         string eMessage;
-        public void WriteDruidWins(int T)
+        public void WriteWins(int T)
         {
-            using (StreamWriter druidwinsWriter = new StreamWriter("Textfiles/DruidWins.txt", false))
-            {
-                druidwinsWriter.Write(T);
-                druidwinsWriter.Flush();
-            }
+            ww.WriteDruidWins(T);
         }
-        public void WriteDruidLosses(int T)
+        public void WriteLosses(int T)
         {
-            using (StreamWriter druidlossesWriter = new StreamWriter("Textfiles/DruidLosses.txt", false))
-            {
-                druidlossesWriter.Write(T);
-                druidlossesWriter.Flush();
-            }
+            lw.WriteDruidLosses(T);
         }
-        public void ReadDruidLosses()
+        public void ReadLosses()
         {
-            try
-            {
-                using (StreamReader readdruidLosses = new StreamReader("Textfiles/DruidLosses.txt"))
-                {
-                    druidlosses = int.Parse(readdruidLosses.ReadLine());
-                }
-            }
-            catch (Exception e)
-            {
-                eMessage = e.Message;
-                Console.WriteLine(eMessage);
-            }
-
-            finally
-            {
-                WriteDruidLosses(0);
-            }
+            lr.ReadDruidLosses(ref druidlosses);
         }
-        public void ReadDruidWins()
+        public void ReadWins()
         {
-            try
-            {
-                using (StreamReader readdruidWins = new StreamReader("Textfiles/DruidWins.txt"))
-                {
-                    druidwins = int.Parse(readdruidWins.ReadLine());
-                }
-            }
-            catch (Exception e)
-            {
-                eMessage = e.Message;
-                Console.WriteLine(eMessage);
-            }
-            finally
-            {
-                WriteDruidWins(0);
-            }
+            wr.ReadDruidWins(ref druidwins);
         }
         public void druidButtonCLICKED(HSCounter hsc)
         {
@@ -74,25 +39,25 @@ namespace Hearthstone_Counter
             druidButtonIsSelected(hsc);
             ShowandHideButtons(hsc);
             ShowandHideResetButtons(hsc);
-            ReadDruidWins();
+            ReadWins();
             hsc.label1.Text = "Won: " + druidwins;
-            WriteDruidWins(druidwins);
-            ReadDruidLosses();
+            WriteWins(druidwins);
+            ReadLosses();
             hsc.lostLabel.Text = "Lost: " + druidlosses;
-            WriteDruidLosses(druidlosses);
+            WriteLosses(druidlosses);
         }
         public void druidLoseButtonCLICKED(HSCounter hsc)
         {
             druidlosses++;
             hsc.lostLabel.Text = "Lost: " + druidlosses;
-            WriteDruidLosses(druidlosses);
+            WriteLosses(druidlosses);
             hsc.otherlosebutton();
         }
         public void druidWinButtonCLICKED(HSCounter hsc)
         {
             druidwins++;
             hsc.label1.Text = "Won: " + druidwins;
-            WriteDruidWins(druidwins);
+            WriteWins(druidwins);
             hsc.otherwinbutton();
         }
         public void druidResetButtonCLICKED(HSCounter hsc)
@@ -102,8 +67,8 @@ namespace Hearthstone_Counter
             dfc.ReadLosses();
             dfc.WriteWins(dfc.wins - druidwins);
             dfc.WriteLosses(dfc.losses - druidlosses);
-            WriteDruidWins(0);
-            WriteDruidLosses(0);
+            WriteWins(0);
+            WriteLosses(0);
             druidButtonCLICKED(hsc);
         }
         public void druidButtonIsSelected(HSCounter hsc)

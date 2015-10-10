@@ -9,64 +9,29 @@ namespace Hearthstone_Counter
 {
     class Warrior
     {
+        WinWriter ww = new WinWriter();
+        LossWriter lw = new LossWriter();
+        WinReader wr = new WinReader();
+        LossReader lr = new LossReader();
         public bool selected;
         public int warriorwins;
         public int warriorlosses;
         string eMessage;
-        public void WriteWarriorWins(int T)
+        public void WriteWins(int T)
         {
-            using (StreamWriter warriorwinsWriter = new StreamWriter("Textfiles/WarriorWins.txt", false))
-            {
-                warriorwinsWriter.Write(T);
-                warriorwinsWriter.Flush();
-            }
+            ww.WriteWarriorWins(T);
         }
-        public void WriteWarriorLosses(int T)
+        public void WriteLosses(int T)
         {
-            using (StreamWriter warriorlossesWriter = new StreamWriter("Textfiles/WarriorLosses.txt", false))
-            {
-                warriorlossesWriter.Write(T);
-                warriorlossesWriter.Flush();
-            }
+            lw.WriteWarriorLosses(T);
         }
-        public void ReadWarriorLosses()
+        public void ReadLosses()
         {
-            try
-            {
-                using (StreamReader readwarriorLosses = new StreamReader("Textfiles/WarriorLosses.txt"))
-                {
-                    warriorlosses = int.Parse(readwarriorLosses.ReadLine());
-                }
-            }
-            catch (Exception e)
-            {
-                eMessage = e.Message;
-                Console.WriteLine(eMessage);
-            }
-
-            finally
-            {
-                WriteWarriorLosses(0);
-            }
+            lr.ReadWarriorLosses(ref warriorlosses);
         }
-        public void ReadWarriorWins()
+        public void ReadWins()
         {
-            try
-            {
-                using (StreamReader readwarriorWins = new StreamReader("Textfiles/WarriorWins.txt"))
-                {
-                    warriorwins = int.Parse(readwarriorWins.ReadLine());
-                }
-            }
-            catch (Exception e)
-            {
-                eMessage = e.Message;
-                Console.WriteLine(eMessage);
-            }
-            finally
-            {
-                WriteWarriorWins(0);
-            }
+            wr.ReadWarriorWins(ref warriorwins);
         }
         public void warriorButtonCLICKED(HSCounter hsc)
         {
@@ -75,25 +40,25 @@ namespace Hearthstone_Counter
             DeselectOthers(hsc);
             ShowandHideButtons(hsc);
             ShowandHideResetButtons(hsc);
-            ReadWarriorWins();
+            ReadWins();
             hsc.label1.Text = "Won: " + warriorwins;
-            WriteWarriorWins(warriorwins);
-            ReadWarriorLosses();
+            WriteWins(warriorwins);
+            ReadLosses();
             hsc.lostLabel.Text = "Lost: " + warriorlosses;
-            WriteWarriorLosses(warriorlosses);
+            WriteLosses(warriorlosses);
         }
         public void warriorLoseButtonCLICKED(HSCounter hsc)
         {
             warriorlosses++;
             hsc.lostLabel.Text = "Lost: " + warriorlosses;
-            WriteWarriorLosses(warriorlosses);
+            WriteLosses(warriorlosses);
             hsc.otherlosebutton();
         }
         public void warriorWinButtonCLICKED(HSCounter hsc)
         {
             warriorwins++;
             hsc.label1.Text = "Won: " + warriorwins;
-            WriteWarriorWins(warriorwins);
+            WriteWins(warriorwins);
             hsc.otherwinbutton();
         }
         public void warriorResetButtonCLICKED(HSCounter hsc)
@@ -103,8 +68,8 @@ namespace Hearthstone_Counter
             dfc.ReadLosses();
             dfc.WriteWins(dfc.wins - warriorwins);
             dfc.WriteLosses(dfc.losses - warriorlosses);
-            WriteWarriorWins(0);
-            WriteWarriorLosses(0);
+            WriteWins(0);
+            WriteLosses(0);
             warriorButtonCLICKED(hsc);
         }
         public void warriorButtonIsSelected(HSCounter hsc)

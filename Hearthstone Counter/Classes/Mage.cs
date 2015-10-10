@@ -9,64 +9,29 @@ namespace Hearthstone_Counter
 {
     class Mage
     {
+        WinWriter ww = new WinWriter();
+        LossWriter lw = new LossWriter();
+        WinReader wr = new WinReader();
+        LossReader lr = new LossReader();
         public bool selected;
         public int magewins;
         public int magelosses;
         string eMessage;
-        public void WriteMageWins(int T)
+        public void WriteWins(int T)
         {
-            using (StreamWriter magewinsWriter = new StreamWriter("Textfiles/MageWins.txt", false))
-            {
-                magewinsWriter.Write(T);
-                magewinsWriter.Flush();
-            }
+            ww.WriteMageWins(T);
         }
-        public void WriteMageLosses(int T)
+        public void WriteLosses(int T)
         {
-            using (StreamWriter magelossesWriter = new StreamWriter("Textfiles/MageLosses.txt", false))
-            {
-                magelossesWriter.Write(T);
-                magelossesWriter.Flush();
-            }
+            lw.WriteMageLosses(T);
         }
-        public void ReadMageLosses()
+        public void ReadLosses()
         {
-            try
-            {
-                using (StreamReader readmageLosses = new StreamReader("Textfiles/MageLosses.txt"))
-                {
-                    magelosses = int.Parse(readmageLosses.ReadLine());
-                }
-            }
-            catch (Exception e)
-            {
-                eMessage = e.Message;
-                Console.WriteLine(eMessage);
-            }
-
-            finally
-            {
-                WriteMageLosses(0);
-            }
+            lr.ReadMageLosses(ref magelosses);
         }
-        public void ReadMageWins()
+        public void ReadWins()
         {
-            try
-            {
-                using (StreamReader readmageWins = new StreamReader("Textfiles/MageWins.txt"))
-                {
-                    magewins = int.Parse(readmageWins.ReadLine());
-                }
-            }
-            catch (Exception e)
-            {
-                eMessage = e.Message;
-                Console.WriteLine(eMessage);
-            }
-            finally
-            {
-                WriteMageWins(0);
-            }
+            wr.ReadMageWins(ref magewins);
         }
         public void mageButtonCLICKED(HSCounter hsc)
         {
@@ -74,25 +39,25 @@ namespace Hearthstone_Counter
             mageButtonIsSelected(hsc);
             this.ShowandHideButtons(hsc);
             this.ShowandHideResetButtons(hsc);
-            ReadMageWins();
+            ReadWins();
             hsc.label1.Text = "Won: " + magewins;
-            WriteMageWins(magewins);
-            ReadMageLosses();
+            WriteWins(magewins);
+            ReadLosses();
             hsc.lostLabel.Text = "Lost: " + magelosses;
-            WriteMageLosses(magelosses);
+            WriteLosses(magelosses);
         }
         public void mageLoseButtonCLICKED(HSCounter hsc)
         {
             magelosses++;
             hsc.lostLabel.Text = "Lost: " + magelosses;
-            WriteMageLosses(magelosses);
+            WriteLosses(magelosses);
             hsc.otherlosebutton();
         }
         public void mageWinButtonCLICKED(HSCounter hsc)
         {
             magewins++;
             hsc.label1.Text = "Won: " + magewins;
-            WriteMageWins(magewins);
+            WriteWins(magewins);
             hsc.otherwinbutton();
         }
         public void mageResetButtonCLICKED(HSCounter hsc)
@@ -102,8 +67,8 @@ namespace Hearthstone_Counter
             dfc.ReadLosses();
             dfc.WriteWins(dfc.wins - magewins);
             dfc.WriteLosses(dfc.losses - magelosses);
-            WriteMageWins(0);
-            WriteMageLosses(0);
+            WriteWins(0);
+            WriteLosses(0);
             mageButtonCLICKED(hsc);
         }
         public void mageButtonIsSelected(HSCounter hsc)

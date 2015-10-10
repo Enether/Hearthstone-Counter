@@ -9,66 +9,29 @@ namespace Hearthstone_Counter
 {
     class Priest
     {
+        WinWriter ww = new WinWriter();
+        LossWriter lw = new LossWriter();
+        WinReader wr = new WinReader();
+        LossReader lr = new LossReader();
         public bool selected;
         public int priestwins;
         public int priestlosses;
         string eMessage;
-        public void WritePriestWins(int T)
+        public void WriteWins(int T)
         {
-            using (StreamWriter priestwinsWriter = new StreamWriter("Textfiles/PriestWins.txt", false))
-            {
-                priestwinsWriter.Write(T);
-                priestwinsWriter.Flush();
-                
-            }
-
+            ww.WritePriestWins(T);
         }
-        public void WritePriestLosses(int T)
+        public void WriteLosses(int T)
         {
-            using (StreamWriter priestlossesWriter = new StreamWriter("Textfiles/PriestLosses.txt", false))
-            {
-                priestlossesWriter.Write(T);
-                priestlossesWriter.Flush();
-            }
+            lw.WritePriestLosses(T);
         }
-        public void ReadPriestLosses()
+        public void ReadLosses()
         {
-            try
-            {
-                using (StreamReader readpriestLosses = new StreamReader("Textfiles/PriestLosses.txt"))
-                {
-                    priestlosses = int.Parse(readpriestLosses.ReadLine());
-                }
-            }
-            catch (Exception e)
-            {
-                eMessage = e.Message;
-                Console.WriteLine(eMessage);
-            }
-
-            finally
-            {
-                WritePriestLosses(0);
-            }
+            lr.ReadPriestLosses(ref priestlosses);
         }
-        public void ReadPriestWins()
+        public void ReadWins()
         {
-            try
-            {
-                using (StreamReader readPriestWins = new StreamReader("Textfiles/PriestWins.txt"))
-                {
-                    priestwins = int.Parse(readPriestWins.ReadLine());
-                }
-            }
-            catch (Exception e)
-            {
-                eMessage = e.Message;
-                Console.WriteLine(eMessage);
-            }
-            finally
-            {
-                WritePriestWins(0);
-            }
+            wr.ReadPriestWins(ref priestwins);
         }
         public void priestButtonCLICKED(HSCounter hsc)
         {
@@ -76,25 +39,25 @@ namespace Hearthstone_Counter
             priestButtonIsSelected(hsc);
             ShowandHideButtons(hsc);
             ShowandHideResetButtons(hsc);           
-            ReadPriestWins();
+            ReadWins();
             hsc.label1.Text = "Won: " + priestwins;
-            WritePriestWins(priestwins);
-            ReadPriestLosses();
+            WriteWins(priestwins);
+            ReadLosses();
             hsc.lostLabel.Text = "Lost: " + priestlosses;
-            WritePriestLosses(priestlosses);
+            WriteLosses(priestlosses);
         }
         public void priestLoseButtonCLICKED(HSCounter hsc)
         {           
             priestlosses++;
             hsc.lostLabel.Text = "Lost: " + priestlosses;
-            WritePriestLosses(priestlosses);
+            WriteLosses(priestlosses);
             hsc.otherlosebutton();
         }
         public void priestWinButtonCLICKED(HSCounter hsc)
         {           
             priestwins++;
             hsc.label1.Text = "Won: " + priestwins;
-            WritePriestWins(priestwins);
+            WriteWins(priestwins);
             hsc.otherwinbutton();          
         }
         public void priestResetButtonCLICKED(HSCounter hsc)
@@ -104,8 +67,8 @@ namespace Hearthstone_Counter
             dfc.ReadLosses();
             dfc.WriteWins(dfc.wins - priestwins);
             dfc.WriteLosses(dfc.losses - priestlosses);
-            WritePriestWins(0);
-            WritePriestLosses(0);
+            WriteWins(0);
+            WriteLosses(0);
             priestButtonCLICKED(hsc);
         }
         public void priestButtonIsSelected(HSCounter hsc)

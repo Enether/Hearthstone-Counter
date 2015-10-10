@@ -89,34 +89,38 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>class.resx</DependentUpon>
     </Compile>
-    <Compile Include="DefaultCounter.cs" />
-    <Compile Include="Druid.cs" />
+    <Compile Include="Classes\DefaultCounter.cs" />
+    <Compile Include="Classes\Druid.cs" />
     <Compile Include="HSCounter.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="HSCounter.Designer.cs">
       <DependentUpon>HSCounter.cs</DependentUpon>
     </Compile>
-    <Compile Include="Hunter.cs" />
+    <Compile Include="Classes\Hunter.cs" />
     <Compile Include="Icons.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Icons.resx</DependentUpon>
     </Compile>
-    <Compile Include="Mage.cs" />
-    <Compile Include="Paladin.cs" />
-    <Compile Include="Priest.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="LossReader.cs" />
+    <Compile Include="LossWriter.cs" />
+    <Compile Include="Classes\Mage.cs" />
+    <Compile Include="Classes\Paladin.cs" />
+    <Compile Include="Classes\Priest.cs" />
+    <Compile Include="HearthstoneCounter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Backgrounds.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Backgrounds.resx</DependentUpon>
     </Compile>
-    <Compile Include="Rogue.cs" />
-    <Compile Include="Shaman.cs" />
-    <Compile Include="Warlock.cs" />
-    <Compile Include="Warrior.cs" />
+    <Compile Include="Classes\Rogue.cs" />
+    <Compile Include="Classes\Shaman.cs" />
+    <Compile Include="Classes\Warlock.cs" />
+    <Compile Include="Classes\Warrior.cs" />
+    <Compile Include="WinReader.cs" />
+    <Compile Include="WinWriter.cs" />
     <EmbeddedResource Include="Background.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Background.Designer.cs</LastGenOutput>

@@ -12,64 +12,29 @@ namespace Hearthstone_Counter
 {
     class Paladin
     {
+        WinWriter ww = new WinWriter();
+        LossWriter lw = new LossWriter();
+        WinReader wr = new WinReader();
+        LossReader lr = new LossReader();
         public bool selected;
         public int paladinwins;
         public int paladinlosses;
         string eMessage;
-        public void WritePaladinWins(int T)
+        public void WriteWins(int T)
         {
-            using (StreamWriter paladinwinsWriter = new StreamWriter("Textfiles/PaladinWins.txt", false))
-            {
-                paladinwinsWriter.Write(T);
-                paladinwinsWriter.Flush();
-            }
+            ww.WritePaladinWins(T);
         }
-        public void WritePaladinLosses(int T)
+        public void WriteLosses(int T)
         {
-            using (StreamWriter paladinlossesWriter = new StreamWriter("Textfiles/PaladinLosses.txt", false))
-            {
-                paladinlossesWriter.Write(T);
-                paladinlossesWriter.Flush();
-            }
+            lw.WritePaladinLosses(T);
         }
-        public void ReadPaladinLosses()
+        public void ReadLosses()
         {
-            try
-            {
-                using (StreamReader readpaladinLosses = new StreamReader("Textfiles/PaladinLosses.txt"))
-                {
-                    paladinlosses = int.Parse(readpaladinLosses.ReadLine());
-                }
-            }
-            catch (Exception e)
-            {
-                eMessage = e.Message;
-                Console.WriteLine(eMessage);
-            }
-
-            finally
-            {
-                WritePaladinLosses(0);
-            }
+            lr.ReadPaladinLosses(ref paladinlosses);
         }
-        public void ReadPaladinWins()
+        public void ReadWins()
         {
-            try
-            {
-                using (StreamReader readpaladinWins = new StreamReader("Textfiles/PaladinWins.txt"))
-                {
-                    paladinwins = int.Parse(readpaladinWins.ReadLine());
-                }
-            }
-            catch (Exception e)
-            {
-                eMessage = e.Message;
-                Console.WriteLine(eMessage);
-            }
-            finally
-            {
-                WritePaladinWins(0);
-            }
+            wr.ReadPaladinWins(ref paladinwins);
         }
         public void paladinButtonCLICKED(HSCounter hsc)
         {
@@ -78,25 +43,25 @@ namespace Hearthstone_Counter
             this.ShowandHideResetButtons(hsc);
             DeselectOthers(hsc);
             ShowandHideButtons(hsc);
-            ReadPaladinWins();
+            ReadWins();
             hsc.label1.Text = "Won: " + paladinwins;
-            WritePaladinWins(paladinwins);
-            ReadPaladinLosses();
+            WriteWins(paladinwins);
+            ReadLosses();
             hsc.lostLabel.Text = "Lost: " + paladinlosses;
-            WritePaladinLosses(paladinlosses);
+            WriteLosses(paladinlosses);
         }
         public void paladinLoseButtonCLICKED(HSCounter hsc)
         {
             paladinlosses++;
             hsc.lostLabel.Text = "Lost: " + paladinlosses;
-            WritePaladinLosses(paladinlosses);
+            WriteLosses(paladinlosses);
             hsc.otherlosebutton();
         }
         public void paladinWinButtonCLICKED(HSCounter hsc)
         {
             paladinwins++;
             hsc.label1.Text = "Won: " + paladinwins;
-            WritePaladinWins(paladinwins);
+            WriteWins(paladinwins);
             hsc.otherwinbutton();
         }
         public void paladinResetButtonCLICKED(HSCounter hsc)
@@ -106,8 +71,8 @@ namespace Hearthstone_Counter
             dfc.ReadLosses();
             dfc.WriteWins(dfc.wins - paladinwins);
             dfc.WriteLosses(dfc.losses - paladinlosses);
-            WritePaladinWins(0);
-            WritePaladinLosses(0);
+            WriteWins(0);
+            WriteLosses(0);
             paladinButtonCLICKED(hsc);
         }
         public void paladinButtonIsSelected(HSCounter hsc)

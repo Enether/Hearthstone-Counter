@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace Hearthstone_Counter
 {
-    static class Program
+    static class HearthstoneCounter
     {
         /// <summary>
         /// The main entry point for the application.

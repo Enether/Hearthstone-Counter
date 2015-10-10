@@ -5,64 +5,29 @@ namespace Hearthstone_Counter
 {
     class Shaman
     {
+        WinWriter ww = new WinWriter();
+        LossWriter lw = new LossWriter();
+        WinReader wr = new WinReader();
+        LossReader lr = new LossReader();
         public bool selected;
         public int shamanwins;
         public int shamanlosses;
         string eMessage;
-        public void WriteShamanWins(int T)
+        public void WriteWins(int T)
         {
-            using (StreamWriter shamanwinsWriter = new StreamWriter("Textfiles/ShamanWins.txt", false))
-            {
-                shamanwinsWriter.Write(T);
-                shamanwinsWriter.Flush();
-            }
+            ww.WriteShamanWins(T);
         }
-        public void WriteShamanLosses(int T)
+        public void WriteLosses(int T)
         {
-            using (StreamWriter shamanlossesWriter = new StreamWriter("Textfiles/ShamanLosses.txt", false))
-            {
-                shamanlossesWriter.Write(T);
-                shamanlossesWriter.Flush();
-            }
+            lw.WriteShamanLosses(T);
         }
-        public void ReadShamanLosses()
+        public void ReadLosses()
         {
-            try
-            {
-                using (StreamReader readshamanLosses = new StreamReader("Textfiles/ShamanLosses.txt"))
-                {
-                    shamanlosses = int.Parse(readshamanLosses.ReadLine());
-                }
-            }
-            catch (Exception e)
-            {
-                eMessage = e.Message;
-                Console.WriteLine(eMessage);
-            }
-
-            finally
-            {
-                WriteShamanLosses(0);
-            }
+            lr.ReadShamanLosses(ref shamanlosses);
         }
-        public void ReadShamanWins()
+        public void ReadWins()
         {
-            try
-            {
-                using (StreamReader readshamanWins = new StreamReader("Textfiles/ShamanWins.txt"))
-                {
-                    shamanwins = int.Parse(readshamanWins.ReadLine());
-                }
-            }
-            catch (Exception e)
-            {
-                eMessage = e.Message;
-                Console.WriteLine(eMessage);
-            }
-            finally
-            {
-                WriteShamanWins(0);
-            }
+           wr.ReadShamanWins(ref shamanwins);
         }
         public void shamanButtonCLICKED(HSCounter hsc)
         {
@@ -70,25 +35,25 @@ namespace Hearthstone_Counter
             shamanButtonIsSelected(hsc);
             this.ShowandHideButtons(hsc);
             this.ShowandHideResetButtons(hsc);
-            ReadShamanWins();
+            ReadWins();
             hsc.label1.Text = "Won: " + shamanwins;
-            WriteShamanWins(shamanwins);
-            ReadShamanLosses();
+            WriteWins(shamanwins);
+            ReadLosses();
             hsc.lostLabel.Text = "Lost: " + shamanlosses;
-            WriteShamanLosses(shamanlosses);
+            WriteLosses(shamanlosses);
         }
         public void shamanLoseButtonCLICKED(HSCounter hsc)
         {
             shamanlosses++;
             hsc.lostLabel.Text = "Lost: " + shamanlosses;
-            WriteShamanLosses(shamanlosses);
+            WriteLosses(shamanlosses);
             hsc.otherlosebutton();
         }
         public void shamanWinButtonCLICKED(HSCounter hsc)
         {
             shamanwins++;
             hsc.label1.Text = "Won: " + shamanwins;
-            WriteShamanWins(shamanwins);
+            WriteWins(shamanwins);
             hsc.otherwinbutton();
         }
         public void shamanResetButtonCLICKED(HSCounter hsc)
@@ -98,8 +63,8 @@ namespace Hearthstone_Counter
             dfc.ReadLosses();
             dfc.WriteWins(dfc.wins - shamanwins);
             dfc.WriteLosses(dfc.losses - shamanlosses);
-            WriteShamanWins(0);
-            WriteShamanLosses(0);
+            WriteWins(0);
+            WriteLosses(0);
             shamanButtonCLICKED(hsc);
         }
         public void shamanButtonIsSelected(HSCounter hsc)

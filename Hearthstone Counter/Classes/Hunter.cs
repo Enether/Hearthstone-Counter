@@ -9,64 +9,29 @@ namespace Hearthstone_Counter
 {
     class Hunter
     {
+        WinWriter ww = new WinWriter();
+        LossWriter lw = new LossWriter();
+        WinReader wr = new WinReader();
+        LossReader lr = new LossReader();
         public bool selected;
         public int hunterwins;
         public int hunterlosses;
         string eMessage;
-        public void WriteHunterWins(int T)
+        public void WriteWins(int T)
         {
-            using (StreamWriter hunterwinsWriter = new StreamWriter("Textfiles/HunterWins.txt", false))
-            {
-                hunterwinsWriter.Write(T);
-                hunterwinsWriter.Flush();
-            }
+            ww.WriteHunterWins(T);
         }
-        public void WriteHunterLosses(int T)
+        public void WriteLosses(int T)
         {
-            using (StreamWriter hunterlossesWriter = new StreamWriter("Textfiles/HunterLosses.txt", false))
-            {
-                hunterlossesWriter.Write(T);
-                hunterlossesWriter.Flush();
-            }
+            lw.WriteHunterLosses(T);
         }
-        public void ReadHunterLosses()
+        public void ReadLosses()
         {
-            try
-            {
-                using (StreamReader readhunterLosses = new StreamReader("Textfiles/HunterLosses.txt"))
-                {
-                    hunterlosses = int.Parse(readhunterLosses.ReadLine());
-                }
-            }
-            catch (Exception e)
-            {
-                eMessage = e.Message;
-                Console.WriteLine(eMessage);
-            }
-
-            finally
-            {
-                WriteHunterLosses(0);
-            }
+            lr.ReadHunterLosses(ref hunterlosses);
         }
-        public void ReadHunterWins()
+        public void ReadWins()
         {
-            try
-            {
-                using (StreamReader readhunterWins = new StreamReader("Textfiles/HunterWins.txt"))
-                {
-                    hunterwins = int.Parse(readhunterWins.ReadLine());
-                }
-            }
-            catch (Exception e)
-            {
-                eMessage = e.Message;
-                Console.WriteLine(eMessage);
-            }
-            finally
-            {
-                WriteHunterWins(0);
-            }
+            wr.ReadHunterWins(ref hunterwins);
         }
         public void hunterButtonCLICKED(HSCounter hsc)
         {
@@ -74,25 +39,25 @@ namespace Hearthstone_Counter
             hunterButtonIsSelected(hsc);
             ShowandHideButtons(hsc);
             ShowandHideResetButtons(hsc);
-            ReadHunterWins();
+            ReadWins();
             hsc.label1.Text = "Won: " + hunterwins;
-            WriteHunterWins(hunterwins);
-            ReadHunterLosses();
+            WriteWins(hunterwins);
+            ReadLosses();
             hsc.lostLabel.Text = "Lost: " + hunterlosses;
-            WriteHunterLosses(hunterlosses);
+            WriteLosses(hunterlosses);
         }
         public void hunterLoseButtonCLICKED(HSCounter hsc)
         {
             hunterlosses++;
             hsc.lostLabel.Text = "Lost: " + hunterlosses;
-            WriteHunterLosses(hunterlosses);
+            WriteLosses(hunterlosses);
             hsc.otherlosebutton();
         }
         public void hunterWinButtonCLICKED(HSCounter hsc)
         {
             hunterwins++;
             hsc.label1.Text = "Won: " + hunterwins;
-            WriteHunterWins(hunterwins);
+            WriteWins(hunterwins);
             hsc.otherwinbutton();
         }
         public void hunterResetButtonCLICKED(HSCounter hsc)
@@ -102,8 +67,8 @@ namespace Hearthstone_Counter
             dfc.ReadLosses();
             dfc.WriteWins(dfc.wins - hunterwins);
             dfc.WriteLosses(dfc.losses - hunterlosses);
-            WriteHunterWins(0);
-            WriteHunterLosses(0);
+            WriteWins(0);
+            WriteLosses(0);
             hunterButtonCLICKED(hsc);
         }
         public void hunterButtonIsSelected(HSCounter hsc)
