@@ -75,6 +75,7 @@ namespace Hearthstone_Counter
             this.shamanResetButton = new System.Windows.Forms.Button();
             this.warlockResetButton = new System.Windows.Forms.Button();
             this.warriorResetButton = new System.Windows.Forms.Button();
+            this.defwinPlabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // loseButton
@@ -567,11 +568,24 @@ namespace Hearthstone_Counter
             this.warriorResetButton.UseVisualStyleBackColor = true;
             this.warriorResetButton.Click += new System.EventHandler(this.warriorResetButton_Click);
             // 
+            // defwinPlabel
+            // 
+            this.defwinPlabel.AutoSize = true;
+            this.defwinPlabel.BackColor = System.Drawing.Color.Transparent;
+            this.defwinPlabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.defwinPlabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.defwinPlabel.Location = new System.Drawing.Point(9, 76);
+            this.defwinPlabel.Name = "defwinPlabel";
+            this.defwinPlabel.Size = new System.Drawing.Size(48, 15);
+            this.defwinPlabel.TabIndex = 44;
+            this.defwinPlabel.Text = "Win %: ";
+            // 
             // HSCounter
             // 
             this.BackColor = System.Drawing.SystemColors.Info;
             this.BackgroundImage = global::Hearthstone_Counter.Background.defaultBG;
             this.ClientSize = new System.Drawing.Size(517, 349);
+            this.Controls.Add(this.defwinPlabel);
             this.Controls.Add(this.warriorResetButton);
             this.Controls.Add(this.warlockResetButton);
             this.Controls.Add(this.shamanResetButton);
@@ -667,6 +681,7 @@ namespace Hearthstone_Counter
         public System.Windows.Forms.Button shamanResetButton;
         public System.Windows.Forms.Button warlockResetButton;
         public System.Windows.Forms.Button warriorResetButton;
+        public System.Windows.Forms.Label defwinPlabel;
     }
 }
 

@@ -13,6 +13,8 @@ namespace Hearthstone_Counter
         string eMessage;
         public int wins;
         public int losses;
+        public double winP;
+        public string winPercentage;
         Druid druid = new Druid();
         Hunter hunter = new Hunter();
         Mage mage = new Mage();
@@ -50,6 +52,7 @@ namespace Hearthstone_Counter
             ReadLosses();
             hsc.lostLabel.Text = "Lost: " + losses;
             WriteLosses(losses);
+            CalculateWinPercentage(hsc);
         }
 
         // Writers
@@ -71,17 +74,26 @@ namespace Hearthstone_Counter
         {
             lr.ReadDefaultLosses(ref losses);
         }
+        public void CalculateWinPercentage(HSCounter hsc)
+        {
+            winP = (double)wins / (wins + losses);
+            if (Double.IsNaN(winP)) winP = 0;
+            winPercentage = string.Format("{0:0.0%}", winP);
+            hsc.defwinPlabel.Text = "Win %: " + winPercentage;
+        }
         // Clicked Buttons
         public void loseButtonCLICKED(HSCounter hsc)
         {       
             losses++;
             hsc.lostLabel.Text = "Lost: " + losses;
+            CalculateWinPercentage(hsc);
             WriteLosses(losses);
         }
         public void winButtonCLICKED(HSCounter hsc)
         {
             wins++;
             hsc.label1.Text = "Won: " + wins;
+            CalculateWinPercentage(hsc);
             WriteWins(wins);
         }
         public void resetButtonCLICKED(HSCounter hsc)

@@ -16,6 +16,8 @@ namespace Hearthstone_Counter
         public bool selected;
         public int magewins;
         public int magelosses;
+        public string winPercentage;
+        public double winP;
         string eMessage;
         public void WriteWins(int T)
         {
@@ -33,6 +35,13 @@ namespace Hearthstone_Counter
         {
             wr.ReadMageWins(ref magewins);
         }
+        public void CalculateWinPercentage(HSCounter hsc)
+        {
+            winP = (double)magewins / (magewins + magelosses);
+            if (Double.IsNaN(winP)) winP = 0;
+            winPercentage = string.Format("{0:0.0%}", winP);
+            hsc.defwinPlabel.Text = "Win %: " + winPercentage;
+        }
         public void mageButtonCLICKED(HSCounter hsc)
         {
             ChangeBG(hsc);
@@ -45,11 +54,13 @@ namespace Hearthstone_Counter
             ReadLosses();
             hsc.lostLabel.Text = "Lost: " + magelosses;
             WriteLosses(magelosses);
+            CalculateWinPercentage(hsc);
         }
         public void mageLoseButtonCLICKED(HSCounter hsc)
         {
             magelosses++;
             hsc.lostLabel.Text = "Lost: " + magelosses;
+            CalculateWinPercentage(hsc);
             WriteLosses(magelosses);
             hsc.otherlosebutton();
         }
@@ -57,6 +68,7 @@ namespace Hearthstone_Counter
         {
             magewins++;
             hsc.label1.Text = "Won: " + magewins;
+            CalculateWinPercentage(hsc);
             WriteWins(magewins);
             hsc.otherwinbutton();
         }

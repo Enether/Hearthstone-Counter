@@ -13,6 +13,8 @@ namespace Hearthstone_Counter
         public bool selected;
         public int roguewins;
         public int roguelosses;
+        public string winPercentage;
+        public double winP;
         string eMessage;
         public void WriteWins(int T)
         {
@@ -30,6 +32,13 @@ namespace Hearthstone_Counter
         {
             wr.ReadRogueWins(ref roguewins);
         }
+        public void CalculateWinPercentage(HSCounter hsc)
+        {
+            winP = (double)roguewins / (roguewins + roguelosses);
+            if (Double.IsNaN(winP)) winP = 0;
+            winPercentage = string.Format("{0:0.0%}", winP);
+            hsc.defwinPlabel.Text = "Win %: " + winPercentage;
+        }
         public void rogueButtonCLICKED(HSCounter hsc)
         {            
             rogueButtonIsSelected(hsc);
@@ -43,11 +52,13 @@ namespace Hearthstone_Counter
             ReadLosses();
             hsc.lostLabel.Text = "Lost: " + roguelosses;
             WriteLosses(roguelosses);
+            CalculateWinPercentage(hsc);
         }
         public void rogueLoseButtonCLICKED(HSCounter hsc)
         {
             roguelosses++;
             hsc.lostLabel.Text = "Lost: " + roguelosses;
+            CalculateWinPercentage(hsc);
             WriteLosses(roguelosses);
             hsc.otherlosebutton();
         }
@@ -55,6 +66,7 @@ namespace Hearthstone_Counter
         {
             roguewins++;
             hsc.label1.Text = "Won: " + roguewins;
+            CalculateWinPercentage(hsc);
             WriteWins(roguewins);
             hsc.otherwinbutton();
         }
