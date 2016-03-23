@@ -60,10 +60,6 @@ namespace Hearthstone_Counter
             DFC.IsDeselected(this);
         }
         // Default Counter other button (used to sum up wins from other classes)
-        public void otherwinbutton()
-        {
-            DFC.otherwinButtonCLICKED();
-        }
         public void otherlosebutton()
         {
             DFC.otherloseButtonCLICKED();

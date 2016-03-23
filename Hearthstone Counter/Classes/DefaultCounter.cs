@@ -11,6 +11,7 @@ namespace Hearthstone_Counter
     {
         public bool selected;
         string eMessage;
+        
         public int wins;
         public int losses;
         public double winP;
@@ -28,6 +29,7 @@ namespace Hearthstone_Counter
         LossWriter lw = new LossWriter();
         WinReader wr = new WinReader();
         LossReader lr = new LossReader();
+
         public void Initialization(HSCounter hsc)
         {
             Directory.CreateDirectory("Textfiles");
@@ -37,8 +39,7 @@ namespace Hearthstone_Counter
             WriteWins(wins);
             ReadLosses();
             hsc.lostLabel.Text = "Lost: " + losses;
-            WriteLosses(losses);
-            
+            WriteLosses(losses);            
         }
         public void DefaultButtonCLICKED(HSCounter hsc)
         {
@@ -58,7 +59,8 @@ namespace Hearthstone_Counter
         // Writers
         public void WriteWins(int T)
         {
-            ww.WriteDefaultWins(T);
+            ww.WriteDefaultWins(wr.ReadWinsArray(),T);
+           // ww.WriteAllWins(T);
         }
         public void WriteLosses(int T)
         {
@@ -67,7 +69,7 @@ namespace Hearthstone_Counter
         // Readers
         public void ReadWins()
         {
-            wr.ReadDefaultWins(ref wins);
+            wins = wr.ReadDefaultWins();
         }
         
         public void ReadLosses()
@@ -105,37 +107,32 @@ namespace Hearthstone_Counter
         }
         public void resetClassesScores(HSCounter hsc)
         {
-            druid.WriteWins(0);
+            druid.WriteWins(0, false);
             druid.WriteLosses(0);
 
-            hunter.WriteWins(0);
+            hunter.WriteWins(0, false);
             hunter.WriteLosses(0);
 
-            mage.WriteWins(0);
+            mage.WriteWins(0, false);
             mage.WriteLosses(0);
 
-            paladin.WriteWins(0);
+            paladin.WriteWins(0, false);
             paladin.WriteLosses(0);
 
-            priest.WriteWins(0);
+            priest.WriteWins(0, false);
             priest.WriteLosses(0);
 
-            rogue.WriteWins(0);
+            rogue.WriteWins(0, false);
             rogue.WriteLosses(0);
 
-            shaman.WriteWins(0);
+            shaman.WriteWins(0, false);
             shaman.WriteLosses(0);
 
-            warlock.WriteWins(0);
+            warlock.WriteWins(0, false);
             warlock.WriteLosses(0);
 
-            warrior.WriteWins(0);
+            warrior.WriteWins(0, false);
             warrior.WriteLosses(0);
-        }
-        public void otherwinButtonCLICKED()
-        {
-            wins++;
-            WriteWins(wins);
         }
         public void otherloseButtonCLICKED()
         {

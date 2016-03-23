@@ -1,221 +1,124 @@
 ﻿using System;
 using System.IO;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Hearthstone_Counter
 {
     class WinReader
     {
         WinWriter ww = new WinWriter();
+        
         string eMessage;
-        public int ReadDefaultWins(ref int wins)
+        string[] allWins = new string[10];
+        string[] placeholder = { "0", "0", "0", "0", "0", "0", "0", "0", "0", "0"};
+        Dictionary<string, int> winsDictionary = new Dictionary<string, int>();
+        
+        public Dictionary<string, int> ReadWinsArray()
         {
             try
             {
-                using (StreamReader readWins = new StreamReader("Textfiles/Wins.txt"))
+                using (StreamReader allReader = new StreamReader("Textfiles/AllWins.txt"))
                 {
-                    wins = int.Parse(readWins.ReadLine());
+                    allWins = allReader.ReadLine().Split(' ');
                 }
             }
-            catch (Exception e)
+            catch(Exception e)
             {
-                eMessage = e.Message;
-                Console.WriteLine(eMessage);
+                ww.WriteAllWins(placeholder);
+                allWins = placeholder;
             }
-            finally
-            {
-                ww.WriteDefaultWins(0);
-            }
-            return wins;
+
+            winsDictionary = FillDictionary(allWins);
+
+            return winsDictionary;
+        }
+        public int ReadDefaultWins()
+        {
+            Dictionary<string, int> winsDictionary = ReadWinsArray();
+
+            return winsDictionary["DefaultWins"];
         }
         // DRUID
-        public int ReadDruidWins(ref int wins)
+        public int ReadDruidWins()
         {
-            try
-            {
-                using (StreamReader readWins = new StreamReader("Textfiles/DruidWins.txt"))
-                {
-                    wins = int.Parse(readWins.ReadLine());
-                }
-            }
-            catch (Exception e)
-            {
-                eMessage = e.Message;
-                Console.WriteLine(eMessage);
-            }
-            finally
-            {
-                ww.WriteDruidWins(0);
-            }
-            return wins;
+            Dictionary<string, int> winsDictionary = ReadWinsArray();
+
+            return winsDictionary["DruidWins"];
         }
         // HUNTER
-        public int ReadHunterWins(ref int wins)
+        public int ReadHunterWins()
         {
-            try
-            {
-                using (StreamReader readWins = new StreamReader("Textfiles/HunterWins.txt"))
-                {
-                    wins = int.Parse(readWins.ReadLine());
-                }
-            }
-            catch (Exception e)
-            {
-                eMessage = e.Message;
-                Console.WriteLine(eMessage);
-            }
-            finally
-            {
-                ww.WriteHunterWins(0);
-            }
-            return wins;
+            Dictionary<string, int> winsDictionary = ReadWinsArray();
+
+            return winsDictionary["HunterWins"];
         }
         // MAGE
-        public int ReadMageWins(ref int wins)
+        public int ReadMageWins()
         {
-            try
-            {
-                using (StreamReader readWins = new StreamReader("Textfiles/MageWins.txt"))
-                {
-                    wins = int.Parse(readWins.ReadLine());
-                }
-            }
-            catch (Exception e)
-            {
-                eMessage = e.Message;
-                Console.WriteLine(eMessage);
-            }
-            finally
-            {
-                ww.WriteMageWins(0);
-            }
-            return wins;
+            Dictionary<string, int> winsDictionary = ReadWinsArray();
+
+            return winsDictionary["MageWins"];
         }
         // PALADIN
-        public int ReadPaladinWins(ref int wins)
+        public int ReadPaladinWins()
         {
-            try
-            {
-                using (StreamReader readWins = new StreamReader("Textfiles/PaladinWins.txt"))
-                {
-                    wins = int.Parse(readWins.ReadLine());
-                }
-            }
-            catch (Exception e)
-            {
-                eMessage = e.Message;
-                Console.WriteLine(eMessage);
-            }
-            finally
-            {
-                ww.WritePaladinWins(0);
-            }
-            return wins;
+            Dictionary<string, int> winsDictionary = ReadWinsArray();
+
+            return winsDictionary["PaladinWins"];
         }
 
         // PRIEST
-        public int ReadPriestWins(ref int wins)
+        public int ReadPriestWins()
         {
-            try
-            {
-                using (StreamReader readWins = new StreamReader("Textfiles/PriestWins.txt"))
-                {
-                    wins = int.Parse(readWins.ReadLine());
-                }
-            }
-            catch (Exception e)
-            {
-                eMessage = e.Message;
-                Console.WriteLine(eMessage);
-            }
-            finally
-            {
-                ww.WritePriestWins(0);
-            }
-            return wins;
+            Dictionary<string, int> winsDictionary = ReadWinsArray();
+
+            return winsDictionary["PriestWins"];
         }
         // ROGUE
-        public int ReadRogueWins(ref int wins)
+        public int ReadRogueWins()
         {
-            try
-            {
-                using (StreamReader readWins = new StreamReader("Textfiles/RogueWins.txt"))
-                {
-                    wins = int.Parse(readWins.ReadLine());
-                }
-            }
-            catch (Exception e)
-            {
-                eMessage = e.Message;
-                Console.WriteLine(eMessage);
-            }
-            finally
-            {
-                ww.WriteRogueWins(0);
-            }
-            return wins;
+            Dictionary<string, int> winsDictionary = ReadWinsArray();
+
+            return winsDictionary["RogueWins"];
         }
         // SHAMAN
-        public int ReadShamanWins(ref int wins)
+        public int ReadShamanWins()
         {
-            try
-            {
-                using (StreamReader readWins = new StreamReader("Textfiles/ShamanWins.txt"))
-                {
-                    wins = int.Parse(readWins.ReadLine());
-                }
-            }
-            catch (Exception e)
-            {
-                eMessage = e.Message;
-                Console.WriteLine(eMessage);
-            }
-            finally
-            {
-                ww.WriteShamanWins(0);
-            }
-            return wins;
+            Dictionary<string, int> winsDictionary = ReadWinsArray();
+
+            return winsDictionary["ShamanWins"];
         }
         // WARLOCK
-        public int ReadWarlockWins(ref int wins)
+        public int ReadWarlockWins()
         {
-            try
-            {
-                using (StreamReader readWins = new StreamReader("Textfiles/WarlockWins.txt"))
-                {
-                    wins = int.Parse(readWins.ReadLine());
-                }
-            }
-            catch (Exception e)
-            {
-                eMessage = e.Message;
-                Console.WriteLine(eMessage);
-            }
-            finally
-            {
-                ww.WriteWarlockWins(0);
-            }
-            return wins;
+            Dictionary<string, int> winsDictionary = ReadWinsArray();
+
+            return winsDictionary["WarlockWins"];
         }
         // WARRIOR
-        public int ReadWarriorWins(ref int wins)
+        public int ReadWarriorWins()
         {
-            try
-            {
-                using (StreamReader readWins = new StreamReader("Textfiles/WarriorWins.txt"))
-                {
-                    wins = int.Parse(readWins.ReadLine());
-                }
-            }
-            catch (Exception e)
-            {
-                eMessage = e.Message;
-                Console.WriteLine(eMessage);
-            }
-            finally
-            {
-                ww.WriteWarriorWins(0);
-            }
-            return wins;
+            Dictionary<string, int> winsDictionary = ReadWinsArray();
+
+            return winsDictionary["WarriorWins"];
+        }
+        public Dictionary<string, int> FillDictionary(string[] wins)
+        {
+            Dictionary<string, int> winsDic = new Dictionary<string, int>();
+
+            winsDic.Add("DefaultWins", int.Parse(wins[0]));
+            winsDic.Add("DruidWins", int.Parse(wins[1]));
+            winsDic.Add("HunterWins", int.Parse(wins[2]));
+            winsDic.Add("MageWins", int.Parse(wins[3]));
+            winsDic.Add("PaladinWins", int.Parse(wins[4]));
+            winsDic.Add("PriestWins", int.Parse(wins[5]));
+            winsDic.Add("RogueWins", int.Parse(wins[6]));
+            winsDic.Add("ShamanWins", int.Parse(wins[7]));
+            winsDic.Add("WarlockWins", int.Parse(wins[8]));
+            winsDic.Add("WarriorWins", int.Parse(wins[9]));
+
+            return winsDic;
         }
     }
 }

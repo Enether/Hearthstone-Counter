@@ -19,9 +19,9 @@ namespace Hearthstone_Counter
         public string winPercentage;
         public double winP;
         string eMessage;
-        public void WriteWins(int T)
+        public void WriteWins(int T, bool won)
         {
-            ww.WritePriestWins(T);
+            ww.WritePriestWins(wr.ReadWinsArray(), T, won);
         }
         public void WriteLosses(int T)
         {
@@ -33,7 +33,7 @@ namespace Hearthstone_Counter
         }
         public void ReadWins()
         {
-            wr.ReadPriestWins(ref priestwins);
+            priestwins = wr.ReadPriestWins();
         }
         public void CalculateWinPercentage(HSCounter hsc)
         {
@@ -50,7 +50,7 @@ namespace Hearthstone_Counter
             ShowandHideResetButtons(hsc);           
             ReadWins();
             hsc.label1.Text = "Won: " + priestwins;
-            WriteWins(priestwins);
+            WriteWins(priestwins, false);
             ReadLosses();
             hsc.lostLabel.Text = "Lost: " + priestlosses;
             WriteLosses(priestlosses);
@@ -69,8 +69,7 @@ namespace Hearthstone_Counter
             priestwins++;
             hsc.label1.Text = "Won: " + priestwins;
             CalculateWinPercentage(hsc);
-            WriteWins(priestwins);
-            hsc.otherwinbutton();          
+            WriteWins(priestwins, true);        
         }
         public void priestResetButtonCLICKED(HSCounter hsc)
         {
@@ -79,7 +78,7 @@ namespace Hearthstone_Counter
             dfc.ReadLosses();
             dfc.WriteWins(dfc.wins - priestwins);
             dfc.WriteLosses(dfc.losses - priestlosses);
-            WriteWins(0);
+            WriteWins(0, false);
             WriteLosses(0);
             priestButtonCLICKED(hsc);
         }

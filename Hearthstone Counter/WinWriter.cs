@@ -1,97 +1,163 @@
-﻿using System.IO;
+﻿using System.Collections.Generic;
+using System.IO;
 
 namespace Hearthstone_Counter
 {
     class WinWriter
     {
-        public void WriteDefaultWins(int T)
+        string toWrite = "";        
+        public void WriteAllWins(string[] wins)
+        {
+            using (StreamWriter allWrites = new StreamWriter("Textfiles/AllWins.txt", false))
+            {
+                toWrite = string.Join(" ", wins);
+
+                allWrites.Write(toWrite);
+            }
+        }
+        public void WriteDefaultWins(Dictionary<string, int> wins, int T)
         {
             // DEFAULT
-            using (StreamWriter winsWriter = new StreamWriter("Textfiles/Wins.txt", false))
+            wins["DefaultWins"] = T;
+            using (StreamWriter winsWriter = new StreamWriter("Textfiles/AllWins.txt", false))
             {
-                winsWriter.Write(T);
-                winsWriter.Flush();
+                toWrite = string.Join(" ", wins.Values);
+
+                winsWriter.Write(toWrite);
             }
         }
-        public void WriteDruidWins(int T)
+        public void WriteDruidWins(Dictionary<string, int> wins, int T, bool won)
         {
             // DRUID
-            using (StreamWriter winWriter = new StreamWriter("Textfiles/DruidWins.txt", false))
+            wins["DruidWins"] = T;
+            if(won)
+                wins["DefaultWins"]++;
+
+            using (StreamWriter winWriter = new StreamWriter("Textfiles/AllWins.txt", false))
             {
-                winWriter.Write(T);
-                winWriter.Flush();
+                toWrite = string.Join(" ", wins.Values);
+
+                winWriter.Write(toWrite);
             }
         }
-        public void WriteHunterWins(int T)
+        public void WriteHunterWins(Dictionary<string,int> wins, int T, bool won)
         {
             // HUNTER
-            using (StreamWriter winWriter = new StreamWriter("Textfiles/HunterWins.txt", false))
+            wins["HunterWins"] = T;
+
+            if (won)
+                wins["DefaultWins"]++;
+
+            using (StreamWriter winWriter = new StreamWriter("Textfiles/AllWins.txt", false))
             {
-                winWriter.Write(T);
-                winWriter.Flush();
+                toWrite = string.Join(" ", wins.Values);
+
+                winWriter.Write(toWrite);
             }
         }
-        public void WriteMageWins(int T)
+        public void WriteMageWins(Dictionary<string, int> wins, int T, bool won)
         {
             // MAGE
-            using (StreamWriter winWriter = new StreamWriter("Textfiles/MageWins.txt", false))
+            wins["MageWins"] = T;
+
+            if (won)
+                wins["DefaultWins"]++;
+
+            using (StreamWriter winWriter = new StreamWriter("Textfiles/AllWins.txt", false))
             {
-                winWriter.Write(T);
-                winWriter.Flush();
+                toWrite = string.Join(" ", wins.Values);
+
+                winWriter.Write(toWrite);
             }
         }
-        public void WritePaladinWins(int T)
+        public void WritePaladinWins(Dictionary<string, int> wins, int T, bool won)
         {
             // PALADIN
-            using (StreamWriter winWriter = new StreamWriter("Textfiles/PaladinWins.txt", false))
+            wins["PaladinWins"] = T;
+
+            if (won)
+                wins["DefaultWins"]++;
+
+            using (StreamWriter winWriter = new StreamWriter("Textfiles/AllWins.txt", false))
             {
-                winWriter.Write(T);
-                winWriter.Flush();
+                toWrite = string.Join(" ", wins.Values);
+
+                winWriter.Write(toWrite);
             }
         }
-        public void WritePriestWins(int T)
+        public void WritePriestWins(Dictionary<string, int> wins, int T, bool won)
         {
             // PRIEST
-            using (StreamWriter winWriter = new StreamWriter("Textfiles/PriestWins.txt", false))
+            wins["PriestWins"] = T;
+
+            if (won)
+                wins["DefaultWins"]++;
+
+            using (StreamWriter winWriter = new StreamWriter("Textfiles/AllWins.txt", false))
             {
-                winWriter.Write(T);
-                winWriter.Flush();
+                toWrite = string.Join(" ", wins.Values);
+
+                winWriter.Write(toWrite);
             }
         }
-        public void WriteRogueWins(int T)
+        public void WriteRogueWins(Dictionary<string, int> wins, int T, bool won)
         {
             // ROGUE
-            using (StreamWriter winWriter = new StreamWriter("Textfiles/RogueWins.txt", false))
+            wins["RogueWins"] = T;
+
+            if (won)
+                wins["DefaultWins"]++;
+
+            using (StreamWriter winWriter = new StreamWriter("Textfiles/AllWins.txt", false))
             {
-                winWriter.Write(T);
-                winWriter.Flush();
+                toWrite = string.Join(" ", wins.Values);
+
+                winWriter.Write(toWrite);
             }
         }
-        public void WriteShamanWins(int T)
+        public void WriteShamanWins(Dictionary<string, int> wins, int T, bool won)
         {
             // SHAMAN
-            using (StreamWriter winWriter = new StreamWriter("Textfiles/ShamanWins.txt", false))
+            wins["ShamanWins"] = T;
+
+            if (won)
+                wins["DefaultWins"]++;
+
+            using (StreamWriter winWriter = new StreamWriter("Textfiles/AllWins.txt", false))
             {
-                winWriter.Write(T);
-                winWriter.Flush();
+                toWrite = string.Join(" ", wins.Values);
+
+                winWriter.Write(toWrite);
             }
         }
-        public void WriteWarlockWins(int T)
+        public void WriteWarlockWins(Dictionary<string, int> wins, int T, bool won)
         {
             // WARLOCK
-            using (StreamWriter winWriter = new StreamWriter("Textfiles/WarlockWins.txt", false))
+            wins["WarlockWins"] = T;
+
+            if (won)
+                wins["DefaultWins"]++;
+
+            using (StreamWriter winWriter = new StreamWriter("Textfiles/AllWins.txt", false))
             {
-                winWriter.Write(T);
-                winWriter.Flush();
+                toWrite = string.Join(" ", wins.Values);
+
+                winWriter.Write(toWrite);
             }
         }
-        public void WriteWarriorWins(int T)
+        public void WriteWarriorWins(Dictionary<string, int> wins, int T, bool won)
         {
             // WARRIOR
-            using (StreamWriter winWriter = new StreamWriter("Textfiles/WarriorWins.txt", false))
+            wins["WarriorWins"] = T;
+
+            if (won)
+                wins["DefaultWins"]++;
+
+            using (StreamWriter winWriter = new StreamWriter("Textfiles/AllWins.txt", false))
             {
-                winWriter.Write(T);
-                winWriter.Flush();
+                toWrite = string.Join(" ", wins.Values);
+
+                winWriter.Write(toWrite);
             }
         }
     }
