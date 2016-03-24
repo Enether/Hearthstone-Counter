@@ -36,19 +36,19 @@ namespace Hearthstone_Counter
         // Default Counter
         private void loseButton_Click(object sender, EventArgs e)
         {
-            DFC.loseButtonCLICKED(this);
+            DFC.LoseButtonCLICKED(this);
         }
 
         private void winButton_Click(object sender, EventArgs e)
         {
-            DFC.winButtonCLICKED(this);
+            DFC.WinButtonCLICKED(this);
         }
         private void resetbutton_Click(object sender, EventArgs e)
         {
             DialogResult dialogResult = MessageBox.Show("Are you sure that you want to reset your score to 0?", "Reset Score", MessageBoxButtons.YesNo);
             if(dialogResult == DialogResult.Yes)
             {
-                DFC.resetButtonCLICKED(this);
+                DFC.ResetButtonCLICKED(this);
             }
             else if (dialogResult == DialogResult.No)
             {
@@ -57,110 +57,102 @@ namespace Hearthstone_Counter
         }
         public void DeselectDefault()
         {
-            DFC.IsDeselected(this);
+            DFC.DeselectButton(this);
         }
-        // Default Counter other button (used to sum up wins from other classes)
-        public void otherlosebutton()
-        {
-            DFC.otherloseButtonCLICKED();
-        }
-       
-     
-
-
+          
         // Priest Counter
         private void priestbutton_Click(object sender, EventArgs e)
         {
-            Priest.priestButtonCLICKED(this);
+            Priest.PriestButtonCLICKED(this);
         }
 
         private void priestWinButton_Click(object sender, EventArgs e)
         {
-            Priest.priestWinButtonCLICKED(this);
+            Priest.PriestWinButtonCLICKED(this);
         }
 
         private void priestLoseButton_Click(object sender, EventArgs e)
         {
-            Priest.priestLoseButtonCLICKED(this);
+            Priest.PriestLoseButtonCLICKED(this);
         }
         private void priestResetButton_Click(object sender, EventArgs e)
         {
-            DialogResult priestdialogResult = MessageBox.Show("Are you sure that you want to reset your priest score to 0?", "Reset Priest Score", MessageBoxButtons.YesNo);
-            if (priestdialogResult == DialogResult.Yes)
+            DialogResult priestDialogResult = MessageBox.Show("Are you sure that you want to reset your priest score to 0?", "Reset Priest Score", MessageBoxButtons.YesNo);
+            if (priestDialogResult == DialogResult.Yes)
             {
-                Priest.priestResetButtonCLICKED(this);
+                Priest.PriestResetButtonCLICKED(this);
             }
-            else if (priestdialogResult == DialogResult.No)
+            else if (priestDialogResult == DialogResult.No)
             {
 
             }
         }
         public void DeselectPriest()
         {
-            Priest.IsDeselected(this);
+            Priest.DeselectButton(this);
         }
 
         // Paladin Counter
         private void paladinbutton_Click(object sender, EventArgs e)
         {
-            Paladin.paladinButtonCLICKED(this);
+            Paladin.PaladinButtonCLICKED(this);
         }
          
 
         private void paladinWinButton_Click(object sender, EventArgs e)
         {
-            Paladin.paladinWinButtonCLICKED(this);
+            Paladin.PaladinWinButtonCLICKED(this);
         }
 
         private void paladinLoseButton_Click(object sender, EventArgs e)
         {
-            Paladin.paladinLoseButtonCLICKED(this);
+            Paladin.PaladinLoseButtonCLICKED(this);
         }
         private void paladinResetButton_Click(object sender, EventArgs e)
         {
-            DialogResult paladindialogResult = MessageBox.Show("Are you sure that you want to reset your paladin score to 0?", "Reset Paladin Score", MessageBoxButtons.YesNo);
-            if (paladindialogResult == DialogResult.Yes)
+            DialogResult paladinDialogResult = MessageBox.Show("Are you sure that you want to reset your paladin score to 0?", "Reset Paladin Score", MessageBoxButtons.YesNo);
+            if (paladinDialogResult == DialogResult.Yes)
             {
-                Paladin.paladinResetButtonCLICKED(this);
+                Paladin.PaladinResetButtonCLICKED(this);
             }
-            else if (paladindialogResult == DialogResult.No)
+            else if (paladinDialogResult == DialogResult.No)
             {
 
             }
         }
         public void DeselectPaladin()
         {
-            Paladin.IsDeselected(this);
+            Paladin.DeselectButton(this);
         }
 
         // Druid Counter
 
         private void druidbutton_Click(object sender, EventArgs e)
         {
-            Druid.druidButtonCLICKED(this);
+            Druid.DruidButtonCLICKED(this);
         }
 
         private void druidWinButton_Click(object sender, EventArgs e)
         {
-            Druid.druidWinButtonCLICKED(this);
+            Druid.DruidWinButtonCLICKED(this);
         }
 
         private void druidLoseButton_Click(object sender, EventArgs e)
         {
-            Druid.druidLoseButtonCLICKED(this);
+            Druid.DruidLoseButtonCLICKED(this);
         }
         public void DeselectDruid()
         {
-            Druid.IsDeselected(this);
+            Druid.DeselectButton(this);
         }
         private void druidResetButton_Click(object sender, EventArgs e)
         {
-            DialogResult druiddialogResult = MessageBox.Show("Are you sure that you want to reset your druid score to 0?", "Reset Druid Score", MessageBoxButtons.YesNo);
-            if (druiddialogResult == DialogResult.Yes)
+            DialogResult druidDialogResult = MessageBox.Show("Are you sure that you want to reset your druid score to 0?", "Reset Druid Score", MessageBoxButtons.YesNo);
+            if (druidDialogResult == DialogResult.Yes)
             {
-                Druid.druidResetButtonCLICKED(this);
+                Druid.DruidResetButtonCLICKED(this);
             }
-            else if (druiddialogResult == DialogResult.No)
+            else if (druidDialogResult == DialogResult.No)
             {
 
             }       
@@ -168,191 +160,191 @@ namespace Hearthstone_Counter
         // Shaman Counter
         private void shamanbutton_Click(object sender, EventArgs e)
         {
-            Shaman.shamanButtonCLICKED(this);
+            Shaman.ShamanButtonCLICKED(this);
         }
 
         private void shamanWinButton_Click(object sender, EventArgs e)
         {
-            Shaman.shamanWinButtonCLICKED(this);
+            Shaman.ShamanWinButtonCLICKED(this);
         }
 
         private void shamanLoseButton_Click(object sender, EventArgs e)
         {
-            Shaman.shamanLoseButtonCLICKED(this);
+            Shaman.ShamanLoseButtonCLICKED(this);
         }
         private void shamanResetButton_Click(object sender, EventArgs e)
         {
-            DialogResult shamandialogResult = MessageBox.Show("Are you sure that you want to reset your shaman score to 0?", "Reset Shaman Score", MessageBoxButtons.YesNo);
-            if (shamandialogResult == DialogResult.Yes)
+            DialogResult shamanDialogResult = MessageBox.Show("Are you sure that you want to reset your shaman score to 0?", "Reset Shaman Score", MessageBoxButtons.YesNo);
+            if (shamanDialogResult == DialogResult.Yes)
             {
-                Shaman.shamanResetButtonCLICKED(this);
+                Shaman.ShamanResetButtonCLICKED(this);
             }
-            else if (shamandialogResult == DialogResult.No)
+            else if (shamanDialogResult == DialogResult.No)
             {
 
             }
         }
         public void DeselectShaman()
         {
-            Shaman.IsDeselected(this);
+            Shaman.DeselectButton(this);
         }
         // Warlock
         private void warlockbutton_Click(object sender, EventArgs e)
         {
-            Warlock.warlockButtonCLICKED(this);
+            Warlock.WarlockButtonCLICKED(this);
         }
 
         private void warlockWinButton_Click(object sender, EventArgs e)
         {
-            Warlock.warlockWinButtonCLICKED(this);
+            Warlock.WarlockWinButtonCLICKED(this);
         }
 
         private void warlockLoseButton_Click(object sender, EventArgs e)
         {
-            Warlock.warlockLoseButtonCLICKED(this);
+            Warlock.WarlockLoseButtonCLICKED(this);
         }
         private void warlockResetButton_Click(object sender, EventArgs e)
         {
-            DialogResult warlockdialogResult = MessageBox.Show("Are you sure that you want to reset your warlock score to 0?", "Reset Warlock Score", MessageBoxButtons.YesNo);
-            if (warlockdialogResult == DialogResult.Yes)
+            DialogResult warlockDialogResult = MessageBox.Show("Are you sure that you want to reset your warlock score to 0?", "Reset Warlock Score", MessageBoxButtons.YesNo);
+            if (warlockDialogResult == DialogResult.Yes)
             {
-                Warlock.warlockResetButtonCLICKED(this);
+                Warlock.WarlockResetButtonCLICKED(this);
             }
-            else if (warlockdialogResult == DialogResult.No)
+            else if (warlockDialogResult == DialogResult.No)
             {
 
             }
         }
         public void DeselectWarlock()
         {
-            Warlock.IsDeselected(this);
+            Warlock.DeselectButton(this);
         }
         // Hunter Counter
 
         private void hunterbutton_Click(object sender, EventArgs e)
         {
-            Hunter.hunterButtonCLICKED(this);
+            Hunter.HunterButtonCLICKED(this);
         }
 
         private void hunterWinButton_Click(object sender, EventArgs e)
         {
-            Hunter.hunterWinButtonCLICKED(this);
+            Hunter.HunterWinButtonCLICKED(this);
         }
 
         private void hunterLoseButton_Click(object sender, EventArgs e)
         {
-            Hunter.hunterLoseButtonCLICKED(this);
+            Hunter.HunterLoseButtonCLICKED(this);
         }
         private void hunterResetButton_Click(object sender, EventArgs e)
         {
-            DialogResult hunterdialogResult = MessageBox.Show("Are you sure that you want to reset your hunter score to 0?", "Reset Hunter Score", MessageBoxButtons.YesNo);
-            if (hunterdialogResult == DialogResult.Yes)
+            DialogResult hunterDialogResult = MessageBox.Show("Are you sure that you want to reset your hunter score to 0?", "Reset Hunter Score", MessageBoxButtons.YesNo);
+            if (hunterDialogResult == DialogResult.Yes)
             {
-                Hunter.hunterResetButtonCLICKED(this);
+                Hunter.HunterResetButtonCLICKED(this);
             }
-            else if (hunterdialogResult == DialogResult.No)
+            else if (hunterDialogResult == DialogResult.No)
             {
 
             }
         }
         public void DeselectHunter()
         {
-            Hunter.IsDeselected(this);
+            Hunter.DeselectButton(this);
         }
         // Mage Counter
 
         private void magebutton_Click(object sender, EventArgs e)
         {
-            Mage.mageButtonCLICKED(this);
+            Mage.MageButtonCLICKED(this);
         }
 
         private void mageWinButton_Click(object sender, EventArgs e)
         {
-            Mage.mageWinButtonCLICKED(this);
+            Mage.MageWinButtonCLICKED(this);
         }
 
         private void mageLoseButton_Click(object sender, EventArgs e)
         {
-            Mage.mageLoseButtonCLICKED(this);
+            Mage.MageLoseButtonCLICKED(this);
         }
         private void mageResetButton_Click(object sender, EventArgs e)
         {
-            DialogResult magedialogResult = MessageBox.Show("Are you sure that you want to reset your mage score to 0?", "Reset Mage Score", MessageBoxButtons.YesNo);
-            if (magedialogResult == DialogResult.Yes)
+            DialogResult mageDialogResult = MessageBox.Show("Are you sure that you want to reset your mage score to 0?", "Reset Mage Score", MessageBoxButtons.YesNo);
+            if (mageDialogResult == DialogResult.Yes)
             {
-                Mage.mageResetButtonCLICKED(this);
+                Mage.MageResetButtonCLICKED(this);
             }
-            else if (magedialogResult == DialogResult.No)
+            else if (mageDialogResult == DialogResult.No)
             {
 
             }
         }
         public void DeselectMage()
         {
-            Mage.IsDeselected(this);
+            Mage.DeselectButton(this);
         }
         // Rogue Counter
         private void roguebutton_Click(object sender, EventArgs e)
         {
-            Rogue.rogueButtonCLICKED(this);
+            Rogue.RogueButtonCLICKED(this);
         }
 
         private void rogueWinButton_Click(object sender, EventArgs e)
         {
-            Rogue.rogueWinButtonCLICKED(this);
+            Rogue.RogueWinButtonCLICKED(this);
         }
 
         private void rogueLoseButton_Click(object sender, EventArgs e)
         {
-            Rogue.rogueLoseButtonCLICKED(this);
+            Rogue.RogueLoseButtonCLICKED(this);
         }
         private void rogueResetButton_Click(object sender, EventArgs e)
         {
-            DialogResult roguedialogResult = MessageBox.Show("Are you sure that you want to reset your rogue score to 0?", "Reset Rogue Score", MessageBoxButtons.YesNo);
-            if (roguedialogResult == DialogResult.Yes)
+            DialogResult rogueDialogResult = MessageBox.Show("Are you sure that you want to reset your rogue score to 0?", "Reset Rogue Score", MessageBoxButtons.YesNo);
+            if (rogueDialogResult == DialogResult.Yes)
             {
-                Rogue.rogueResetButtonCLICKED(this);
+                Rogue.RogueResetButtonCLICKED(this);
             }
-            else if (roguedialogResult == DialogResult.No)
+            else if (rogueDialogResult == DialogResult.No)
             {
 
             }
         }
         public void DeselectRogue()
         {
-            Rogue.IsDeselected(this);
+            Rogue.DeselectButton(this);
         }
         // Warrior Counter
 
         private void warriorbutton_Click(object sender, EventArgs e)
         {
-            Warrior.warriorButtonCLICKED(this);
+            Warrior.WarriorButtonCLICKED(this);
         }
 
         private void warriorWinButton_Click(object sender, EventArgs e)
         {
-            Warrior.warriorWinButtonCLICKED(this);
+            Warrior.WarriorWinButtonCLICKED(this);
         }
 
         private void warriorLoseButton_Click(object sender, EventArgs e)
         {
-            Warrior.warriorLoseButtonCLICKED(this);
+            Warrior.WarriorLoseButtonCLICKED(this);
         }
         private void warriorResetButton_Click(object sender, EventArgs e)
         {
-            DialogResult warriordialogResult = MessageBox.Show("Are you sure that you want to reset your warrior score to 0?", "Reset Warrior Score", MessageBoxButtons.YesNo);
-            if (warriordialogResult == DialogResult.Yes)
+            DialogResult warriorDialogResult = MessageBox.Show("Are you sure that you want to reset your warrior score to 0?", "Reset Warrior Score", MessageBoxButtons.YesNo);
+            if (warriorDialogResult == DialogResult.Yes)
             {
-                Warrior.warriorResetButtonCLICKED(this);
+                Warrior.WarriorResetButtonCLICKED(this);
             }
-            else if (warriordialogResult == DialogResult.No)
+            else if (warriorDialogResult == DialogResult.No)
             {
 
             }
         }
         public void DeselectWarrior()
         {
-            Warrior.IsDeselected(this);
+            Warrior.DeselectButton(this);
         }       
     }
 }

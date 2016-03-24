@@ -8,11 +8,10 @@ namespace Hearthstone_Counter
         LossWriter lw = new LossWriter();
         WinReader wr = new WinReader();
         LossReader lr = new LossReader();
-        public bool selected;
-        public int hunterwins;
-        public int hunterlosses;
-        public string winPercentage;
-        public double winP;
+        private int hunterWins;
+        private int hunterLosses;
+        private string winPercentage;
+        private double winP;
 
         public void WriteWins(int T, bool won)
         {
@@ -22,70 +21,67 @@ namespace Hearthstone_Counter
         {
             lw.WriteLosses(lr.ReadLossesDictionary(), T, lost, "Hunter");
         }
-        public void ReadLosses()
+        private void ReadLosses()
         {
-            hunterlosses = lr.ReadLosses("Hunter");
+            hunterLosses = lr.ReadLosses("Hunter");
         }
-        public void ReadWins()
+        private void ReadWins()
         {
-            hunterwins = wr.ReadWins("Hunter");
+            hunterWins = wr.ReadWins("Hunter");
         }
-        public void CalculateWinPercentage(HSCounter hsc)
+        private void CalculateWinPercentage(HSCounter hsc)
         {
-            winP = (double)hunterwins / (hunterwins + hunterlosses);
+            winP = (double)hunterWins / (hunterWins + hunterLosses);
             if (Double.IsNaN(winP)) winP = 0;
             winPercentage = string.Format("{0:0.0%}", winP);
             hsc.defwinPlabel.Text = "Win %: " + winPercentage;
         }
-        public void hunterButtonCLICKED(HSCounter hsc)
+        public void HunterButtonCLICKED(HSCounter hsc)
         {
             ChangeBG(hsc);
-            hunterButtonIsSelected(hsc);
-            ShowandHideButtons(hsc);
-            ShowandHideResetButtons(hsc);
+            SelectButton(hsc);
+            ShowAndHideButtons(hsc);
+            ShowAndHideResetButtons(hsc);
             ReadWins();
-            hsc.label1.Text = "Won: " + hunterwins;
-            WriteWins(hunterwins, false);
+            hsc.label1.Text = "Won: " + hunterWins;
+            WriteWins(hunterWins, false);
             ReadLosses();
-            hsc.lostLabel.Text = "Lost: " + hunterlosses;
-            WriteLosses(hunterlosses, false);
+            hsc.lostLabel.Text = "Lost: " + hunterLosses;
+            WriteLosses(hunterLosses, false);
             CalculateWinPercentage(hsc);
         }
-        public void hunterLoseButtonCLICKED(HSCounter hsc)
+        public void HunterLoseButtonCLICKED(HSCounter hsc)
         {
-            hunterlosses++;
-            hsc.lostLabel.Text = "Lost: " + hunterlosses;
+            hunterLosses++;
+            hsc.lostLabel.Text = "Lost: " + hunterLosses;
             CalculateWinPercentage(hsc);
-            WriteLosses(hunterlosses, true);
-            hsc.otherlosebutton();
+            WriteLosses(hunterLosses, true);
         }
-        public void hunterWinButtonCLICKED(HSCounter hsc)
+        public void HunterWinButtonCLICKED(HSCounter hsc)
         {
-            hunterwins++;
-            hsc.label1.Text = "Won: " + hunterwins;
+            hunterWins++;
+            hsc.label1.Text = "Won: " + hunterWins;
             CalculateWinPercentage(hsc);
-            WriteWins(hunterwins, true);
+            WriteWins(hunterWins, true);
         }
-        public void hunterResetButtonCLICKED(HSCounter hsc)
+        public void HunterResetButtonCLICKED(HSCounter hsc)
         {
             DefaultCounter dfc = new DefaultCounter();
             dfc.ReadWins();
             dfc.ReadLosses();
-            dfc.WriteWins(dfc.wins - hunterwins);
-            dfc.WriteLosses(dfc.losses - hunterlosses);
+            dfc.WriteWins(dfc.wins - hunterWins);
+            dfc.WriteLosses(dfc.losses - hunterLosses);
             WriteWins(0, false);
             WriteLosses(0, false);
-            hunterButtonCLICKED(hsc);
+            HunterButtonCLICKED(hsc);
         }
-        public void hunterButtonIsSelected(HSCounter hsc)
+        private void SelectButton(HSCounter hsc)
         {
-            selected = true;
             hsc.hunterbutton.Image = global::Hearthstone_Counter.Icons.hunterSelected;
             DeselectOthers(hsc);
         }
-        public void IsDeselected(HSCounter hsc)
+        public void DeselectButton(HSCounter hsc)
         {
-            selected = false;
             hsc.hunterbutton.Image = global::Hearthstone_Counter.Icons.hunter_4;
         }
         private void DeselectOthers(HSCounter hsc)
@@ -104,7 +100,7 @@ namespace Hearthstone_Counter
         {
             hsc.BackgroundImage = Background.hunterBG;
         }
-        private void ShowandHideButtons(HSCounter hsc)
+        private void ShowAndHideButtons(HSCounter hsc)
         {
             hsc.hunterWinButton.Show();
             hsc.hunterLoseButton.Show();
@@ -127,7 +123,7 @@ namespace Hearthstone_Counter
             hsc.winButton.Hide();
             hsc.loseButton.Hide();
         }
-        private void ShowandHideResetButtons(HSCounter hsc)
+        private void ShowAndHideResetButtons(HSCounter hsc)
         {
             hsc.hunterResetButton.Show();
             hsc.resetbutton.Hide();

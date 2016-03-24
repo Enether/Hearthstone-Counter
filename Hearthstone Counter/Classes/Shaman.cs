@@ -8,11 +8,10 @@ namespace Hearthstone_Counter
         LossWriter lw = new LossWriter();
         WinReader wr = new WinReader();
         LossReader lr = new LossReader();
-        public bool selected;
-        public int shamanwins;
-        public int shamanlosses;
-        public double winP;
-        public string winPercentage;
+        private int shamanWins;
+        private int shamanLosses;
+        private double winP;
+        private string winPercentage;
         public void WriteWins(int T, bool won)
         {
             ww.WriteWins(wr.ReadWinsArray(), T, won, "Shaman");
@@ -21,70 +20,67 @@ namespace Hearthstone_Counter
         {
             lw.WriteLosses(lr.ReadLossesDictionary(), T, lost, "Shaman");
         }
-        public void ReadLosses()
+        private void ReadLosses()
         {
-            shamanlosses = lr.ReadLosses("Shaman");
+            shamanLosses = lr.ReadLosses("Shaman");
         }
-        public void ReadWins()
+        private void ReadWins()
         {
-           shamanwins = wr.ReadWins("Shaman");
+           shamanWins = wr.ReadWins("Shaman");
         }
-        public void CalculateWinPercentage(HSCounter hsc)
+        private void CalculateWinPercentage(HSCounter hsc)
         {
-            winP = (double)shamanwins / (shamanwins + shamanlosses);
+            winP = (double)shamanWins / (shamanWins + shamanLosses);
             if (Double.IsNaN(winP)) winP = 0;
             winPercentage = string.Format("{0:0.0%}", winP);
             hsc.defwinPlabel.Text = "Win %: " + winPercentage;
         }
-        public void shamanButtonCLICKED(HSCounter hsc)
+        public void ShamanButtonCLICKED(HSCounter hsc)
         {
             ChangeBG(hsc);
-            shamanButtonIsSelected(hsc);
-            this.ShowandHideButtons(hsc);
-            this.ShowandHideResetButtons(hsc);
+            SelectButton(hsc);
+            this.ShowAndHideButtons(hsc);
+            this.ShowAndHideResetButtons(hsc);
             ReadWins();
-            hsc.label1.Text = "Won: " + shamanwins;
-            WriteWins(shamanwins, false);
+            hsc.label1.Text = "Won: " + shamanWins;
+            WriteWins(shamanWins, false);
             ReadLosses();
-            hsc.lostLabel.Text = "Lost: " + shamanlosses;
-            WriteLosses(shamanlosses, false);
+            hsc.lostLabel.Text = "Lost: " + shamanLosses;
+            WriteLosses(shamanLosses, false);
             CalculateWinPercentage(hsc);
         }
-        public void shamanLoseButtonCLICKED(HSCounter hsc)
+        public void ShamanLoseButtonCLICKED(HSCounter hsc)
         {
-            shamanlosses++;
-            hsc.lostLabel.Text = "Lost: " + shamanlosses;
+            shamanLosses++;
+            hsc.lostLabel.Text = "Lost: " + shamanLosses;
             CalculateWinPercentage(hsc);
-            WriteLosses(shamanlosses, true);
-            hsc.otherlosebutton();
+            WriteLosses(shamanLosses, true);
         }
-        public void shamanWinButtonCLICKED(HSCounter hsc)
+        public void ShamanWinButtonCLICKED(HSCounter hsc)
         {
-            shamanwins++;
-            hsc.label1.Text = "Won: " + shamanwins;
+            shamanWins++;
+            hsc.label1.Text = "Won: " + shamanWins;
             CalculateWinPercentage(hsc);
-            WriteWins(shamanwins, true);
+            WriteWins(shamanWins, true);
         }
-        public void shamanResetButtonCLICKED(HSCounter hsc)
+        public void ShamanResetButtonCLICKED(HSCounter hsc)
         {
             DefaultCounter dfc = new DefaultCounter();
             dfc.ReadWins();
             dfc.ReadLosses();
-            dfc.WriteWins(dfc.wins - shamanwins);
-            dfc.WriteLosses(dfc.losses - shamanlosses);
+            dfc.WriteWins(dfc.wins - shamanWins);
+            dfc.WriteLosses(dfc.losses - shamanLosses);
             WriteWins(0, false);
             WriteLosses(0, false);
-            shamanButtonCLICKED(hsc);
+            ShamanButtonCLICKED(hsc);
         }
-        public void shamanButtonIsSelected(HSCounter hsc)
+        private void SelectButton(HSCounter hsc)
         {
-            selected = true;
             hsc.shamanbutton.Image = global::Hearthstone_Counter.Icons.ShamanIconSelected;
             DeselectOthers(hsc);
         }
-        public void IsDeselected(HSCounter hsc)
+        public void DeselectButton(HSCounter hsc)
         {
-            selected = false;
             hsc.shamanbutton.Image = global::Hearthstone_Counter.Icons.ShamanIcon;
         }
         private void DeselectOthers(HSCounter hsc)
@@ -103,7 +99,7 @@ namespace Hearthstone_Counter
         {
             hsc.BackgroundImage = Background.shamanBG;
         }
-        private void ShowandHideButtons(HSCounter hsc)
+        private void ShowAndHideButtons(HSCounter hsc)
         {
             hsc.shamanWinButton.Show();
             hsc.shamanLoseButton.Show();
@@ -126,7 +122,7 @@ namespace Hearthstone_Counter
             hsc.winButton.Hide();
             hsc.loseButton.Hide();
         }
-        private void ShowandHideResetButtons(HSCounter hsc)
+        private void ShowAndHideResetButtons(HSCounter hsc)
         {
             hsc.shamanResetButton.Show();
             hsc.resetbutton.Hide();
