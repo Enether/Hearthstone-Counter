@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO;
 
 namespace Hearthstone_Counter
 {
@@ -14,18 +13,17 @@ namespace Hearthstone_Counter
         public int shamanlosses;
         public double winP;
         public string winPercentage;
-        string eMessage;
         public void WriteWins(int T, bool won)
         {
             ww.WriteWins(wr.ReadWinsArray(), T, won, "Shaman");
         }
-        public void WriteLosses(int T)
+        public void WriteLosses(int T, bool lost)
         {
-            lw.WriteShamanLosses(T);
+            lw.WriteLosses(lr.ReadLossesDictionary(), T, lost, "Shaman");
         }
         public void ReadLosses()
         {
-            lr.ReadShamanLosses(ref shamanlosses);
+            shamanlosses = lr.ReadLosses("Shaman");
         }
         public void ReadWins()
         {
@@ -49,7 +47,7 @@ namespace Hearthstone_Counter
             WriteWins(shamanwins, false);
             ReadLosses();
             hsc.lostLabel.Text = "Lost: " + shamanlosses;
-            WriteLosses(shamanlosses);
+            WriteLosses(shamanlosses, false);
             CalculateWinPercentage(hsc);
         }
         public void shamanLoseButtonCLICKED(HSCounter hsc)
@@ -57,7 +55,7 @@ namespace Hearthstone_Counter
             shamanlosses++;
             hsc.lostLabel.Text = "Lost: " + shamanlosses;
             CalculateWinPercentage(hsc);
-            WriteLosses(shamanlosses);
+            WriteLosses(shamanlosses, true);
             hsc.otherlosebutton();
         }
         public void shamanWinButtonCLICKED(HSCounter hsc)
@@ -75,7 +73,7 @@ namespace Hearthstone_Counter
             dfc.WriteWins(dfc.wins - shamanwins);
             dfc.WriteLosses(dfc.losses - shamanlosses);
             WriteWins(0, false);
-            WriteLosses(0);
+            WriteLosses(0, false);
             shamanButtonCLICKED(hsc);
         }
         public void shamanButtonIsSelected(HSCounter hsc)

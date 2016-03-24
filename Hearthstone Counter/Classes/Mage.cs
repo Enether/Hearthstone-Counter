@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.IO;
 
 namespace Hearthstone_Counter
 {
@@ -18,18 +13,18 @@ namespace Hearthstone_Counter
         public int magelosses;
         public string winPercentage;
         public double winP;
-        string eMessage;
+
         public void WriteWins(int T, bool won)
         {
             ww.WriteWins(wr.ReadWinsArray() ,T, won, "Mage");
         }
-        public void WriteLosses(int T)
+        public void WriteLosses(int T, bool lost)
         {
-            lw.WriteMageLosses(T);
+            lw.WriteLosses(lr.ReadLossesDictionary(), T, lost, "Mage");
         }
         public void ReadLosses()
         {
-            lr.ReadMageLosses(ref magelosses);
+            magelosses = lr.ReadLosses("Mage");
         }
         public void ReadWins()
         {
@@ -53,7 +48,7 @@ namespace Hearthstone_Counter
             WriteWins(magewins, false);
             ReadLosses();
             hsc.lostLabel.Text = "Lost: " + magelosses;
-            WriteLosses(magelosses);
+            WriteLosses(magelosses, false);
             CalculateWinPercentage(hsc);
         }
         public void mageLoseButtonCLICKED(HSCounter hsc)
@@ -61,7 +56,7 @@ namespace Hearthstone_Counter
             magelosses++;
             hsc.lostLabel.Text = "Lost: " + magelosses;
             CalculateWinPercentage(hsc);
-            WriteLosses(magelosses);
+            WriteLosses(magelosses, true);
             hsc.otherlosebutton();
         }
         public void mageWinButtonCLICKED(HSCounter hsc)
@@ -79,7 +74,7 @@ namespace Hearthstone_Counter
             dfc.WriteWins(dfc.wins - magewins);
             dfc.WriteLosses(dfc.losses - magelosses);
             WriteWins(0, false);
-            WriteLosses(0);
+            WriteLosses(0, false);
             mageButtonCLICKED(hsc);
         }
         public void mageButtonIsSelected(HSCounter hsc)

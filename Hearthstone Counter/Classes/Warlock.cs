@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.IO;
 
 namespace Hearthstone_Counter
 {
@@ -18,18 +13,17 @@ namespace Hearthstone_Counter
         public int warlocklosses;
         public string winPercentage;
         public double winP;
-        string eMessage;
         public void WriteWins(int T, bool won)
         {
             ww.WriteWins(wr.ReadWinsArray(), T, won, "Warlock");
         }
-        public void WriteLosses(int T)
+        public void WriteLosses(int T, bool lost)
         {
-            lw.WriteWarlockLosses(T);
+            lw.WriteLosses(lr.ReadLossesDictionary(), T, lost, "Warlock");
         }
         public void ReadLosses()
         {
-            lr.ReadWarlockLosses(ref warlocklosses);
+            warlocklosses = lr.ReadLosses("Warlock");
         }
         public void ReadWins()
         {
@@ -53,7 +47,7 @@ namespace Hearthstone_Counter
             WriteWins(warlockwins, false);
             ReadLosses();
             hsc.lostLabel.Text = "Lost: " + warlocklosses;
-            WriteLosses(warlocklosses);
+            WriteLosses(warlocklosses, false);
             CalculateWinPercentage(hsc);
         }
         public void warlockLoseButtonCLICKED(HSCounter hsc)
@@ -61,7 +55,7 @@ namespace Hearthstone_Counter
             warlocklosses++;
             hsc.lostLabel.Text = "Lost: " + warlocklosses;
             CalculateWinPercentage(hsc);
-            WriteLosses(warlocklosses);
+            WriteLosses(warlocklosses, true);
             hsc.otherlosebutton();
         }
         public void warlockWinButtonCLICKED(HSCounter hsc)
@@ -79,7 +73,7 @@ namespace Hearthstone_Counter
             dfc.WriteWins(dfc.wins - warlockwins);
             dfc.WriteLosses(dfc.losses - warlocklosses);
             WriteWins(0, false);
-            WriteLosses(0);
+            WriteLosses(0, false);
             warlockButtonCLICKED(hsc);
         }
         public void warlockButtonIsSelected(HSCounter hsc)

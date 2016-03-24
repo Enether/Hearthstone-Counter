@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.IO;
 
 namespace Hearthstone_Counter
 {
@@ -18,18 +13,18 @@ namespace Hearthstone_Counter
         public int priestlosses;
         public string winPercentage;
         public double winP;
-        string eMessage;
+
         public void WriteWins(int T, bool won)
         {
             ww.WriteWins(wr.ReadWinsArray(), T, won, "Priest");
         }
-        public void WriteLosses(int T)
+        public void WriteLosses(int T, bool lost)
         {
-            lw.WritePriestLosses(T);
+            lw.WriteLosses(lr.ReadLossesDictionary(), T, lost, "Priest");
         }
         public void ReadLosses()
         {
-            lr.ReadPriestLosses(ref priestlosses);
+            priestlosses = lr.ReadLosses("Priest");
         }
         public void ReadWins()
         {
@@ -53,7 +48,7 @@ namespace Hearthstone_Counter
             WriteWins(priestwins, false);
             ReadLosses();
             hsc.lostLabel.Text = "Lost: " + priestlosses;
-            WriteLosses(priestlosses);
+            WriteLosses(priestlosses, false);
             CalculateWinPercentage(hsc);
         }
         public void priestLoseButtonCLICKED(HSCounter hsc)
@@ -61,7 +56,7 @@ namespace Hearthstone_Counter
             priestlosses++;
             hsc.lostLabel.Text = "Lost: " + priestlosses;
             CalculateWinPercentage(hsc);
-            WriteLosses(priestlosses);
+            WriteLosses(priestlosses, true);
             hsc.otherlosebutton();
         }
         public void priestWinButtonCLICKED(HSCounter hsc)
@@ -79,7 +74,7 @@ namespace Hearthstone_Counter
             dfc.WriteWins(dfc.wins - priestwins);
             dfc.WriteLosses(dfc.losses - priestlosses);
             WriteWins(0, false);
-            WriteLosses(0);
+            WriteLosses(0, false);
             priestButtonCLICKED(hsc);
         }
         public void priestButtonIsSelected(HSCounter hsc)

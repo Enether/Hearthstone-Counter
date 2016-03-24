@@ -7,226 +7,52 @@ namespace Hearthstone_Counter
     class LossReader
     {
         LossWriter lw = new LossWriter();
-        string eMessage;
 
-        public int ReadDefaultLosses(ref int losses)
+        string[] allLosses = new string[10];
+        string[] placeholder = { "0", "0", "0", "0", "0", "0", "0", "0", "0", "0" };
+        Dictionary<string, int> lossesDictionary = new Dictionary<string, int>();
+
+        public Dictionary<string, int> ReadLossesDictionary()
         {
             try
             {
-                using (StreamReader readLosses = new StreamReader("Textfiles/Losses.txt"))
+                using (StreamReader allReader = new StreamReader("Textfiles/AllLosses.txt"))
                 {
-                    losses = int.Parse(readLosses.ReadLine());
+                    allLosses = allReader.ReadLine().Split(' ');
                 }
             }
             catch (Exception e)
             {
-                eMessage = e.Message;
-                Console.WriteLine(eMessage);
+                lw.WriteAllLosses(placeholder);
+                allLosses = placeholder;
             }
 
-            finally
-            {
-                lw.WriteDefaultLosses(0);
-            }
-            return losses;
+            lossesDictionary = FillDictionary(allLosses);
+
+            return lossesDictionary;
         }
-        // DRUID
-        public int ReadDruidLosses(ref int losses)
+        public int ReadLosses(string classStr)
         {
-            try
-            {
-                using (StreamReader readLosses = new StreamReader("Textfiles/DruidLosses.txt"))
-                {
-                    losses = int.Parse(readLosses.ReadLine());
-                }
-            }
-            catch (Exception e)
-            {
-                eMessage = e.Message;
-                Console.WriteLine(eMessage);
-            }
+            Dictionary<string, int> lossesDictionary = ReadLossesDictionary();
 
-            finally
-            {
-                lw.WriteDruidLosses(0);
-            }
-            return losses;
+            return lossesDictionary[classStr + "Losses"];
         }
-        // HUNTER
-        public int ReadHunterLosses(ref int losses)
+        public Dictionary<string, int> FillDictionary(string[] losses)
         {
-            try
-            {
-                using (StreamReader readLosses = new StreamReader("Textfiles/HunterLosses.txt"))
-                {
-                    losses = int.Parse(readLosses.ReadLine());
-                }
-            }
-            catch (Exception e)
-            {
-                eMessage = e.Message;
-                Console.WriteLine(eMessage);
-            }
+            Dictionary<string, int> lossesDic = new Dictionary<string, int>();
 
-            finally
-            {
-                lw.WriteHunterLosses(0);
-            }
-            return losses;
-        }
-        // MAGE
-        public int ReadMageLosses(ref int losses)
-        {
-            try
-            {
-                using (StreamReader readLosses = new StreamReader("Textfiles/MageLosses.txt"))
-                {
-                    losses = int.Parse(readLosses.ReadLine());
-                }
-            }
-            catch (Exception e)
-            {
-                eMessage = e.Message;
-                Console.WriteLine(eMessage);
-            }
+            lossesDic.Add("DefaultLosses", int.Parse(losses[0]));
+            lossesDic.Add("DruidLosses", int.Parse(losses[1]));
+            lossesDic.Add("HunterLosses", int.Parse(losses[2]));
+            lossesDic.Add("MageLosses", int.Parse(losses[3]));
+            lossesDic.Add("PaladinLosses", int.Parse(losses[4]));
+            lossesDic.Add("PriestLosses", int.Parse(losses[5]));
+            lossesDic.Add("RogueLosses", int.Parse(losses[6]));
+            lossesDic.Add("ShamanLosses", int.Parse(losses[7]));
+            lossesDic.Add("WarlockLosses", int.Parse(losses[8]));
+            lossesDic.Add("WarriorLosses", int.Parse(losses[9]));
 
-            finally
-            {
-                lw.WriteMageLosses(0);
-            }
-            return losses;
-        }
-        // PALADIN
-        public int ReadPaladinLosses(ref int losses)
-        {
-            try
-            {
-                using (StreamReader readLosses = new StreamReader("Textfiles/PaladinLosses.txt"))
-                {
-                    losses = int.Parse(readLosses.ReadLine());
-                }
-            }
-            catch (Exception e)
-            {
-                eMessage = e.Message;
-                Console.WriteLine(eMessage);
-            }
-
-            finally
-            {
-                lw.WritePaladinLosses(0);
-            }
-            return losses;
-        }
-        // PRIEST
-        public int ReadPriestLosses(ref int losses)
-        {
-            try
-            {
-                using (StreamReader readLosses = new StreamReader("Textfiles/PriestLosses.txt"))
-                {
-                    losses = int.Parse(readLosses.ReadLine());
-                }
-            }
-            catch (Exception e)
-            {
-                eMessage = e.Message;
-                Console.WriteLine(eMessage);
-            }
-
-            finally
-            {
-                lw.WritePriestLosses(0);
-            }
-            return losses;
-        }
-        // ROGUE
-        public int ReadRogueLosses(ref int losses)
-        {
-            try
-            {
-                using (StreamReader readLosses = new StreamReader("Textfiles/RogueLosses.txt"))
-                {
-                    losses = int.Parse(readLosses.ReadLine());
-                }
-            }
-            catch (Exception e)
-            {
-                eMessage = e.Message;
-                Console.WriteLine(eMessage);
-            }
-
-            finally
-            {
-                lw.WriteRogueLosses(0);
-            }
-            return losses;
-        }
-        // SHAMAN
-        public int ReadShamanLosses(ref int ALOT)
-        {
-            try
-            {
-                using (StreamReader readLosses = new StreamReader("Textfiles/ShamanLosses.txt"))
-                {
-                    ALOT = int.Parse(readLosses.ReadLine());
-                }
-            }
-            catch (Exception e)
-            {
-                eMessage = e.Message;
-                Console.WriteLine(eMessage);
-            }
-
-            finally
-            {
-                lw.WriteShamanLosses(0);
-            }
-            return ALOT;
-        }
-        // WARLOCK
-        public int ReadWarlockLosses(ref int losses)
-        {
-            try
-            {
-                using (StreamReader readLosses = new StreamReader("Textfiles/WarlockLosses.txt"))
-                {
-                    losses = int.Parse(readLosses.ReadLine());
-                }
-            }
-            catch (Exception e)
-            {
-                eMessage = e.Message;
-                Console.WriteLine(eMessage);
-            }
-
-            finally
-            {
-                lw.WriteWarlockLosses(0);
-            }
-            return losses;
-        }
-        // WARRIOR
-        public int ReadWarriorLosses(ref int losses)
-        {
-            try
-            {
-                using (StreamReader readLosses = new StreamReader("Textfiles/WarriorLosses.txt"))
-                {
-                    losses = int.Parse(readLosses.ReadLine());
-                }
-            }
-            catch (Exception e)
-            {
-                eMessage = e.Message;
-                Console.WriteLine(eMessage);
-            }
-
-            finally
-            {
-                lw.WriteWarriorLosses(0);
-            }
-            return losses;
+            return lossesDic;
         }
     }
 }

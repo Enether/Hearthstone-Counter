@@ -18,18 +18,18 @@ namespace Hearthstone_Counter
         public int druidlosses;
         public double winP;
         public string winPercentage;
-        string eMessage;
+
         public void WriteWins(int T, bool won)
         {
             ww.WriteWins(wr.ReadWinsArray(), T, won, "Druid");
         }
-        public void WriteLosses(int T)
+        public void WriteLosses(int T, bool lost)
         {
-            lw.WriteDruidLosses(T);
+            lw.WriteLosses(lr.ReadLossesDictionary(), T, lost, "Druid");
         }
         public void ReadLosses()
         {
-            lr.ReadDruidLosses(ref druidlosses);
+            druidlosses = lr.ReadLosses("Druid");
         }
         public void ReadWins()
         {
@@ -53,7 +53,7 @@ namespace Hearthstone_Counter
             WriteWins(druidwins, false);
             ReadLosses();
             hsc.lostLabel.Text = "Lost: " + druidlosses;
-            WriteLosses(druidlosses);
+            WriteLosses(druidlosses, false);
             CalculateWinPercentage(hsc);
         }
         public void druidLoseButtonCLICKED(HSCounter hsc)
@@ -61,7 +61,7 @@ namespace Hearthstone_Counter
             druidlosses++;
             hsc.lostLabel.Text = "Lost: " + druidlosses;
             CalculateWinPercentage(hsc);
-            WriteLosses(druidlosses);
+            WriteLosses(druidlosses, true);
             hsc.otherlosebutton();
         }
         public void druidWinButtonCLICKED(HSCounter hsc)
@@ -79,7 +79,7 @@ namespace Hearthstone_Counter
             dfc.WriteWins(dfc.wins - druidwins);
             dfc.WriteLosses(dfc.losses - druidlosses);
             WriteWins(0, false);
-            WriteLosses(0);
+            WriteLosses(0, false);
             druidButtonCLICKED(hsc);
         }
         public void druidButtonIsSelected(HSCounter hsc)

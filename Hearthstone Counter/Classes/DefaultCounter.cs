@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.IO;
 
 namespace Hearthstone_Counter
@@ -10,7 +6,6 @@ namespace Hearthstone_Counter
     class DefaultCounter
     {
         public bool selected;
-        string eMessage;
         
         public int wins;
         public int losses;
@@ -64,7 +59,7 @@ namespace Hearthstone_Counter
         }
         public void WriteLosses(int T)
         {
-            lw.WriteDefaultLosses(T);
+            lw.WriteLosses(lr.ReadLossesDictionary(), T, false, "Default");
         }
         // Readers
         public void ReadWins()
@@ -74,7 +69,7 @@ namespace Hearthstone_Counter
         
         public void ReadLosses()
         {
-            lr.ReadDefaultLosses(ref losses);
+            losses = lr.ReadLosses("Default");
         }
         public void CalculateWinPercentage(HSCounter hsc)
         {
@@ -108,31 +103,31 @@ namespace Hearthstone_Counter
         public void resetClassesScores(HSCounter hsc)
         {
             druid.WriteWins(0, false);
-            druid.WriteLosses(0);
+            druid.WriteLosses(0, false);
 
             hunter.WriteWins(0, false);
-            hunter.WriteLosses(0);
+            hunter.WriteLosses(0, false);
 
             mage.WriteWins(0, false);
-            mage.WriteLosses(0);
+            mage.WriteLosses(0, false);
 
             paladin.WriteWins(0, false);
-            paladin.WriteLosses(0);
+            paladin.WriteLosses(0, false);
 
             priest.WriteWins(0, false);
-            priest.WriteLosses(0);
+            priest.WriteLosses(0, false);
 
             rogue.WriteWins(0, false);
-            rogue.WriteLosses(0);
+            rogue.WriteLosses(0, false);
 
             shaman.WriteWins(0, false);
-            shaman.WriteLosses(0);
+            shaman.WriteLosses(0, false);
 
             warlock.WriteWins(0, false);
-            warlock.WriteLosses(0);
+            warlock.WriteLosses(0, false);
 
             warrior.WriteWins(0, false);
-            warrior.WriteLosses(0);
+            warrior.WriteLosses(0, false);
         }
         public void otherloseButtonCLICKED()
         {

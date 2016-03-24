@@ -1,7 +1,6 @@
 ﻿using System;
 using System.IO;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Hearthstone_Counter
 {
@@ -9,7 +8,6 @@ namespace Hearthstone_Counter
     {
         WinWriter ww = new WinWriter();
         
-        string eMessage;
         string[] allWins = new string[10];
         string[] placeholder = { "0", "0", "0", "0", "0", "0", "0", "0", "0", "0"};
         Dictionary<string, int> winsDictionary = new Dictionary<string, int>();

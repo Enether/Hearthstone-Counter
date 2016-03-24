@@ -1,12 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.IO;
-
-
-
 
 namespace Hearthstone_Counter
 {
@@ -21,18 +13,18 @@ namespace Hearthstone_Counter
         public int paladinlosses;
         public string winPercentage;
         public double winP;
-        string eMessage;
+
         public void WriteWins(int T, bool won)
         {
             ww.WriteWins(wr.ReadWinsArray(), T, won, "Paladin");
         }
-        public void WriteLosses(int T)
+        public void WriteLosses(int T, bool lost)
         {
-            lw.WritePaladinLosses(T);
+            lw.WriteLosses(lr.ReadLossesDictionary(), T, lost, "Paladin");
         }
         public void ReadLosses()
         {
-            lr.ReadPaladinLosses(ref paladinlosses);
+            paladinlosses = lr.ReadLosses("Paladin");
         }
         public void ReadWins()
         {
@@ -57,7 +49,7 @@ namespace Hearthstone_Counter
             WriteWins(paladinwins, false);
             ReadLosses();
             hsc.lostLabel.Text = "Lost: " + paladinlosses;
-            WriteLosses(paladinlosses);
+            WriteLosses(paladinlosses, false);
             CalculateWinPercentage(hsc);
         }
         public void paladinLoseButtonCLICKED(HSCounter hsc)
@@ -65,7 +57,7 @@ namespace Hearthstone_Counter
             paladinlosses++;
             hsc.lostLabel.Text = "Lost: " + paladinlosses;
             CalculateWinPercentage(hsc);
-            WriteLosses(paladinlosses);
+            WriteLosses(paladinlosses, true);
             hsc.otherlosebutton();
         }
         public void paladinWinButtonCLICKED(HSCounter hsc)
@@ -83,7 +75,7 @@ namespace Hearthstone_Counter
             dfc.WriteWins(dfc.wins - paladinwins);
             dfc.WriteLosses(dfc.losses - paladinlosses);
             WriteWins(0, false);
-            WriteLosses(0);
+            WriteLosses(0, false);
             paladinButtonCLICKED(hsc);
         }
         public void paladinButtonIsSelected(HSCounter hsc)
