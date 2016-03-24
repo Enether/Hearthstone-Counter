@@ -59,7 +59,7 @@ namespace Hearthstone_Counter
         // Writers
         public void WriteWins(int T)
         {
-            ww.WriteDefaultWins(wr.ReadWinsArray(),T);
+            ww.WriteWins(wr.ReadWinsArray(),T, false, "Default");
            // ww.WriteAllWins(T);
         }
         public void WriteLosses(int T)
@@ -69,7 +69,7 @@ namespace Hearthstone_Counter
         // Readers
         public void ReadWins()
         {
-            wins = wr.ReadDefaultWins();
+            wins = wr.ReadWins("Default");
         }
         
         public void ReadLosses()
@@ -150,7 +150,7 @@ namespace Hearthstone_Counter
             selected = false;
             hsc.defaultbutton.Image = global::Hearthstone_Counter.Icons.DefaultIcon;
         }
-        public void DeselectOthers(HSCounter hsc)
+        private void DeselectOthers(HSCounter hsc)
         {
             hsc.DeselectMage();
             hsc.DeselectDruid();
@@ -166,7 +166,7 @@ namespace Hearthstone_Counter
         {
             hsc.BackgroundImage = Background.defaultBG;
         }
-        public void ShowandHideButtons(HSCounter hsc)
+        private void ShowandHideButtons(HSCounter hsc)
         {
             hsc.winButton.Show();
             hsc.loseButton.Show();
@@ -189,7 +189,7 @@ namespace Hearthstone_Counter
             hsc.mageWinButton.Hide();
             hsc.mageLoseButton.Hide();
         }
-        public void ShowandHideResetButtons(HSCounter hsc)
+        private void ShowandHideResetButtons(HSCounter hsc)
         {
             hsc.resetbutton.Show();
             hsc.druidResetButton.Hide();

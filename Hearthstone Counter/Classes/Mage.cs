@@ -21,7 +21,7 @@ namespace Hearthstone_Counter
         string eMessage;
         public void WriteWins(int T, bool won)
         {
-            ww.WriteMageWins(wr.ReadWinsArray() ,T, won);
+            ww.WriteWins(wr.ReadWinsArray() ,T, won, "Mage");
         }
         public void WriteLosses(int T)
         {
@@ -33,7 +33,7 @@ namespace Hearthstone_Counter
         }
         public void ReadWins()
         {
-            magewins = wr.ReadMageWins();
+            magewins = wr.ReadWins("Mage");
         }
         public void CalculateWinPercentage(HSCounter hsc)
         {
@@ -93,7 +93,7 @@ namespace Hearthstone_Counter
             selected = false;
             hsc.magebutton.Image = global::Hearthstone_Counter.Icons.MageIcon;
         }
-        public void DeselectOthers(HSCounter hsc)
+        private void DeselectOthers(HSCounter hsc)
         {
             hsc.DeselectDefault();
             hsc.DeselectDruid();
@@ -109,7 +109,7 @@ namespace Hearthstone_Counter
         {
             hsc.BackgroundImage = Background.mageBG;
         }
-        public void ShowandHideButtons(HSCounter hsc)
+        private void ShowandHideButtons(HSCounter hsc)
         {
             hsc.mageWinButton.Show();
             hsc.mageLoseButton.Show();
@@ -132,7 +132,7 @@ namespace Hearthstone_Counter
             hsc.winButton.Hide();
             hsc.loseButton.Hide();
         }
-        public void ShowandHideResetButtons(HSCounter hsc)
+        private void ShowandHideResetButtons(HSCounter hsc)
         {
             hsc.mageResetButton.Show();
             hsc.resetbutton.Hide();

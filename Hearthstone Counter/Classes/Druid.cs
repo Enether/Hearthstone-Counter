@@ -21,7 +21,7 @@ namespace Hearthstone_Counter
         string eMessage;
         public void WriteWins(int T, bool won)
         {
-            ww.WriteDruidWins(wr.ReadWinsArray(), T, won);
+            ww.WriteWins(wr.ReadWinsArray(), T, won, "Druid");
         }
         public void WriteLosses(int T)
         {
@@ -33,7 +33,7 @@ namespace Hearthstone_Counter
         }
         public void ReadWins()
         {
-            druidwins = wr.ReadDruidWins();
+            druidwins = wr.ReadWins("Druid");
         }
         public void CalculateWinPercentage(HSCounter hsc)
         {
@@ -93,7 +93,7 @@ namespace Hearthstone_Counter
             selected = false;
             hsc.druidbutton.Image = global::Hearthstone_Counter.Icons.DruidIcon;
         }
-        public void DeselectOthers(HSCounter hsc)
+        private void DeselectOthers(HSCounter hsc)
         {
             hsc.DeselectDefault();
             hsc.DeselectMage();
@@ -109,7 +109,7 @@ namespace Hearthstone_Counter
         {
             hsc.BackgroundImage = Background.druidBG;
         }
-        public void ShowandHideButtons(HSCounter hsc)
+        private void ShowandHideButtons(HSCounter hsc)
         {
             hsc.druidWinButton.Show();
             hsc.druidLoseButton.Show();
@@ -132,7 +132,7 @@ namespace Hearthstone_Counter
             hsc.winButton.Hide();
             hsc.loseButton.Hide();
         }
-        public void ShowandHideResetButtons(HSCounter hsc)
+        private void ShowandHideResetButtons(HSCounter hsc)
         {         
             hsc.druidResetButton.Show();
             hsc.resetbutton.Hide();

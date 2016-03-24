@@ -33,75 +33,11 @@ namespace Hearthstone_Counter
 
             return winsDictionary;
         }
-        public int ReadDefaultWins()
+        public int ReadWins(string classStr)
         {
             Dictionary<string, int> winsDictionary = ReadWinsArray();
 
-            return winsDictionary["DefaultWins"];
-        }
-        // DRUID
-        public int ReadDruidWins()
-        {
-            Dictionary<string, int> winsDictionary = ReadWinsArray();
-
-            return winsDictionary["DruidWins"];
-        }
-        // HUNTER
-        public int ReadHunterWins()
-        {
-            Dictionary<string, int> winsDictionary = ReadWinsArray();
-
-            return winsDictionary["HunterWins"];
-        }
-        // MAGE
-        public int ReadMageWins()
-        {
-            Dictionary<string, int> winsDictionary = ReadWinsArray();
-
-            return winsDictionary["MageWins"];
-        }
-        // PALADIN
-        public int ReadPaladinWins()
-        {
-            Dictionary<string, int> winsDictionary = ReadWinsArray();
-
-            return winsDictionary["PaladinWins"];
-        }
-
-        // PRIEST
-        public int ReadPriestWins()
-        {
-            Dictionary<string, int> winsDictionary = ReadWinsArray();
-
-            return winsDictionary["PriestWins"];
-        }
-        // ROGUE
-        public int ReadRogueWins()
-        {
-            Dictionary<string, int> winsDictionary = ReadWinsArray();
-
-            return winsDictionary["RogueWins"];
-        }
-        // SHAMAN
-        public int ReadShamanWins()
-        {
-            Dictionary<string, int> winsDictionary = ReadWinsArray();
-
-            return winsDictionary["ShamanWins"];
-        }
-        // WARLOCK
-        public int ReadWarlockWins()
-        {
-            Dictionary<string, int> winsDictionary = ReadWinsArray();
-
-            return winsDictionary["WarlockWins"];
-        }
-        // WARRIOR
-        public int ReadWarriorWins()
-        {
-            Dictionary<string, int> winsDictionary = ReadWinsArray();
-
-            return winsDictionary["WarriorWins"];
+            return winsDictionary[classStr + "Wins"];
         }
         public Dictionary<string, int> FillDictionary(string[] wins)
         {

@@ -21,7 +21,7 @@ namespace Hearthstone_Counter
         string eMessage;
         public void WriteWins(int T, bool won)
         {
-            ww.WriteWarlockWins(wr.ReadWinsArray(), T, won);
+            ww.WriteWins(wr.ReadWinsArray(), T, won, "Warlock");
         }
         public void WriteLosses(int T)
         {
@@ -33,7 +33,7 @@ namespace Hearthstone_Counter
         }
         public void ReadWins()
         {
-            warlockwins = wr.ReadWarlockWins();
+            warlockwins = wr.ReadWins("Warlock");
         }
         public void CalculateWinPercentage(HSCounter hsc)
         {
@@ -93,7 +93,7 @@ namespace Hearthstone_Counter
             selected = false;
             hsc.warlockbutton.Image = global::Hearthstone_Counter.Icons.WarlockIcon;
         }
-        public void DeselectOthers(HSCounter hsc)
+        private void DeselectOthers(HSCounter hsc)
         {
             hsc.DeselectDefault();
             hsc.DeselectDruid();
@@ -109,7 +109,7 @@ namespace Hearthstone_Counter
         {
             hsc.BackgroundImage = Background.warlockBG;
         }
-        public void ShowandHideButtons(HSCounter hsc)
+        private void ShowandHideButtons(HSCounter hsc)
         {
             hsc.warlockWinButton.Show();
             hsc.warlockLoseButton.Show();
@@ -132,7 +132,7 @@ namespace Hearthstone_Counter
             hsc.winButton.Hide();
             hsc.loseButton.Hide();
         }
-        public void ShowandHideResetButtons(HSCounter hsc)
+        private void ShowandHideResetButtons(HSCounter hsc)
         {
             hsc.warlockResetButton.Show();
             hsc.resetbutton.Hide();
