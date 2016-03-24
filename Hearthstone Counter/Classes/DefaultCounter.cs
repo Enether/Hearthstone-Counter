@@ -5,7 +5,9 @@ namespace Hearthstone_Counter
 {
     class DefaultCounter
     {
-        
+        Writer writer = new Writer();
+        Reader reader = new Reader();
+
         public int wins;
         public int losses;
         private double winP;
@@ -19,10 +21,6 @@ namespace Hearthstone_Counter
         Shaman shaman = new Shaman();
         Warlock warlock = new Warlock();
         Warrior warrior = new Warrior();
-        WinWriter ww = new WinWriter();
-        LossWriter lw = new LossWriter();
-        WinReader wr = new WinReader();
-        LossReader lr = new LossReader();
 
         public void Initialization(HSCounter hsc)
         {
@@ -53,22 +51,22 @@ namespace Hearthstone_Counter
         // Writers
         public void WriteWins(int T)
         {
-            ww.WriteWins(wr.ReadWinsArray(),T, false, "Default");
+            writer.WriteWins(reader.ReadResultsDictionary(), T, false, "Default");
            // ww.WriteAllWins(T);
         }
         public void WriteLosses(int T)
         {
-            lw.WriteLosses(lr.ReadLossesDictionary(), T, false, "Default");
+            writer.WriteLosses(reader.ReadResultsDictionary(), T, false, "Default");
         }
         // Readers
         public void ReadWins()
         {
-            wins = wr.ReadWins("Default");
+            wins = reader.ReadWins("Default");
         }
         
         public void ReadLosses()
         {
-            losses = lr.ReadLosses("Default");
+            losses = reader.ReadLosses("Default");
         }
         private void CalculateWinPercentage(HSCounter hsc)
         {
@@ -94,39 +92,8 @@ namespace Hearthstone_Counter
         }
         public void ResetButtonCLICKED(HSCounter hsc)
         {
-            WriteWins(0);
-            WriteLosses(0);
+            writer.ResetResults();
             DefaultButtonCLICKED(hsc);
-            ResetClassesScore(hsc);
-        }
-        private void ResetClassesScore(HSCounter hsc)
-        {
-            druid.WriteWins(0, false);
-            druid.WriteLosses(0, false);
-
-            hunter.WriteWins(0, false);
-            hunter.WriteLosses(0, false);
-
-            mage.WriteWins(0, false);
-            mage.WriteLosses(0, false);
-
-            paladin.WriteWins(0, false);
-            paladin.WriteLosses(0, false);
-
-            priest.WriteWins(0, false);
-            priest.WriteLosses(0, false);
-
-            rogue.WriteWins(0, false);
-            rogue.WriteLosses(0, false);
-
-            shaman.WriteWins(0, false);
-            shaman.WriteLosses(0, false);
-
-            warlock.WriteWins(0, false);
-            warlock.WriteLosses(0, false);
-
-            warrior.WriteWins(0, false);
-            warrior.WriteLosses(0, false);
         }
         private void SelectButton(HSCounter hsc)
         {

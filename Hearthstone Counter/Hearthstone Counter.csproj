@@ -119,8 +119,10 @@
     <Compile Include="Classes\Shaman.cs" />
     <Compile Include="Classes\Warlock.cs" />
     <Compile Include="Classes\Warrior.cs" />
+    <Compile Include="Reader.cs" />
     <Compile Include="WinReader.cs" />
     <Compile Include="WinWriter.cs" />
+    <Compile Include="Writer.cs" />
     <EmbeddedResource Include="Background.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Background.Designer.cs</LastGenOutput>

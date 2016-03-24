@@ -5,29 +5,28 @@ namespace Hearthstone_Counter
 {
     class Rogue
     {
-        WinWriter ww = new WinWriter();
-        LossWriter lw = new LossWriter();
-        WinReader wr = new WinReader();
-        LossReader lr = new LossReader();
+        Writer writer = new Writer();
+        Reader reader = new Reader();
+
         private int rogueWins;
         private int rogueLosses;
         private string winPercentage;
         private double winP;
         public void WriteWins(int T, bool won)
         {
-            ww.WriteWins(wr.ReadWinsArray(), T, won, "Rogue");
+            writer.WriteWins(reader.ReadResultsDictionary(), T, won, "Rogue");
         }
         public void WriteLosses(int T, bool lost)
         {
-            lw.WriteLosses(lr.ReadLossesDictionary(), T, lost, "Rogue");
+            writer.WriteLosses(reader.ReadResultsDictionary(), T, lost, "Rogue");
         }
         private void ReadLosses()
         {
-            rogueLosses = lr.ReadLosses("Rogue");
+            rogueLosses = reader.ReadLosses("Rogue");
         }
         private void ReadWins()
         {
-            rogueWins = wr.ReadWins("Rogue");
+            rogueWins = reader.ReadWins("Rogue");
         }
         private void CalculateWinPercentage(HSCounter hsc)
         {

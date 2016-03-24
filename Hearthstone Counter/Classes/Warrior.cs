@@ -3,10 +3,8 @@ namespace Hearthstone_Counter
 {
     class Warrior
     {
-        WinWriter ww = new WinWriter();
-        LossWriter lw = new LossWriter();
-        WinReader wr = new WinReader();
-        LossReader lr = new LossReader();
+        Writer writer = new Writer();
+        Reader reader = new Reader();
 
         private int warriorWins;
         private int warriorLosses;
@@ -14,19 +12,19 @@ namespace Hearthstone_Counter
         private double winP;
         public void WriteWins(int T, bool won)
         {
-            ww.WriteWins(wr.ReadWinsArray(), T, won, "Warrior");
+            writer.WriteWins(reader.ReadResultsDictionary(), T, won, "Warrior");
         }
         public void WriteLosses(int T, bool lost)
         {
-            lw.WriteLosses(lr.ReadLossesDictionary(), T, lost, "Warrior");
+            writer.WriteLosses(reader.ReadResultsDictionary(), T, lost, "Warrior");
         }
         private void ReadLosses()
         {
-            warriorLosses = lr.ReadLosses("Warrior");
+            warriorLosses = reader.ReadLosses("Warrior");
         }
         private void ReadWins()
         {
-            warriorWins = wr.ReadWins("Warrior");
+            warriorWins = reader.ReadWins("Warrior");
         }
         private void CalculateWinPercentage(HSCounter hsc)
         {

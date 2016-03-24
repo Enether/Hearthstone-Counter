@@ -4,29 +4,28 @@ namespace Hearthstone_Counter
 {
     class Shaman
     {
-        WinWriter ww = new WinWriter();
-        LossWriter lw = new LossWriter();
-        WinReader wr = new WinReader();
-        LossReader lr = new LossReader();
+        Writer writer = new Writer();
+        Reader reader = new Reader();
+
         private int shamanWins;
         private int shamanLosses;
         private double winP;
         private string winPercentage;
         public void WriteWins(int T, bool won)
         {
-            ww.WriteWins(wr.ReadWinsArray(), T, won, "Shaman");
+            writer.WriteWins(reader.ReadResultsDictionary(), T, won, "Shaman");
         }
         public void WriteLosses(int T, bool lost)
         {
-            lw.WriteLosses(lr.ReadLossesDictionary(), T, lost, "Shaman");
+            writer.WriteLosses(reader.ReadResultsDictionary(), T, lost, "Shaman");
         }
         private void ReadLosses()
         {
-            shamanLosses = lr.ReadLosses("Shaman");
+            shamanLosses = reader.ReadLosses("Shaman");
         }
         private void ReadWins()
         {
-           shamanWins = wr.ReadWins("Shaman");
+           shamanWins = reader.ReadWins("Shaman");
         }
         private void CalculateWinPercentage(HSCounter hsc)
         {

@@ -4,29 +4,28 @@ namespace Hearthstone_Counter
 {
     class Warlock
     {
-        WinWriter ww = new WinWriter();
-        LossWriter lw = new LossWriter();
-        WinReader wr = new WinReader();
-        LossReader lr = new LossReader();
+        Writer writer = new Writer();
+        Reader reader = new Reader();
+
         private int warlockWins;
         private int warlockLosses;
         private string winPercentage;
         private double winP;
         public void WriteWins(int T, bool won)
         {
-            ww.WriteWins(wr.ReadWinsArray(), T, won, "Warlock");
+            writer.WriteWins(reader.ReadResultsDictionary(), T, won, "Warlock");
         }
         public void WriteLosses(int T, bool lost)
         {
-            lw.WriteLosses(lr.ReadLossesDictionary(), T, lost, "Warlock");
+            writer.WriteLosses(reader.ReadResultsDictionary(), T, lost, "Warlock");
         }
         private void ReadLosses()
         {
-            warlockLosses = lr.ReadLosses("Warlock");
+            warlockLosses = reader.ReadLosses("Warlock");
         }
         private void ReadWins()
         {
-            warlockWins = wr.ReadWins("Warlock");
+            warlockWins = reader.ReadWins("Warlock");
         }
         private void CalculateWinPercentage(HSCounter hsc)
         {
