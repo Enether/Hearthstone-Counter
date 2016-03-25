@@ -66,15 +66,6 @@ namespace Hearthstone_Counter
             this.warriorWinButton = new System.Windows.Forms.Button();
             this.warriorLoseButton = new System.Windows.Forms.Button();
             this.resetbutton = new System.Windows.Forms.Button();
-            this.druidResetButton = new System.Windows.Forms.Button();
-            this.hunterResetButton = new System.Windows.Forms.Button();
-            this.mageResetButton = new System.Windows.Forms.Button();
-            this.paladinResetButton = new System.Windows.Forms.Button();
-            this.priestResetButton = new System.Windows.Forms.Button();
-            this.rogueResetButton = new System.Windows.Forms.Button();
-            this.shamanResetButton = new System.Windows.Forms.Button();
-            this.warlockResetButton = new System.Windows.Forms.Button();
-            this.warriorResetButton = new System.Windows.Forms.Button();
             this.defwinPlabel = new System.Windows.Forms.Label();
             this.moreWinsButton = new System.Windows.Forms.Button();
             this.moreLossesButton = new System.Windows.Forms.Button();
@@ -480,96 +471,6 @@ namespace Hearthstone_Counter
             this.resetbutton.UseVisualStyleBackColor = true;
             this.resetbutton.Click += new System.EventHandler(this.resetbutton_Click);
             // 
-            // druidResetButton
-            // 
-            this.druidResetButton.Location = new System.Drawing.Point(4, 12);
-            this.druidResetButton.Name = "druidResetButton";
-            this.druidResetButton.Size = new System.Drawing.Size(106, 34);
-            this.druidResetButton.TabIndex = 35;
-            this.druidResetButton.Text = "Reset Score";
-            this.druidResetButton.UseVisualStyleBackColor = true;
-            this.druidResetButton.Click += new System.EventHandler(this.druidResetButton_Click);
-            // 
-            // hunterResetButton
-            // 
-            this.hunterResetButton.Location = new System.Drawing.Point(4, 12);
-            this.hunterResetButton.Name = "hunterResetButton";
-            this.hunterResetButton.Size = new System.Drawing.Size(106, 34);
-            this.hunterResetButton.TabIndex = 36;
-            this.hunterResetButton.Text = "Reset Score";
-            this.hunterResetButton.UseVisualStyleBackColor = true;
-            this.hunterResetButton.Click += new System.EventHandler(this.hunterResetButton_Click);
-            // 
-            // mageResetButton
-            // 
-            this.mageResetButton.Location = new System.Drawing.Point(4, 12);
-            this.mageResetButton.Name = "mageResetButton";
-            this.mageResetButton.Size = new System.Drawing.Size(106, 34);
-            this.mageResetButton.TabIndex = 37;
-            this.mageResetButton.Text = "Reset Score";
-            this.mageResetButton.UseVisualStyleBackColor = true;
-            this.mageResetButton.Click += new System.EventHandler(this.mageResetButton_Click);
-            // 
-            // paladinResetButton
-            // 
-            this.paladinResetButton.Location = new System.Drawing.Point(4, 12);
-            this.paladinResetButton.Name = "paladinResetButton";
-            this.paladinResetButton.Size = new System.Drawing.Size(106, 34);
-            this.paladinResetButton.TabIndex = 38;
-            this.paladinResetButton.Text = "Reset Score";
-            this.paladinResetButton.UseVisualStyleBackColor = true;
-            this.paladinResetButton.Click += new System.EventHandler(this.paladinResetButton_Click);
-            // 
-            // priestResetButton
-            // 
-            this.priestResetButton.Location = new System.Drawing.Point(4, 12);
-            this.priestResetButton.Name = "priestResetButton";
-            this.priestResetButton.Size = new System.Drawing.Size(106, 34);
-            this.priestResetButton.TabIndex = 39;
-            this.priestResetButton.Text = "Reset Score";
-            this.priestResetButton.UseVisualStyleBackColor = true;
-            this.priestResetButton.Click += new System.EventHandler(this.priestResetButton_Click);
-            // 
-            // rogueResetButton
-            // 
-            this.rogueResetButton.Location = new System.Drawing.Point(4, 12);
-            this.rogueResetButton.Name = "rogueResetButton";
-            this.rogueResetButton.Size = new System.Drawing.Size(106, 34);
-            this.rogueResetButton.TabIndex = 40;
-            this.rogueResetButton.Text = "Reset Score";
-            this.rogueResetButton.UseVisualStyleBackColor = true;
-            this.rogueResetButton.Click += new System.EventHandler(this.rogueResetButton_Click);
-            // 
-            // shamanResetButton
-            // 
-            this.shamanResetButton.Location = new System.Drawing.Point(4, 12);
-            this.shamanResetButton.Name = "shamanResetButton";
-            this.shamanResetButton.Size = new System.Drawing.Size(106, 34);
-            this.shamanResetButton.TabIndex = 41;
-            this.shamanResetButton.Text = "Reset Score";
-            this.shamanResetButton.UseVisualStyleBackColor = true;
-            this.shamanResetButton.Click += new System.EventHandler(this.shamanResetButton_Click);
-            // 
-            // warlockResetButton
-            // 
-            this.warlockResetButton.Location = new System.Drawing.Point(4, 12);
-            this.warlockResetButton.Name = "warlockResetButton";
-            this.warlockResetButton.Size = new System.Drawing.Size(106, 34);
-            this.warlockResetButton.TabIndex = 42;
-            this.warlockResetButton.Text = "Reset Score";
-            this.warlockResetButton.UseVisualStyleBackColor = true;
-            this.warlockResetButton.Click += new System.EventHandler(this.warlockResetButton_Click);
-            // 
-            // warriorResetButton
-            // 
-            this.warriorResetButton.Location = new System.Drawing.Point(4, 12);
-            this.warriorResetButton.Name = "warriorResetButton";
-            this.warriorResetButton.Size = new System.Drawing.Size(106, 34);
-            this.warriorResetButton.TabIndex = 43;
-            this.warriorResetButton.Text = "Reset Score";
-            this.warriorResetButton.UseVisualStyleBackColor = true;
-            this.warriorResetButton.Click += new System.EventHandler(this.warriorResetButton_Click);
-            // 
             // defwinPlabel
             // 
             this.defwinPlabel.AutoSize = true;
@@ -612,15 +513,6 @@ namespace Hearthstone_Counter
             this.Controls.Add(this.moreLossesButton);
             this.Controls.Add(this.moreWinsButton);
             this.Controls.Add(this.defwinPlabel);
-            this.Controls.Add(this.warriorResetButton);
-            this.Controls.Add(this.warlockResetButton);
-            this.Controls.Add(this.shamanResetButton);
-            this.Controls.Add(this.rogueResetButton);
-            this.Controls.Add(this.priestResetButton);
-            this.Controls.Add(this.paladinResetButton);
-            this.Controls.Add(this.mageResetButton);
-            this.Controls.Add(this.hunterResetButton);
-            this.Controls.Add(this.druidResetButton);
             this.Controls.Add(this.resetbutton);
             this.Controls.Add(this.warriorLoseButton);
             this.Controls.Add(this.warriorWinButton);
@@ -698,15 +590,6 @@ namespace Hearthstone_Counter
         public System.Windows.Forms.Button warriorWinButton;
         public System.Windows.Forms.Button warriorLoseButton;
         public System.Windows.Forms.Button resetbutton;
-        public System.Windows.Forms.Button druidResetButton;
-        public System.Windows.Forms.Button hunterResetButton;
-        public System.Windows.Forms.Button mageResetButton;
-        public System.Windows.Forms.Button paladinResetButton;
-        public System.Windows.Forms.Button priestResetButton;
-        public System.Windows.Forms.Button rogueResetButton;
-        public System.Windows.Forms.Button shamanResetButton;
-        public System.Windows.Forms.Button warlockResetButton;
-        public System.Windows.Forms.Button warriorResetButton;
         public System.Windows.Forms.Label defwinPlabel;
         private System.Windows.Forms.Button moreWinsButton;
         private System.Windows.Forms.Button moreLossesButton;

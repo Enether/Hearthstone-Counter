@@ -6,5 +6,7 @@
 - [x] Bring down text files to 2
 - [x] Bring down text files to 1
 - [x] Add ability to add multiple wins/losses at once.
-- [ ] Refactor the reset button code so that we have only 1 button, not 9
+- [ ] Refactor the reset/win/lose button code so that we have only 1 button, not 9
 - [ ] Maybe add some sort of a log file?
+
+There surely are more things to be done, I'll look into them later

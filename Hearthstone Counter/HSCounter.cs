@@ -47,15 +47,8 @@ namespace Hearthstone_Counter
         }
         private void resetbutton_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Are you sure that you want to reset your score to 0?", "Reset Score", MessageBoxButtons.YesNo);
-            if(dialogResult == DialogResult.Yes)
-            {
-                DFC.ResetButtonCLICKED(this);
-            }
-            else if (dialogResult == DialogResult.No)
-            {
-                
-            }
+            ScoreResetter sr = new ScoreResetter();
+            sr.ResetScore(this);
         }
         public void DeselectDefault()
         {
@@ -77,18 +70,6 @@ namespace Hearthstone_Counter
         {
             Priest.PriestLoseButtonCLICKED(this);
         }
-        private void priestResetButton_Click(object sender, EventArgs e)
-        {
-            DialogResult priestDialogResult = MessageBox.Show("Are you sure that you want to reset your priest score to 0?", "Reset Priest Score", MessageBoxButtons.YesNo);
-            if (priestDialogResult == DialogResult.Yes)
-            {
-                Priest.PriestResetButtonCLICKED(this);
-            }
-            else if (priestDialogResult == DialogResult.No)
-            {
-
-            }
-        }
         public void DeselectPriest()
         {
             Priest.DeselectButton(this);
@@ -98,9 +79,7 @@ namespace Hearthstone_Counter
         private void paladinbutton_Click(object sender, EventArgs e)
         {
             Paladin.PaladinButtonCLICKED(this);
-        }
-         
-
+        }        
         private void paladinWinButton_Click(object sender, EventArgs e)
         {
             Paladin.PaladinWinButtonCLICKED(this);
@@ -109,18 +88,6 @@ namespace Hearthstone_Counter
         private void paladinLoseButton_Click(object sender, EventArgs e)
         {
             Paladin.PaladinLoseButtonCLICKED(this);
-        }
-        private void paladinResetButton_Click(object sender, EventArgs e)
-        {
-            DialogResult paladinDialogResult = MessageBox.Show("Are you sure that you want to reset your paladin score to 0?", "Reset Paladin Score", MessageBoxButtons.YesNo);
-            if (paladinDialogResult == DialogResult.Yes)
-            {
-                Paladin.PaladinResetButtonCLICKED(this);
-            }
-            else if (paladinDialogResult == DialogResult.No)
-            {
-
-            }
         }
         public void DeselectPaladin()
         {
@@ -147,18 +114,6 @@ namespace Hearthstone_Counter
         {
             Druid.DeselectButton(this);
         }
-        private void druidResetButton_Click(object sender, EventArgs e)
-        {
-            DialogResult druidDialogResult = MessageBox.Show("Are you sure that you want to reset your druid score to 0?", "Reset Druid Score", MessageBoxButtons.YesNo);
-            if (druidDialogResult == DialogResult.Yes)
-            {
-                Druid.DruidResetButtonCLICKED(this);
-            }
-            else if (druidDialogResult == DialogResult.No)
-            {
-
-            }       
-        }
         // Shaman Counter
         private void shamanbutton_Click(object sender, EventArgs e)
         {
@@ -173,18 +128,6 @@ namespace Hearthstone_Counter
         private void shamanLoseButton_Click(object sender, EventArgs e)
         {
             Shaman.ShamanLoseButtonCLICKED(this);
-        }
-        private void shamanResetButton_Click(object sender, EventArgs e)
-        {
-            DialogResult shamanDialogResult = MessageBox.Show("Are you sure that you want to reset your shaman score to 0?", "Reset Shaman Score", MessageBoxButtons.YesNo);
-            if (shamanDialogResult == DialogResult.Yes)
-            {
-                Shaman.ShamanResetButtonCLICKED(this);
-            }
-            else if (shamanDialogResult == DialogResult.No)
-            {
-
-            }
         }
         public void DeselectShaman()
         {
@@ -204,18 +147,6 @@ namespace Hearthstone_Counter
         private void warlockLoseButton_Click(object sender, EventArgs e)
         {
             Warlock.WarlockLoseButtonCLICKED(this);
-        }
-        private void warlockResetButton_Click(object sender, EventArgs e)
-        {
-            DialogResult warlockDialogResult = MessageBox.Show("Are you sure that you want to reset your warlock score to 0?", "Reset Warlock Score", MessageBoxButtons.YesNo);
-            if (warlockDialogResult == DialogResult.Yes)
-            {
-                Warlock.WarlockResetButtonCLICKED(this);
-            }
-            else if (warlockDialogResult == DialogResult.No)
-            {
-
-            }
         }
         public void DeselectWarlock()
         {
@@ -237,18 +168,6 @@ namespace Hearthstone_Counter
         {
             Hunter.HunterLoseButtonCLICKED(this);
         }
-        private void hunterResetButton_Click(object sender, EventArgs e)
-        {
-            DialogResult hunterDialogResult = MessageBox.Show("Are you sure that you want to reset your hunter score to 0?", "Reset Hunter Score", MessageBoxButtons.YesNo);
-            if (hunterDialogResult == DialogResult.Yes)
-            {
-                Hunter.HunterResetButtonCLICKED(this);
-            }
-            else if (hunterDialogResult == DialogResult.No)
-            {
-
-            }
-        }
         public void DeselectHunter()
         {
             Hunter.DeselectButton(this);
@@ -269,18 +188,6 @@ namespace Hearthstone_Counter
         {
             Mage.MageLoseButtonCLICKED(this);
         }
-        private void mageResetButton_Click(object sender, EventArgs e)
-        {
-            DialogResult mageDialogResult = MessageBox.Show("Are you sure that you want to reset your mage score to 0?", "Reset Mage Score", MessageBoxButtons.YesNo);
-            if (mageDialogResult == DialogResult.Yes)
-            {
-                Mage.MageResetButtonCLICKED(this);
-            }
-            else if (mageDialogResult == DialogResult.No)
-            {
-
-            }
-        }
         public void DeselectMage()
         {
             Mage.DeselectButton(this);
@@ -299,18 +206,6 @@ namespace Hearthstone_Counter
         private void rogueLoseButton_Click(object sender, EventArgs e)
         {
             Rogue.RogueLoseButtonCLICKED(this);
-        }
-        private void rogueResetButton_Click(object sender, EventArgs e)
-        {
-            DialogResult rogueDialogResult = MessageBox.Show("Are you sure that you want to reset your rogue score to 0?", "Reset Rogue Score", MessageBoxButtons.YesNo);
-            if (rogueDialogResult == DialogResult.Yes)
-            {
-                Rogue.RogueResetButtonCLICKED(this);
-            }
-            else if (rogueDialogResult == DialogResult.No)
-            {
-
-            }
         }
         public void DeselectRogue()
         {
@@ -331,18 +226,6 @@ namespace Hearthstone_Counter
         private void warriorLoseButton_Click(object sender, EventArgs e)
         {
             Warrior.WarriorLoseButtonCLICKED(this);
-        }
-        private void warriorResetButton_Click(object sender, EventArgs e)
-        {
-            DialogResult warriorDialogResult = MessageBox.Show("Are you sure that you want to reset your warrior score to 0?", "Reset Warrior Score", MessageBoxButtons.YesNo);
-            if (warriorDialogResult == DialogResult.Yes)
-            {
-                Warrior.WarriorResetButtonCLICKED(this);
-            }
-            else if (warriorDialogResult == DialogResult.No)
-            {
-
-            }
         }
         public void DeselectWarrior()
         {
@@ -378,7 +261,7 @@ namespace Hearthstone_Counter
             this.Enabled = true;
 
             // Choose which class to assign the wins to
-            if (DFC.IsSelected())
+            if (DefaultCounter.IsSelected())
                 DFC.AddWins(saveWins, this);
             else if (Druid.IsSelected())
                 Druid.AddWins(saveWins, this);
@@ -406,7 +289,7 @@ namespace Hearthstone_Counter
             this.Enabled = true;
 
             // Choose which class to assign the wins to
-            if (DFC.IsSelected())
+            if (DefaultCounter.IsSelected())
                 DFC.AddLosses(saveLosses, this);
             else if (Druid.IsSelected())
                 Druid.AddLosses(saveLosses, this);

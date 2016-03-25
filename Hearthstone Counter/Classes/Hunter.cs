@@ -7,7 +7,7 @@ namespace Hearthstone_Counter
         Writer writer = new Writer();
         Reader reader = new Reader();
 
-        private bool selected;
+        private static bool selected;
         private int hunterWins;
         private int hunterLosses;
         private string winPercentage;
@@ -41,7 +41,6 @@ namespace Hearthstone_Counter
             ChangeBG(hsc);
             SelectButton(hsc);
             ShowAndHideButtons(hsc);
-            ShowAndHideResetButtons(hsc);
             ReadWins();
             hsc.label1.Text = "Won: " + hunterWins;
             WriteWins(hunterWins, 0);
@@ -81,6 +80,8 @@ namespace Hearthstone_Counter
             DefaultCounter dfc = new DefaultCounter();
             dfc.ReadWins();
             dfc.ReadLosses();
+            ReadWins();
+            ReadLosses();
             dfc.WriteWins(dfc.wins - hunterWins);
             dfc.WriteLosses(dfc.losses - hunterLosses);
             WriteWins(0, 0);
@@ -110,7 +111,7 @@ namespace Hearthstone_Counter
             hsc.DeselectRogue();
             hsc.DeselectWarrior();
         }
-        public bool IsSelected()
+        public static bool IsSelected()
         {
             return selected;
         }
@@ -140,19 +141,6 @@ namespace Hearthstone_Counter
             hsc.warriorLoseButton.Hide();
             hsc.winButton.Hide();
             hsc.loseButton.Hide();
-        }
-        private void ShowAndHideResetButtons(HSCounter hsc)
-        {
-            hsc.hunterResetButton.Show();
-            hsc.resetbutton.Hide();
-            hsc.druidResetButton.Hide();
-            hsc.priestResetButton.Hide();
-            hsc.paladinResetButton.Hide();
-            hsc.shamanResetButton.Hide();
-            hsc.warlockResetButton.Hide();
-            hsc.rogueResetButton.Hide();
-            hsc.warriorResetButton.Hide();
-            hsc.mageResetButton.Hide();
         }
     }
 }
