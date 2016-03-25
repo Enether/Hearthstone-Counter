@@ -62,6 +62,7 @@ namespace Hearthstone_Counter
             druidLosses += addedLosses;
             WriteLosses(druidLosses, addedLosses);
             hsc.lostLabel.Text = "Lost: " + druidLosses;
+            CalculateWinPercentage(hsc);
         }
         public void DruidWinButtonCLICKED(HSCounter hsc)
         {
@@ -75,6 +76,7 @@ namespace Hearthstone_Counter
             druidWins += addedWins;
             WriteWins(druidWins, addedWins);
             hsc.label1.Text = "Won: " + druidWins;
+            CalculateWinPercentage(hsc);
         }
         public void DruidResetButtonCLICKED(HSCounter hsc)
         {

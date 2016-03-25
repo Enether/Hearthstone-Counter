@@ -61,6 +61,7 @@ namespace Hearthstone_Counter
             priestLosses += addedLosses;
             WriteLosses(priestLosses, addedLosses);
             hsc.lostLabel.Text = "Lost: " + priestLosses;
+            CalculateWinPercentage(hsc);
         }
         public void PriestWinButtonCLICKED(HSCounter hsc)
         {           
@@ -74,6 +75,7 @@ namespace Hearthstone_Counter
             priestWins += addedWins;
             WriteWins(priestWins, addedWins);
             hsc.label1.Text = "Won: " + priestWins;
+            CalculateWinPercentage(hsc);
         }
         public void PriestResetButtonCLICKED(HSCounter hsc)
         {

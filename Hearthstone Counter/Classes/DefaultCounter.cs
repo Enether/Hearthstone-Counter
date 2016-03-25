@@ -87,6 +87,7 @@ namespace Hearthstone_Counter
             losses += addedLosses;
             WriteLosses(losses);
             hsc.lostLabel.Text = "Lost: " + losses;
+            CalculateWinPercentage(hsc);
         }
         public void WinButtonCLICKED(HSCounter hsc)
         {
@@ -100,6 +101,7 @@ namespace Hearthstone_Counter
             wins += addedWins;
             WriteWins(wins);
             hsc.label1.Text = "Won: " + wins;
+            CalculateWinPercentage(hsc);
         }
         public void ResetButtonCLICKED(HSCounter hsc)
         {
