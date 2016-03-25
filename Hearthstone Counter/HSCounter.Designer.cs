@@ -76,6 +76,8 @@ namespace Hearthstone_Counter
             this.warlockResetButton = new System.Windows.Forms.Button();
             this.warriorResetButton = new System.Windows.Forms.Button();
             this.defwinPlabel = new System.Windows.Forms.Label();
+            this.moreWinsButton = new System.Windows.Forms.Button();
+            this.moreLossesButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // loseButton
@@ -580,11 +582,35 @@ namespace Hearthstone_Counter
             this.defwinPlabel.TabIndex = 44;
             this.defwinPlabel.Text = "Win %: ";
             // 
+            // moreWinsButton
+            // 
+            this.moreWinsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.moreWinsButton.Location = new System.Drawing.Point(116, 295);
+            this.moreWinsButton.Name = "moreWinsButton";
+            this.moreWinsButton.Size = new System.Drawing.Size(59, 43);
+            this.moreWinsButton.TabIndex = 45;
+            this.moreWinsButton.Text = "Add More...";
+            this.moreWinsButton.UseVisualStyleBackColor = true;
+            this.moreWinsButton.Click += new System.EventHandler(this.moreWinsButton_Click);
+            // 
+            // moreLossesButton
+            // 
+            this.moreLossesButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.moreLossesButton.Location = new System.Drawing.Point(342, 295);
+            this.moreLossesButton.Name = "moreLossesButton";
+            this.moreLossesButton.Size = new System.Drawing.Size(59, 43);
+            this.moreLossesButton.TabIndex = 46;
+            this.moreLossesButton.Text = "Add More...";
+            this.moreLossesButton.UseVisualStyleBackColor = true;
+            this.moreLossesButton.Click += new System.EventHandler(this.moreLossesButton_Click);
+            // 
             // HSCounter
             // 
             this.BackColor = System.Drawing.SystemColors.Info;
             this.BackgroundImage = global::Hearthstone_Counter.Background.defaultBG;
             this.ClientSize = new System.Drawing.Size(517, 349);
+            this.Controls.Add(this.moreLossesButton);
+            this.Controls.Add(this.moreWinsButton);
             this.Controls.Add(this.defwinPlabel);
             this.Controls.Add(this.warriorResetButton);
             this.Controls.Add(this.warlockResetButton);
@@ -682,6 +708,8 @@ namespace Hearthstone_Counter
         public System.Windows.Forms.Button warlockResetButton;
         public System.Windows.Forms.Button warriorResetButton;
         public System.Windows.Forms.Label defwinPlabel;
+        private System.Windows.Forms.Button moreWinsButton;
+        private System.Windows.Forms.Button moreLossesButton;
     }
 }
 

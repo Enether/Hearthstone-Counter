@@ -8,6 +8,7 @@ namespace Hearthstone_Counter
         Writer writer = new Writer();
         Reader reader = new Reader();
 
+        private bool selected;
         public int wins;
         public int losses;
         private double winP;
@@ -51,12 +52,11 @@ namespace Hearthstone_Counter
         // Writers
         public void WriteWins(int T)
         {
-            writer.WriteWins(reader.ReadResultsDictionary(), T, false, "Default");
-           // ww.WriteAllWins(T);
+            writer.WriteWins(reader.ReadResultsDictionary(), T, 0, "Default");
         }
         public void WriteLosses(int T)
         {
-            writer.WriteLosses(reader.ReadResultsDictionary(), T, false, "Default");
+            writer.WriteLosses(reader.ReadResultsDictionary(), T, 0, "Default");
         }
         // Readers
         public void ReadWins()
@@ -83,12 +83,24 @@ namespace Hearthstone_Counter
             CalculateWinPercentage(hsc);
             WriteLosses(losses);
         }
+        public void AddLosses(int addedLosses, HSCounter hsc)
+        {
+            losses += addedLosses;
+            WriteLosses(losses);
+            hsc.lostLabel.Text = "Lost: " + losses;
+        }
         public void WinButtonCLICKED(HSCounter hsc)
         {
             wins++;
             hsc.label1.Text = "Won: " + wins;
             CalculateWinPercentage(hsc);
             WriteWins(wins);
+        }
+        public void AddWins(int addedWins, HSCounter hsc)
+        {
+            wins += addedWins;
+            WriteWins(wins);
+            hsc.label1.Text = "Won: " + wins;
         }
         public void ResetButtonCLICKED(HSCounter hsc)
         {
@@ -97,12 +109,18 @@ namespace Hearthstone_Counter
         }
         private void SelectButton(HSCounter hsc)
         {
+            selected = true;
             hsc.defaultbutton.Image = global::Hearthstone_Counter.Icons.DefaultIconSelected;
             DeselectOthers(hsc);
         }
         public void DeselectButton(HSCounter hsc)
         {
+            selected = false;
             hsc.defaultbutton.Image = global::Hearthstone_Counter.Icons.DefaultIcon;
+        }
+        public bool IsSelected()
+        {
+            return selected;
         }
         private void DeselectOthers(HSCounter hsc)
         {

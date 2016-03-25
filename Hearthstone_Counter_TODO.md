@@ -5,5 +5,6 @@
 - [x] Fix names and inconsistancies in code
 - [x] Bring down text files to 2
 - [x] Bring down text files to 1
-- [ ] Add ability to add multiple wins/losses at once.
+- [x] Add ability to add multiple wins/losses at once.
+- [ ] Refactor the reset button code so that we have only 1 button, not 9
 - [ ] Maybe add some sort of a log file?

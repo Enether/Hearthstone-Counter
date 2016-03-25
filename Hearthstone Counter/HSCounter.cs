@@ -24,6 +24,8 @@ namespace Hearthstone_Counter
         Paladin Paladin = new Paladin();
         Priest Priest = new Priest();
         DefaultCounter DFC = new DefaultCounter();
+        static int saveWins = 0;
+        static int saveLosses = 0;
         public HSCounter()
         {         
             InitializeComponent();
@@ -345,6 +347,85 @@ namespace Hearthstone_Counter
         public void DeselectWarrior()
         {
             Warrior.DeselectButton(this);
-        }       
+        }
+
+        private void moreWinsButton_Click(object sender, EventArgs e)
+        {
+            AddWins addWins = new AddWins();
+            addWins.Show();
+            this.Enabled = false;
+
+            addWins.FormClosed += new FormClosedEventHandler(AddWins_FormClosed);
+        }
+        private void moreLossesButton_Click(object sender, EventArgs e)
+        {
+            AddLosses addLosses = new AddLosses();
+            addLosses.Show();
+            this.Enabled = false;
+
+            addLosses.FormClosed += new FormClosedEventHandler(AddLosses_FormClosed);
+        }
+        public static void SaveLosses(int i)
+        {
+            saveLosses = i;
+        }
+        public static void SaveWins(int i)
+        {
+            saveWins = i;
+        }
+        public void AddWins_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Enabled = true;
+
+            // Choose which class to assign the wins to
+            if (DFC.IsSelected())
+                DFC.AddWins(saveWins, this);
+            else if (Druid.IsSelected())
+                Druid.AddWins(saveWins, this);
+            else if (Hunter.IsSelected())
+                Hunter.AddWins(saveWins, this);
+            else if (Mage.IsSelected())
+                Mage.AddWins(saveWins, this);
+            else if (Paladin.IsSelected())
+                Paladin.AddWins(saveWins, this);
+            else if (Priest.IsSelected())
+                Priest.AddWins(saveWins, this);
+            else if (Rogue.IsSelected())
+                Rogue.AddWins(saveWins, this);
+            else if (Shaman.IsSelected())
+                Shaman.AddWins(saveWins, this);
+            else if (Warlock.IsSelected())
+                Warlock.AddWins(saveWins, this);
+            else if (Warrior.IsSelected())
+                Warrior.AddWins(saveWins, this);
+
+
+        }
+        public void AddLosses_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Enabled = true;
+
+            // Choose which class to assign the wins to
+            if (DFC.IsSelected())
+                DFC.AddLosses(saveLosses, this);
+            else if (Druid.IsSelected())
+                Druid.AddLosses(saveLosses, this);
+            else if (Hunter.IsSelected())
+                Hunter.AddLosses(saveLosses, this);
+            else if (Mage.IsSelected())
+                Mage.AddLosses(saveLosses, this);
+            else if (Paladin.IsSelected())
+                Paladin.AddLosses(saveLosses, this);
+            else if (Priest.IsSelected())
+                Priest.AddLosses(saveLosses, this);
+            else if (Rogue.IsSelected())
+                Rogue.AddLosses(saveLosses, this);
+            else if (Shaman.IsSelected())
+                Shaman.AddLosses(saveLosses, this);
+            else if (Warlock.IsSelected())
+                Warlock.AddLosses(saveLosses, this);
+            else if (Warrior.IsSelected())
+                Warrior.AddLosses(saveLosses, this);
+        }
     }
 }

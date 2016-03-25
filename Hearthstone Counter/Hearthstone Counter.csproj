@@ -79,6 +79,18 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddLosses.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddLosses.Designer.cs">
+      <DependentUpon>AddLosses.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddWins.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddWins.Designer.cs">
+      <DependentUpon>AddWins.cs</DependentUpon>
+    </Compile>
     <Compile Include="Background.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -103,8 +115,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Icons.resx</DependentUpon>
     </Compile>
-    <Compile Include="LossReader.cs" />
-    <Compile Include="LossWriter.cs" />
     <Compile Include="Classes\Mage.cs" />
     <Compile Include="Classes\Paladin.cs" />
     <Compile Include="Classes\Priest.cs" />
@@ -120,9 +130,13 @@
     <Compile Include="Classes\Warlock.cs" />
     <Compile Include="Classes\Warrior.cs" />
     <Compile Include="Reader.cs" />
-    <Compile Include="WinReader.cs" />
-    <Compile Include="WinWriter.cs" />
     <Compile Include="Writer.cs" />
+    <EmbeddedResource Include="AddLosses.resx">
+      <DependentUpon>AddLosses.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddWins.resx">
+      <DependentUpon>AddWins.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Background.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Background.Designer.cs</LastGenOutput>

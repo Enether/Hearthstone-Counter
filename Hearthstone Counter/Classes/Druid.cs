@@ -7,16 +7,17 @@ namespace Hearthstone_Counter
         Writer writer = new Writer();
         Reader reader = new Reader();
 
+        private bool selected;
         private int druidWins;
         private int druidLosses;
         private double winP;
         private string winPercentage;
 
-        public void WriteWins(int T, bool won)
+        public void WriteWins(int T, int won)
         {
             writer.WriteWins(reader.ReadResultsDictionary(), T, won, "Druid");
         }
-        public void WriteLosses(int T, bool lost)
+        public void WriteLosses(int T, int lost)
         {
             writer.WriteLosses(reader.ReadResultsDictionary(), T, lost, "Druid");
         }
@@ -43,10 +44,10 @@ namespace Hearthstone_Counter
             ShowAndHideButtons(hsc);
             ReadWins();
             hsc.label1.Text = "Won: " + druidWins;
-            WriteWins(druidWins, false);
+            WriteWins(druidWins, 0);
             ReadLosses();
             hsc.lostLabel.Text = "Lost: " + druidLosses;
-            WriteLosses(druidLosses, false);
+            WriteLosses(druidLosses, 0);
             CalculateWinPercentage(hsc);
         }
         public void DruidLoseButtonCLICKED(HSCounter hsc)
@@ -54,14 +55,26 @@ namespace Hearthstone_Counter
             druidLosses++;
             hsc.lostLabel.Text = "Lost: " + druidLosses;
             CalculateWinPercentage(hsc);
-            WriteLosses(druidLosses, true);
+            WriteLosses(druidLosses, 1);
+        }
+        public void AddLosses(int addedLosses, HSCounter hsc)
+        {
+            druidLosses += addedLosses;
+            WriteLosses(druidLosses, addedLosses);
+            hsc.lostLabel.Text = "Lost: " + druidLosses;
         }
         public void DruidWinButtonCLICKED(HSCounter hsc)
         {
             druidWins++;
             hsc.label1.Text = "Won: " + druidWins;
             CalculateWinPercentage(hsc);
-            WriteWins(druidWins, true);
+            WriteWins(druidWins, 1);
+        }
+        public void AddWins(int addedWins, HSCounter hsc)
+        {
+            druidWins += addedWins;
+            WriteWins(druidWins, addedWins);
+            hsc.label1.Text = "Won: " + druidWins;
         }
         public void DruidResetButtonCLICKED(HSCounter hsc)
         {
@@ -70,18 +83,25 @@ namespace Hearthstone_Counter
             dfc.ReadLosses();
             dfc.WriteWins(dfc.wins - druidWins);
             dfc.WriteLosses(dfc.losses - druidLosses);
-            WriteWins(0, false);
-            WriteLosses(0, false);
+            WriteWins(0, 0);
+            WriteLosses(0, 0);
             DruidButtonCLICKED(hsc);
         }
         private void SelectButton(HSCounter hsc)
         {
+            selected = true;
             hsc.druidbutton.Image = global::Hearthstone_Counter.Icons.DruidIconSelected;
             DeselectOthers(hsc);
         }
+
         public void DeselectButton(HSCounter hsc)
         {
+            selected = false;
             hsc.druidbutton.Image = global::Hearthstone_Counter.Icons.DruidIcon;
+        }
+        public bool IsSelected()
+        {
+            return selected;
         }
         private void DeselectOthers(HSCounter hsc)
         {

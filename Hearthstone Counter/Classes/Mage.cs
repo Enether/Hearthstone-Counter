@@ -7,16 +7,17 @@ namespace Hearthstone_Counter
         Writer writer = new Writer();
         Reader reader = new Reader();
 
+        private bool selected;
         private int mageWins;
         private int mageLosses;
         private string winPercentage;
         private double winP;
 
-        public void WriteWins(int T, bool won)
+        public void WriteWins(int T, int won)
         {
             writer.WriteWins(reader.ReadResultsDictionary() ,T, won, "Mage");
         }
-        public void WriteLosses(int T, bool lost)
+        public void WriteLosses(int T, int lost)
         {
             writer.WriteLosses(reader.ReadResultsDictionary(), T, lost, "Mage");
         }
@@ -43,10 +44,10 @@ namespace Hearthstone_Counter
             this.ShowAndHideResetButtons(hsc);
             ReadWins();
             hsc.label1.Text = "Won: " + mageWins;
-            WriteWins(mageWins, false);
+            WriteWins(mageWins, 0);
             ReadLosses();
             hsc.lostLabel.Text = "Lost: " + mageLosses;
-            WriteLosses(mageLosses, false);
+            WriteLosses(mageLosses, 0);
             CalculateWinPercentage(hsc);
         }
         public void MageLoseButtonCLICKED(HSCounter hsc)
@@ -54,14 +55,26 @@ namespace Hearthstone_Counter
             mageLosses++;
             hsc.lostLabel.Text = "Lost: " + mageLosses;
             CalculateWinPercentage(hsc);
-            WriteLosses(mageLosses, true);
+            WriteLosses(mageLosses, 1);
+        }
+        public void AddLosses(int addedLosses, HSCounter hsc)
+        {
+            mageLosses += addedLosses;
+            WriteLosses(mageLosses, addedLosses);
+            hsc.lostLabel.Text = "Lost: " + mageLosses;
         }
         public void MageWinButtonCLICKED(HSCounter hsc)
         {
             mageWins++;
             hsc.label1.Text = "Won: " + mageWins;
             CalculateWinPercentage(hsc);
-            WriteWins(mageWins, true);
+            WriteWins(mageWins, 1);
+        }
+        public void AddWins(int addedWins, HSCounter hsc)
+        {
+            mageWins += addedWins;
+            WriteWins(mageWins, addedWins);
+            hsc.label1.Text = "Won: " + mageWins;
         }
         public void MageResetButtonCLICKED(HSCounter hsc)
         {
@@ -70,18 +83,24 @@ namespace Hearthstone_Counter
             dfc.ReadLosses();
             dfc.WriteWins(dfc.wins - mageWins);
             dfc.WriteLosses(dfc.losses - mageLosses);
-            WriteWins(0, false);
-            WriteLosses(0, false);
+            WriteWins(0, 0);
+            WriteLosses(0, 0);
             MageButtonCLICKED(hsc);
         }
         private void SelectButton(HSCounter hsc)
         {
+            selected = true;
             hsc.magebutton.Image = global::Hearthstone_Counter.Icons.MageIconSelected;
             DeselectOthers(hsc);
         }
         public void DeselectButton(HSCounter hsc)
         {
+            selected = false;
             hsc.magebutton.Image = global::Hearthstone_Counter.Icons.MageIcon;
+        }
+        public bool IsSelected()
+        {
+            return selected;
         }
         private void DeselectOthers(HSCounter hsc)
         {

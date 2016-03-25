@@ -16,12 +16,12 @@ namespace Hearthstone_Counter
                 allWriter.Write(toWrite);
             }
         }
-        public void WriteWins(Dictionary<string, int> results, int T, bool won, string classStr)
+        public void WriteWins(Dictionary<string, int> results, int T, int won, string classStr)
         {
             results[classStr + "Wins"] = T;
 
-            if (won)
-                results["DefaultWins"]++;
+            if (won > 0)
+                results["DefaultWins"] += won;
 
 
             using (StreamWriter winsWriter = new StreamWriter("Textfiles/Results.txt", false))
@@ -31,12 +31,12 @@ namespace Hearthstone_Counter
                 winsWriter.Write(toWrite);
             }
         }
-        public void WriteLosses(Dictionary<string, int> results, int T, bool lost, string classStr)
+        public void WriteLosses(Dictionary<string, int> results, int T, int lost, string classStr)
         {
             results[classStr + "Losses"] = T;
 
-            if (lost)
-                results["DefaultLosses"]++;
+            if (lost > 0)
+                results["DefaultLosses"] += lost;
 
 
             using (StreamWriter lossesWriter = new StreamWriter("Textfiles/Results.txt", false))
