@@ -37,21 +37,13 @@ namespace Hearthstone_Counter
             this.winCount = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lostLabel = new System.Windows.Forms.Label();
-            this.priestWinButton = new System.Windows.Forms.Button();
             this.priestLoseButton = new System.Windows.Forms.Button();
-            this.paladinWinButton = new System.Windows.Forms.Button();
             this.paladinLoseButton = new System.Windows.Forms.Button();
-            this.druidWinButton = new System.Windows.Forms.Button();
             this.druidLoseButton = new System.Windows.Forms.Button();
-            this.shamanWinButton = new System.Windows.Forms.Button();
             this.shamanLoseButton = new System.Windows.Forms.Button();
-            this.warlockWinButton = new System.Windows.Forms.Button();
             this.warlockLoseButton = new System.Windows.Forms.Button();
-            this.hunterWinButton = new System.Windows.Forms.Button();
             this.hunterLoseButton = new System.Windows.Forms.Button();
-            this.mageWinButton = new System.Windows.Forms.Button();
             this.mageLoseButton = new System.Windows.Forms.Button();
-            this.rogueWinButton = new System.Windows.Forms.Button();
             this.rogueLoseButton = new System.Windows.Forms.Button();
             this.roguebutton = new System.Windows.Forms.Button();
             this.magebutton = new System.Windows.Forms.Button();
@@ -63,7 +55,6 @@ namespace Hearthstone_Counter
             this.defaultbutton = new System.Windows.Forms.Button();
             this.priestbutton = new System.Windows.Forms.Button();
             this.warriorbutton = new System.Windows.Forms.Button();
-            this.warriorWinButton = new System.Windows.Forms.Button();
             this.warriorLoseButton = new System.Windows.Forms.Button();
             this.resetbutton = new System.Windows.Forms.Button();
             this.defwinPlabel = new System.Windows.Forms.Label();
@@ -121,16 +112,6 @@ namespace Hearthstone_Counter
             this.lostLabel.TabIndex = 5;
             this.lostLabel.Text = "Lost: ";
             // 
-            // priestWinButton
-            // 
-            this.priestWinButton.Location = new System.Drawing.Point(12, 295);
-            this.priestWinButton.Name = "priestWinButton";
-            this.priestWinButton.Size = new System.Drawing.Size(98, 42);
-            this.priestWinButton.TabIndex = 7;
-            this.priestWinButton.Text = "Won!";
-            this.priestWinButton.UseVisualStyleBackColor = true;
-            this.priestWinButton.Click += new System.EventHandler(this.priestWinButton_Click);
-            // 
             // priestLoseButton
             // 
             this.priestLoseButton.Location = new System.Drawing.Point(407, 295);
@@ -140,16 +121,6 @@ namespace Hearthstone_Counter
             this.priestLoseButton.Text = "Lost.";
             this.priestLoseButton.UseVisualStyleBackColor = true;
             this.priestLoseButton.Click += new System.EventHandler(this.priestLoseButton_Click);
-            // 
-            // paladinWinButton
-            // 
-            this.paladinWinButton.Location = new System.Drawing.Point(12, 295);
-            this.paladinWinButton.Name = "paladinWinButton";
-            this.paladinWinButton.Size = new System.Drawing.Size(98, 42);
-            this.paladinWinButton.TabIndex = 11;
-            this.paladinWinButton.Text = "Won!";
-            this.paladinWinButton.UseVisualStyleBackColor = true;
-            this.paladinWinButton.Click += new System.EventHandler(this.paladinWinButton_Click);
             // 
             // paladinLoseButton
             // 
@@ -161,16 +132,6 @@ namespace Hearthstone_Counter
             this.paladinLoseButton.UseVisualStyleBackColor = true;
             this.paladinLoseButton.Click += new System.EventHandler(this.paladinLoseButton_Click);
             // 
-            // druidWinButton
-            // 
-            this.druidWinButton.Location = new System.Drawing.Point(12, 295);
-            this.druidWinButton.Name = "druidWinButton";
-            this.druidWinButton.Size = new System.Drawing.Size(98, 42);
-            this.druidWinButton.TabIndex = 14;
-            this.druidWinButton.Text = "Won!";
-            this.druidWinButton.UseVisualStyleBackColor = true;
-            this.druidWinButton.Click += new System.EventHandler(this.druidWinButton_Click);
-            // 
             // druidLoseButton
             // 
             this.druidLoseButton.Location = new System.Drawing.Point(407, 295);
@@ -180,16 +141,6 @@ namespace Hearthstone_Counter
             this.druidLoseButton.Text = "Lost.";
             this.druidLoseButton.UseVisualStyleBackColor = true;
             this.druidLoseButton.Click += new System.EventHandler(this.druidLoseButton_Click);
-            // 
-            // shamanWinButton
-            // 
-            this.shamanWinButton.Location = new System.Drawing.Point(12, 295);
-            this.shamanWinButton.Name = "shamanWinButton";
-            this.shamanWinButton.Size = new System.Drawing.Size(98, 42);
-            this.shamanWinButton.TabIndex = 17;
-            this.shamanWinButton.Text = "Won!";
-            this.shamanWinButton.UseVisualStyleBackColor = true;
-            this.shamanWinButton.Click += new System.EventHandler(this.shamanWinButton_Click);
             // 
             // shamanLoseButton
             // 
@@ -201,16 +152,6 @@ namespace Hearthstone_Counter
             this.shamanLoseButton.UseVisualStyleBackColor = true;
             this.shamanLoseButton.Click += new System.EventHandler(this.shamanLoseButton_Click);
             // 
-            // warlockWinButton
-            // 
-            this.warlockWinButton.Location = new System.Drawing.Point(12, 295);
-            this.warlockWinButton.Name = "warlockWinButton";
-            this.warlockWinButton.Size = new System.Drawing.Size(98, 42);
-            this.warlockWinButton.TabIndex = 20;
-            this.warlockWinButton.Text = "Won!";
-            this.warlockWinButton.UseVisualStyleBackColor = true;
-            this.warlockWinButton.Click += new System.EventHandler(this.warlockWinButton_Click);
-            // 
             // warlockLoseButton
             // 
             this.warlockLoseButton.Location = new System.Drawing.Point(407, 295);
@@ -220,16 +161,6 @@ namespace Hearthstone_Counter
             this.warlockLoseButton.Text = "Lost.";
             this.warlockLoseButton.UseVisualStyleBackColor = true;
             this.warlockLoseButton.Click += new System.EventHandler(this.warlockLoseButton_Click);
-            // 
-            // hunterWinButton
-            // 
-            this.hunterWinButton.Location = new System.Drawing.Point(12, 295);
-            this.hunterWinButton.Name = "hunterWinButton";
-            this.hunterWinButton.Size = new System.Drawing.Size(98, 42);
-            this.hunterWinButton.TabIndex = 23;
-            this.hunterWinButton.Text = "Won!";
-            this.hunterWinButton.UseVisualStyleBackColor = true;
-            this.hunterWinButton.Click += new System.EventHandler(this.hunterWinButton_Click);
             // 
             // hunterLoseButton
             // 
@@ -241,16 +172,6 @@ namespace Hearthstone_Counter
             this.hunterLoseButton.UseVisualStyleBackColor = true;
             this.hunterLoseButton.Click += new System.EventHandler(this.hunterLoseButton_Click);
             // 
-            // mageWinButton
-            // 
-            this.mageWinButton.Location = new System.Drawing.Point(12, 295);
-            this.mageWinButton.Name = "mageWinButton";
-            this.mageWinButton.Size = new System.Drawing.Size(98, 42);
-            this.mageWinButton.TabIndex = 26;
-            this.mageWinButton.Text = "Won!";
-            this.mageWinButton.UseVisualStyleBackColor = true;
-            this.mageWinButton.Click += new System.EventHandler(this.mageWinButton_Click);
-            // 
             // mageLoseButton
             // 
             this.mageLoseButton.Location = new System.Drawing.Point(407, 295);
@@ -260,16 +181,6 @@ namespace Hearthstone_Counter
             this.mageLoseButton.Text = "Lost.";
             this.mageLoseButton.UseVisualStyleBackColor = true;
             this.mageLoseButton.Click += new System.EventHandler(this.mageLoseButton_Click);
-            // 
-            // rogueWinButton
-            // 
-            this.rogueWinButton.Location = new System.Drawing.Point(12, 295);
-            this.rogueWinButton.Name = "rogueWinButton";
-            this.rogueWinButton.Size = new System.Drawing.Size(98, 42);
-            this.rogueWinButton.TabIndex = 29;
-            this.rogueWinButton.Text = "Won!";
-            this.rogueWinButton.UseVisualStyleBackColor = true;
-            this.rogueWinButton.Click += new System.EventHandler(this.rogueWinButton_Click);
             // 
             // rogueLoseButton
             // 
@@ -441,16 +352,6 @@ namespace Hearthstone_Counter
             this.warriorbutton.UseVisualStyleBackColor = true;
             this.warriorbutton.Click += new System.EventHandler(this.warriorbutton_Click);
             // 
-            // warriorWinButton
-            // 
-            this.warriorWinButton.Location = new System.Drawing.Point(12, 295);
-            this.warriorWinButton.Name = "warriorWinButton";
-            this.warriorWinButton.Size = new System.Drawing.Size(98, 42);
-            this.warriorWinButton.TabIndex = 32;
-            this.warriorWinButton.Text = "Won!";
-            this.warriorWinButton.UseVisualStyleBackColor = true;
-            this.warriorWinButton.Click += new System.EventHandler(this.warriorWinButton_Click);
-            // 
             // warriorLoseButton
             // 
             this.warriorLoseButton.Location = new System.Drawing.Point(407, 295);
@@ -515,32 +416,23 @@ namespace Hearthstone_Counter
             this.Controls.Add(this.defwinPlabel);
             this.Controls.Add(this.resetbutton);
             this.Controls.Add(this.warriorLoseButton);
-            this.Controls.Add(this.warriorWinButton);
             this.Controls.Add(this.warriorbutton);
             this.Controls.Add(this.rogueLoseButton);
-            this.Controls.Add(this.rogueWinButton);
             this.Controls.Add(this.roguebutton);
             this.Controls.Add(this.mageLoseButton);
-            this.Controls.Add(this.mageWinButton);
             this.Controls.Add(this.magebutton);
             this.Controls.Add(this.hunterLoseButton);
-            this.Controls.Add(this.hunterWinButton);
             this.Controls.Add(this.hunterbutton);
             this.Controls.Add(this.warlockLoseButton);
-            this.Controls.Add(this.warlockWinButton);
             this.Controls.Add(this.warlockbutton);
             this.Controls.Add(this.shamanLoseButton);
-            this.Controls.Add(this.shamanWinButton);
             this.Controls.Add(this.shamanbutton);
             this.Controls.Add(this.druidLoseButton);
-            this.Controls.Add(this.druidWinButton);
             this.Controls.Add(this.druidbutton);
             this.Controls.Add(this.paladinLoseButton);
-            this.Controls.Add(this.paladinWinButton);
             this.Controls.Add(this.paladinbutton);
             this.Controls.Add(this.defaultbutton);
             this.Controls.Add(this.priestLoseButton);
-            this.Controls.Add(this.priestWinButton);
             this.Controls.Add(this.priestbutton);
             this.Controls.Add(this.lostLabel);
             this.Controls.Add(this.label1);
@@ -561,21 +453,13 @@ namespace Hearthstone_Counter
         public System.Windows.Forms.Label lostLabel;
         public System.Windows.Forms.Button loseButton;
         public System.Windows.Forms.Button winButton;
-        public System.Windows.Forms.Button priestWinButton;
         public System.Windows.Forms.Button priestLoseButton;
-        public System.Windows.Forms.Button paladinWinButton;
         public System.Windows.Forms.Button paladinLoseButton;
-        public System.Windows.Forms.Button druidWinButton;
         public System.Windows.Forms.Button druidLoseButton;
-        public System.Windows.Forms.Button shamanWinButton;
         public System.Windows.Forms.Button shamanLoseButton;
-        public System.Windows.Forms.Button warlockWinButton;
         public System.Windows.Forms.Button warlockLoseButton;
-        public System.Windows.Forms.Button hunterWinButton;
         public System.Windows.Forms.Button hunterLoseButton;
-        public System.Windows.Forms.Button mageWinButton;
         public System.Windows.Forms.Button mageLoseButton;
-        public System.Windows.Forms.Button rogueWinButton;
         public System.Windows.Forms.Button rogueLoseButton;
         public System.Windows.Forms.Button magebutton;
         public System.Windows.Forms.Button paladinbutton;
@@ -587,7 +471,6 @@ namespace Hearthstone_Counter
         public System.Windows.Forms.Button hunterbutton;
         public System.Windows.Forms.Button roguebutton;
         public System.Windows.Forms.Button warriorbutton;
-        public System.Windows.Forms.Button warriorWinButton;
         public System.Windows.Forms.Button warriorLoseButton;
         public System.Windows.Forms.Button resetbutton;
         public System.Windows.Forms.Label defwinPlabel;

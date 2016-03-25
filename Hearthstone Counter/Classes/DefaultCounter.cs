@@ -23,6 +23,11 @@ namespace Hearthstone_Counter
         Warlock warlock = new Warlock();
         Warrior warrior = new Warrior();
 
+        public DefaultCounter()
+        {
+            ReadWins();
+            ReadLosses();
+        }
         public void Initialization(HSCounter hsc)
         {
             Directory.CreateDirectory("Textfiles");
@@ -141,25 +146,15 @@ namespace Hearthstone_Counter
         }
         private void ShowAndHideButtons(HSCounter hsc)
         {
-            hsc.winButton.Show();
             hsc.loseButton.Show();
-            hsc.druidWinButton.Hide();
             hsc.druidLoseButton.Hide();
-            hsc.priestWinButton.Hide();
             hsc.priestLoseButton.Hide();
-            hsc.paladinWinButton.Hide();
             hsc.paladinLoseButton.Hide();
-            hsc.shamanWinButton.Hide();
             hsc.shamanLoseButton.Hide();
-            hsc.warlockWinButton.Hide();
             hsc.warlockLoseButton.Hide();
-            hsc.hunterWinButton.Hide();
             hsc.hunterLoseButton.Hide();
-            hsc.rogueWinButton.Hide();
             hsc.rogueLoseButton.Hide();
-            hsc.warriorWinButton.Hide();
             hsc.warriorLoseButton.Hide();
-            hsc.mageWinButton.Hide();
             hsc.mageLoseButton.Hide();
         }
     }

@@ -131,6 +131,7 @@
     <Compile Include="Classes\Warrior.cs" />
     <Compile Include="Reader.cs" />
     <Compile Include="ScoreResetter.cs" />
+    <Compile Include="WinButtonClicked.cs" />
     <Compile Include="Writer.cs" />
     <EmbeddedResource Include="AddLosses.resx">
       <DependentUpon>AddLosses.cs</DependentUpon>

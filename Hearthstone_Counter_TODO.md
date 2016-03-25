@@ -8,5 +8,5 @@
 - [x] Add ability to add multiple wins/losses at once.
 - [ ] Refactor the reset/win/lose button code so that we have only 1 button, not 9
 - [ ] Maybe add some sort of a log file?
-
+- [ ] Move the logic of adding wins to AddWins.cs(to fix a bug where when you reset the wins and add new wins it adds them onto the previously reset wins, due to the new constructors) and remove the form closed events.
 There surely are more things to be done, I'll look into them later

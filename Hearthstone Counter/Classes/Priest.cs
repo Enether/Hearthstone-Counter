@@ -13,6 +13,11 @@ namespace Hearthstone_Counter
         private string winPercentage;
         private double winP;
 
+        public Priest()
+        {
+            ReadWins();
+            ReadLosses();
+        }
         public void WriteWins(int T, int won)
         {
             writer.WriteWins(reader.ReadResultsDictionary(), T, won, "Priest");
@@ -80,10 +85,6 @@ namespace Hearthstone_Counter
         public void PriestResetButtonCLICKED(HSCounter hsc)
         {
             DefaultCounter dfc = new DefaultCounter();
-            dfc.ReadWins();
-            dfc.ReadLosses();
-            ReadWins();
-            ReadLosses();
             dfc.WriteWins(dfc.wins - priestWins);
             dfc.WriteLosses(dfc.losses - priestLosses);
             WriteWins(0, 0);
@@ -124,24 +125,14 @@ namespace Hearthstone_Counter
         private void ShowAndHideButtons(HSCounter hsc)
         {
             hsc.priestLoseButton.Show();
-            hsc.priestWinButton.Show();
-            hsc.paladinWinButton.Hide();
             hsc.paladinLoseButton.Hide();
-            hsc.druidWinButton.Hide();
             hsc.druidLoseButton.Hide();
-            hsc.warlockWinButton.Hide();
             hsc.warlockLoseButton.Hide();
-            hsc.shamanWinButton.Hide();
             hsc.shamanLoseButton.Hide();
-            hsc.hunterWinButton.Hide();
             hsc.hunterLoseButton.Hide();
-            hsc.mageWinButton.Hide();
             hsc.mageLoseButton.Hide();
-            hsc.rogueWinButton.Hide();
             hsc.rogueLoseButton.Hide();
-            hsc.warriorWinButton.Hide();
             hsc.warriorLoseButton.Hide();
-            hsc.winButton.Hide();
             hsc.loseButton.Hide();
         }
     }

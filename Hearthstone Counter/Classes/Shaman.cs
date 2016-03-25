@@ -12,6 +12,12 @@ namespace Hearthstone_Counter
         private int shamanLosses;
         private double winP;
         private string winPercentage;
+
+        public Shaman()
+        {
+            ReadWins();
+            ReadLosses();
+        }
         public void WriteWins(int T, int won)
         {
             writer.WriteWins(reader.ReadResultsDictionary(), T, won, "Shaman");
@@ -79,10 +85,6 @@ namespace Hearthstone_Counter
         public void ShamanResetButtonCLICKED(HSCounter hsc)
         {
             DefaultCounter dfc = new DefaultCounter();
-            dfc.ReadWins();
-            dfc.ReadLosses();
-            ReadWins();
-            ReadLosses();
             dfc.WriteWins(dfc.wins - shamanWins);
             dfc.WriteLosses(dfc.losses - shamanLosses);
             WriteWins(0, 0);
@@ -122,25 +124,15 @@ namespace Hearthstone_Counter
         }
         private void ShowAndHideButtons(HSCounter hsc)
         {
-            hsc.shamanWinButton.Show();
-            hsc.shamanLoseButton.Show();
-            hsc.druidWinButton.Hide();
-            hsc.druidLoseButton.Hide();
-            hsc.paladinWinButton.Hide();
+            hsc.shamanLoseButton.Show();            
+            hsc.druidLoseButton.Hide();           
             hsc.paladinLoseButton.Hide();
-            hsc.priestLoseButton.Hide();
-            hsc.priestWinButton.Hide();
-            hsc.warlockWinButton.Hide();
-            hsc.warlockLoseButton.Hide();
-            hsc.hunterWinButton.Hide();
-            hsc.hunterLoseButton.Hide();
-            hsc.mageWinButton.Hide();
-            hsc.mageLoseButton.Hide();
-            hsc.rogueWinButton.Hide();
-            hsc.rogueLoseButton.Hide();
-            hsc.warriorWinButton.Hide();
-            hsc.warriorLoseButton.Hide();
-            hsc.winButton.Hide();
+            hsc.priestLoseButton.Hide();                       
+            hsc.warlockLoseButton.Hide();           
+            hsc.hunterLoseButton.Hide();          
+            hsc.mageLoseButton.Hide();          
+            hsc.rogueLoseButton.Hide();          
+            hsc.warriorLoseButton.Hide();         
             hsc.loseButton.Hide();
         }
     }

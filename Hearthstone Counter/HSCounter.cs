@@ -43,7 +43,9 @@ namespace Hearthstone_Counter
 
         private void winButton_Click(object sender, EventArgs e)
         {
-            DFC.WinButtonCLICKED(this);
+            WinButtonClicked wbc = new WinButtonClicked();
+
+            wbc.AddWin(this);
         }
         private void resetbutton_Click(object sender, EventArgs e)
         {
@@ -61,11 +63,6 @@ namespace Hearthstone_Counter
             Priest.PriestButtonCLICKED(this);
         }
 
-        private void priestWinButton_Click(object sender, EventArgs e)
-        {
-            Priest.PriestWinButtonCLICKED(this);
-        }
-
         private void priestLoseButton_Click(object sender, EventArgs e)
         {
             Priest.PriestLoseButtonCLICKED(this);
@@ -80,10 +77,6 @@ namespace Hearthstone_Counter
         {
             Paladin.PaladinButtonCLICKED(this);
         }        
-        private void paladinWinButton_Click(object sender, EventArgs e)
-        {
-            Paladin.PaladinWinButtonCLICKED(this);
-        }
 
         private void paladinLoseButton_Click(object sender, EventArgs e)
         {
@@ -101,10 +94,6 @@ namespace Hearthstone_Counter
             Druid.DruidButtonCLICKED(this);
         }
 
-        private void druidWinButton_Click(object sender, EventArgs e)
-        {
-            Druid.DruidWinButtonCLICKED(this);
-        }
 
         private void druidLoseButton_Click(object sender, EventArgs e)
         {
@@ -120,10 +109,6 @@ namespace Hearthstone_Counter
             Shaman.ShamanButtonCLICKED(this);
         }
 
-        private void shamanWinButton_Click(object sender, EventArgs e)
-        {
-            Shaman.ShamanWinButtonCLICKED(this);
-        }
 
         private void shamanLoseButton_Click(object sender, EventArgs e)
         {
@@ -139,10 +124,6 @@ namespace Hearthstone_Counter
             Warlock.WarlockButtonCLICKED(this);
         }
 
-        private void warlockWinButton_Click(object sender, EventArgs e)
-        {
-            Warlock.WarlockWinButtonCLICKED(this);
-        }
 
         private void warlockLoseButton_Click(object sender, EventArgs e)
         {
@@ -159,10 +140,6 @@ namespace Hearthstone_Counter
             Hunter.HunterButtonCLICKED(this);
         }
 
-        private void hunterWinButton_Click(object sender, EventArgs e)
-        {
-            Hunter.HunterWinButtonCLICKED(this);
-        }
 
         private void hunterLoseButton_Click(object sender, EventArgs e)
         {
@@ -179,10 +156,6 @@ namespace Hearthstone_Counter
             Mage.MageButtonCLICKED(this);
         }
 
-        private void mageWinButton_Click(object sender, EventArgs e)
-        {
-            Mage.MageWinButtonCLICKED(this);
-        }
 
         private void mageLoseButton_Click(object sender, EventArgs e)
         {
@@ -198,11 +171,6 @@ namespace Hearthstone_Counter
             Rogue.RogueButtonCLICKED(this);
         }
 
-        private void rogueWinButton_Click(object sender, EventArgs e)
-        {
-            Rogue.RogueWinButtonCLICKED(this);
-        }
-
         private void rogueLoseButton_Click(object sender, EventArgs e)
         {
             Rogue.RogueLoseButtonCLICKED(this);
@@ -216,11 +184,6 @@ namespace Hearthstone_Counter
         private void warriorbutton_Click(object sender, EventArgs e)
         {
             Warrior.WarriorButtonCLICKED(this);
-        }
-
-        private void warriorWinButton_Click(object sender, EventArgs e)
-        {
-            Warrior.WarriorWinButtonCLICKED(this);
         }
 
         private void warriorLoseButton_Click(object sender, EventArgs e)
