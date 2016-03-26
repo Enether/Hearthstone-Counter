@@ -11,8 +11,8 @@ namespace Hearthstone_Counter
         private static bool selected;
         public int wins;
         public int losses;
-        private double winP;
-        private string winPercentage;
+        private double winPercentage;
+        private string winPercentageString;
         Druid druid = new Druid();
         Hunter hunter = new Hunter();
         Mage mage = new Mage();
@@ -31,7 +31,7 @@ namespace Hearthstone_Counter
         public void Initialization(HSCounter hsc)
         {
             Directory.CreateDirectory("Textfiles");
-            DefaultButtonCLICKED(hsc);
+            DefaultButton_Clicked(hsc);
             ReadWins();
             hsc.label1.Text = "Won: " + wins;
             WriteWins(wins);
@@ -39,7 +39,9 @@ namespace Hearthstone_Counter
             hsc.lostLabel.Text = "Lost: " + losses;
             WriteLosses(losses);            
         }
-        public void DefaultButtonCLICKED(HSCounter hsc)
+
+        // Clicked Buttons
+        public void DefaultButton_Clicked(HSCounter hsc)
         {
             ChangeBG(hsc);
             SelectButton(hsc);
@@ -49,6 +51,41 @@ namespace Hearthstone_Counter
             ReadLosses();
             hsc.lostLabel.Text = "Lost: " + losses;
             WriteLosses(losses);
+            CalculateWinPercentage(hsc);
+        }
+        public void WinButton_Clicked(HSCounter hsc)
+        {
+            wins++;
+            hsc.label1.Text = "Won: " + wins;
+            CalculateWinPercentage(hsc);
+            WriteWins(wins);
+        }
+        public void LoseButton_Clicked(HSCounter hsc)
+        {       
+            losses++;
+            hsc.lostLabel.Text = "Lost: " + losses;
+            CalculateWinPercentage(hsc);
+            WriteLosses(losses);
+        }
+        public void ResetButton_Clicked(HSCounter hsc)
+        {
+            writer.ResetResults();
+            DefaultButton_Clicked(hsc); // useless-ish TO DO: refactor
+        }
+
+        // Add results when the "Add More" button is clicked
+        public void AddWins(int addedWins, HSCounter hsc)
+        {
+            wins += addedWins;
+            WriteWins(wins);
+            hsc.label1.Text = "Won: " + wins;
+            CalculateWinPercentage(hsc);
+        }
+        public void AddLosses(int addedLosses, HSCounter hsc)
+        {
+            losses += addedLosses;
+            WriteLosses(losses);
+            hsc.lostLabel.Text = "Lost: " + losses;
             CalculateWinPercentage(hsc);
         }
 
@@ -61,56 +98,33 @@ namespace Hearthstone_Counter
         {
             writer.WriteLosses(reader.ReadResultsDictionary(), T, 0, "Default");
         }
+
         // Readers
-        public void ReadWins()
+        private void ReadWins()
         {
             wins = reader.ReadWins("Default");
-        }
-        
-        public void ReadLosses()
+        }      
+        private void ReadLosses()
         {
             losses = reader.ReadLosses("Default");
         }
+
+        // Calculates the win percentage
         private void CalculateWinPercentage(HSCounter hsc)
         {
-            winP = (double)wins / (wins + losses);
-            if (Double.IsNaN(winP)) winP = 0;
-            winPercentage = string.Format("{0:0.0%}", winP);
-            hsc.defwinPlabel.Text = "Win %: " + winPercentage;
+            winPercentage = (double)wins / (wins + losses);
+
+            if (Double.IsNaN(winPercentage)) 
+                winPercentage = 0;
+
+            winPercentageString = string.Format("{0:0.0%}", winPercentage);
+            hsc.defwinPlabel.Text = "Win %: " + winPercentageString;
         }
-        // Clicked Buttons
-        public void LoseButtonCLICKED(HSCounter hsc)
-        {       
-            losses++;
-            hsc.lostLabel.Text = "Lost: " + losses;
-            CalculateWinPercentage(hsc);
-            WriteLosses(losses);
-        }
-        public void AddLosses(int addedLosses, HSCounter hsc)
+
+        // Select Methods
+        public static bool IsSelected()
         {
-            losses += addedLosses;
-            WriteLosses(losses);
-            hsc.lostLabel.Text = "Lost: " + losses;
-            CalculateWinPercentage(hsc);
-        }
-        public void WinButtonCLICKED(HSCounter hsc)
-        {
-            wins++;
-            hsc.label1.Text = "Won: " + wins;
-            CalculateWinPercentage(hsc);
-            WriteWins(wins);
-        }
-        public void AddWins(int addedWins, HSCounter hsc)
-        {
-            wins += addedWins;
-            WriteWins(wins);
-            hsc.label1.Text = "Won: " + wins;
-            CalculateWinPercentage(hsc);
-        }
-        public void ResetButtonCLICKED(HSCounter hsc)
-        {
-            writer.ResetResults();
-            DefaultButtonCLICKED(hsc);
+            return selected;
         }
         private void SelectButton(HSCounter hsc)
         {
@@ -122,10 +136,6 @@ namespace Hearthstone_Counter
         {
             selected = false;
             hsc.defaultbutton.Image = global::Hearthstone_Counter.Icons.DefaultIcon;
-        }
-        public static bool IsSelected()
-        {
-            return selected;
         }
         private void DeselectOthers(HSCounter hsc)
         {
@@ -139,6 +149,8 @@ namespace Hearthstone_Counter
             hsc.DeselectRogue();
             hsc.DeselectWarrior();
         }
+
+        //Changes the background to the class' background picture
         private void ChangeBG(HSCounter hsc)
         {
             hsc.BackgroundImage = Background.defaultBG;

@@ -28,52 +28,52 @@
         private void AddDefaultLoss(HSCounter hsc)
         {
             DefaultCounter dfc = new DefaultCounter();
-            dfc.LoseButtonCLICKED(hsc);
+            dfc.LoseButton_Clicked(hsc);
         }
         private void AddDruidLoss(HSCounter hsc)
         {
             Druid druid = new Druid();
-            druid.DruidLoseButtonCLICKED(hsc);
+            druid.LoseButton_Clicked(hsc);
         }
         private void AddHunterLoss(HSCounter hsc)
         {
             Hunter hunter = new Hunter();
-            hunter.HunterLoseButtonCLICKED(hsc);
+            hunter.LoseButton_Clicked(hsc);
         }
         private void AddMageLoss(HSCounter hsc)
         {
             Mage mage = new Mage();
-            mage.MageLoseButtonCLICKED(hsc);
+            mage.LoseButton_Clicked(hsc);
         }
         private void AddPaladinLoss(HSCounter hsc)
         {
             Paladin paladin = new Paladin();
-            paladin.PaladinLoseButtonCLICKED(hsc);
+            paladin.LoseButton_Clicked(hsc);
         }
         private void AddPriestLoss(HSCounter hsc)
         {
             Priest priest = new Priest();
-            priest.PriestLoseButtonCLICKED(hsc);
+            priest.LoseButton_Clicked(hsc);
         }
         private void AddRogueLoss(HSCounter hsc)
         {
             Rogue rogue = new Rogue();
-            rogue.RogueLoseButtonCLICKED(hsc);
+            rogue.LoseButton_Clicked(hsc);
         }
         private void AddShamanLoss(HSCounter hsc)
         {
             Shaman shaman = new Shaman();
-            shaman.ShamanLoseButtonCLICKED(hsc);
+            shaman.LoseButton_Clicked(hsc);
         }
         private void AddWarlockLoss(HSCounter hsc)
         {
             Warlock warlock = new Warlock();
-            warlock.WarlockLoseButtonCLICKED(hsc);
+            warlock.LoseButton_Clicked(hsc);
         }
         private void AddWarriorLoss(HSCounter hsc)
         {
             Warrior warrior = new Warrior();
-            warrior.WarriorLoseButtonCLICKED(hsc);
+            warrior.LoseButton_Clicked(hsc);
         }
     }
 }

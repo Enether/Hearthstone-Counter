@@ -28,52 +28,52 @@
         private void AddDefaultWin(HSCounter hsc)
         {
             DefaultCounter dfc = new DefaultCounter();
-            dfc.WinButtonCLICKED(hsc);
+            dfc.WinButton_Clicked(hsc);
         }
         private void AddDruidWin(HSCounter hsc)
         {
             Druid druid = new Druid();
-            druid.DruidWinButtonCLICKED(hsc);
+            druid.WinButton_Clicked(hsc);
         }
         private void AddHunterWin(HSCounter hsc)
         {
             Hunter hunter = new Hunter();
-            hunter.HunterWinButtonCLICKED(hsc);
+            hunter.WinButton_Clicked(hsc);
         }
         private void AddMageWin(HSCounter hsc)
         {
             Mage mage = new Mage();
-            mage.MageWinButtonCLICKED(hsc);
+            mage.WinButton_Clicked(hsc);
         }
         private void AddPaladinWin(HSCounter hsc)
         {
             Paladin paladin = new Paladin();
-            paladin.PaladinWinButtonCLICKED(hsc);
+            paladin.WinButton_Clicked(hsc);
         }
         private void AddPriestWin(HSCounter hsc)
         {
             Priest priest = new Priest();
-            priest.PriestWinButtonCLICKED(hsc);
+            priest.WinButton_Clicked(hsc);
         }
         private void AddRogueWin(HSCounter hsc)
         {
             Rogue rogue = new Rogue();
-            rogue.RogueWinButtonCLICKED(hsc);
+            rogue.WinButton_Clicked(hsc);
         }
         private void AddShamanWin(HSCounter hsc)
         {
             Shaman shaman = new Shaman();
-            shaman.ShamanWinButtonCLICKED(hsc);
+            shaman.WinButton_Clicked(hsc);
         }
         private void AddWarlockWin(HSCounter hsc)
         {
             Warlock warlock = new Warlock();
-            warlock.WarlockWinButtonCLICKED(hsc);
+            warlock.WinButton_Clicked(hsc);
         }
         private void AddWarriorWin(HSCounter hsc)
         {
             Warrior warrior = new Warrior();
-            warrior.WarriorWinButtonCLICKED(hsc);
+            warrior.WinButton_Clicked(hsc);
         }
     }
 }
