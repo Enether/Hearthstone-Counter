@@ -44,8 +44,7 @@ namespace Hearthstone_Counter
         public void PriestButtonCLICKED(HSCounter hsc)
         {
             ChangeBG(hsc);
-            SelectButton(hsc);
-            ShowAndHideButtons(hsc);          
+            SelectButton(hsc);      
             ReadWins();
             hsc.label1.Text = "Won: " + priestWins;
             WriteWins(priestWins, 0);
@@ -121,19 +120,6 @@ namespace Hearthstone_Counter
         private void ChangeBG(HSCounter hsc)
         {
             hsc.BackgroundImage = Background.priestBG;
-        }
-        private void ShowAndHideButtons(HSCounter hsc)
-        {
-            hsc.priestLoseButton.Show();
-            hsc.paladinLoseButton.Hide();
-            hsc.druidLoseButton.Hide();
-            hsc.warlockLoseButton.Hide();
-            hsc.shamanLoseButton.Hide();
-            hsc.hunterLoseButton.Hide();
-            hsc.mageLoseButton.Hide();
-            hsc.rogueLoseButton.Hide();
-            hsc.warriorLoseButton.Hide();
-            hsc.loseButton.Hide();
         }
     }
 }

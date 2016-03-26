@@ -37,7 +37,9 @@ namespace Hearthstone_Counter
         // Default Counter
         private void loseButton_Click(object sender, EventArgs e)
         {
-            DFC.LoseButtonCLICKED(this);
+            LoseButtonClicked lbc = new LoseButtonClicked();
+
+            lbc.AddLoss(this);
         }
 
         private void winButton_Click(object sender, EventArgs e)
@@ -62,10 +64,6 @@ namespace Hearthstone_Counter
             Priest.PriestButtonCLICKED(this);
         }
 
-        private void priestLoseButton_Click(object sender, EventArgs e)
-        {
-            Priest.PriestLoseButtonCLICKED(this);
-        }
         public void DeselectPriest()
         {
             Priest.DeselectButton(this);
@@ -76,11 +74,6 @@ namespace Hearthstone_Counter
         {
             Paladin.PaladinButtonCLICKED(this);
         }        
-
-        private void paladinLoseButton_Click(object sender, EventArgs e)
-        {
-            Paladin.PaladinLoseButtonCLICKED(this);
-        }
         public void DeselectPaladin()
         {
             Paladin.DeselectButton(this);
@@ -91,12 +84,6 @@ namespace Hearthstone_Counter
         private void druidbutton_Click(object sender, EventArgs e)
         {
             Druid.DruidButtonCLICKED(this);
-        }
-
-
-        private void druidLoseButton_Click(object sender, EventArgs e)
-        {
-            Druid.DruidLoseButtonCLICKED(this);
         }
         public void DeselectDruid()
         {
@@ -109,10 +96,7 @@ namespace Hearthstone_Counter
         }
 
 
-        private void shamanLoseButton_Click(object sender, EventArgs e)
-        {
-            Shaman.ShamanLoseButtonCLICKED(this);
-        }
+
         public void DeselectShaman()
         {
             Shaman.DeselectButton(this);
@@ -140,10 +124,6 @@ namespace Hearthstone_Counter
         }
 
 
-        private void hunterLoseButton_Click(object sender, EventArgs e)
-        {
-            Hunter.HunterLoseButtonCLICKED(this);
-        }
         public void DeselectHunter()
         {
             Hunter.DeselectButton(this);
@@ -156,10 +136,6 @@ namespace Hearthstone_Counter
         }
 
 
-        private void mageLoseButton_Click(object sender, EventArgs e)
-        {
-            Mage.MageLoseButtonCLICKED(this);
-        }
         public void DeselectMage()
         {
             Mage.DeselectButton(this);
@@ -170,10 +146,6 @@ namespace Hearthstone_Counter
             Rogue.RogueButtonCLICKED(this);
         }
 
-        private void rogueLoseButton_Click(object sender, EventArgs e)
-        {
-            Rogue.RogueLoseButtonCLICKED(this);
-        }
         public void DeselectRogue()
         {
             Rogue.DeselectButton(this);
@@ -185,10 +157,6 @@ namespace Hearthstone_Counter
             Warrior.WarriorButtonCLICKED(this);
         }
 
-        private void warriorLoseButton_Click(object sender, EventArgs e)
-        {
-            Warrior.WarriorLoseButtonCLICKED(this);
-        }
         public void DeselectWarrior()
         {
             Warrior.DeselectButton(this);
