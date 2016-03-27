@@ -24,11 +24,16 @@ namespace Hearthstone_Counter
         Paladin Paladin = new Paladin();
         Priest Priest = new Priest();
         DefaultCounter DFC = new DefaultCounter();
+        string[] classes =
+        {
+            "Default", "Warrior", "Rogue", "Paladin", "Hunter", "Warlock", "Priest", "Mage", "Shaman", "Druid"
+        };
 
         public HSCounter()
         {         
             InitializeComponent();
             DFC.Initialization(this);
+            
         }
         private void defaultbutton_Click(object sender, EventArgs e)
         {
@@ -41,7 +46,6 @@ namespace Hearthstone_Counter
 
             lbc.AddLoss(this);
         }
-
         private void winButton_Click(object sender, EventArgs e)
         {
             WinButtonClicked wbc = new WinButtonClicked();
@@ -186,6 +190,92 @@ namespace Hearthstone_Counter
         public void AddLosses_FormClosed(object sender, FormClosedEventArgs e)
         {
             this.Enabled = true;
+        }
+        private void SelectClass(string classString)
+        {
+            switch (classString)
+            {
+                case "Default":
+                    DFC.DefaultButton_Clicked(this);
+                    break;
+                case "Druid":
+                    Druid.DruidButton_Clicked(this);
+                    break;
+                case "Hunter":
+                    Hunter.HunterButton_Clicked(this);
+                    break;
+                case "Mage":
+                    Mage.MageButton_Clicked(this);
+                    break;
+                case "Paladin":
+                    Paladin.PaladinButton_Clicked(this);
+                    break;
+                case "Priest":
+                    Priest.PriestButton_Clicked(this);
+                    break;
+                case "Rogue":
+                    Rogue.RogueButton_Clicked(this);
+                    break;
+                case "Shaman":
+                    Shaman.ShamanButton_Clicked(this);
+                    break;
+                case "Warlock":
+                    Warlock.WarlockButton_Clicked(this);
+                    break;
+                case "Warrior":
+                    Warrior.WarriorButton_Clicked(this);
+                    break;
+            }
+        }
+        private string CurrentlySelected()
+        {
+            string currentlySelectedClass = "";
+
+            if (DefaultCounter.IsSelected())
+                currentlySelectedClass = "Default";
+            else if (Druid.IsSelected())
+                currentlySelectedClass = "Druid";
+            else if (Hunter.IsSelected())
+                currentlySelectedClass = "Hunter";
+            else if (Mage.IsSelected())
+                currentlySelectedClass = "Mage";
+            else if (Paladin.IsSelected())
+                currentlySelectedClass = "Paladin";
+            else if (Priest.IsSelected())
+                currentlySelectedClass = "Priest";
+            else if (Rogue.IsSelected())
+                currentlySelectedClass = "Rogue";
+            else if (Shaman.IsSelected())
+                currentlySelectedClass = "Shaman";
+            else if (Warlock.IsSelected())
+                currentlySelectedClass = "Warlock";
+            else if (Warrior.IsSelected())
+                currentlySelectedClass = "Warrior";
+
+            return currentlySelectedClass;
+        }
+
+        private void HSCounter_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            e.IsInputKey = true;
+        }
+
+        private void HSCounter_KeyDown(object sender, KeyEventArgs e)
+        {
+            if ((char)e.KeyCode == (char)Keys.Right)
+            {
+                int index = Array.IndexOf(classes, CurrentlySelected());
+
+                if (index != classes.Length - 1) // checks if it's not at the rightmost class
+                    SelectClass(classes[index + 1]);  // selects the class to the right      
+            }
+            else if ((char)e.KeyCode == (char)Keys.Left)
+            {
+                int index = Array.IndexOf(classes, CurrentlySelected());
+
+                if (index != 0) // checks if it's not at the leftmost class
+                    SelectClass(classes[index - 1]); // selects the class to the left
+            }
         }
     }
 }

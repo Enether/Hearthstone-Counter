@@ -32,25 +32,25 @@ namespace Hearthstone_Counter
         /// </summary>
         private void InitializeComponent()
         {
-            this.loseButton = new System.Windows.Forms.Button();
-            this.winButton = new System.Windows.Forms.Button();
+            this.loseButton = new Hearthstone_Counter.NoFocusCueButton();
+            this.winButton = new Hearthstone_Counter.NoFocusCueButton();
             this.winCount = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lostLabel = new System.Windows.Forms.Label();
-            this.roguebutton = new System.Windows.Forms.Button();
-            this.magebutton = new System.Windows.Forms.Button();
-            this.hunterbutton = new System.Windows.Forms.Button();
-            this.warlockbutton = new System.Windows.Forms.Button();
-            this.shamanbutton = new System.Windows.Forms.Button();
-            this.druidbutton = new System.Windows.Forms.Button();
-            this.paladinbutton = new System.Windows.Forms.Button();
-            this.defaultbutton = new System.Windows.Forms.Button();
-            this.priestbutton = new System.Windows.Forms.Button();
-            this.warriorbutton = new System.Windows.Forms.Button();
-            this.resetbutton = new System.Windows.Forms.Button();
+            this.roguebutton = new Hearthstone_Counter.NoFocusCueButton();
+            this.magebutton = new Hearthstone_Counter.NoFocusCueButton();
+            this.hunterbutton = new Hearthstone_Counter.NoFocusCueButton();
+            this.warlockbutton = new Hearthstone_Counter.NoFocusCueButton();
+            this.shamanbutton = new Hearthstone_Counter.NoFocusCueButton();
+            this.druidbutton = new Hearthstone_Counter.NoFocusCueButton();
+            this.paladinbutton = new Hearthstone_Counter.NoFocusCueButton();
+            this.defaultbutton = new Hearthstone_Counter.NoFocusCueButton();
+            this.priestbutton = new Hearthstone_Counter.NoFocusCueButton();
+            this.warriorbutton = new Hearthstone_Counter.NoFocusCueButton();
+            this.resetbutton = new Hearthstone_Counter.NoFocusCueButton();
             this.defwinPlabel = new System.Windows.Forms.Label();
-            this.moreWinsButton = new System.Windows.Forms.Button();
-            this.moreLossesButton = new System.Windows.Forms.Button();
+            this.moreWinsButton = new Hearthstone_Counter.NoFocusCueButton();
+            this.moreLossesButton = new Hearthstone_Counter.NoFocusCueButton();
             this.SuspendLayout();
             // 
             // loseButton
@@ -59,16 +59,19 @@ namespace Hearthstone_Counter
             this.loseButton.Name = "loseButton";
             this.loseButton.Size = new System.Drawing.Size(98, 42);
             this.loseButton.TabIndex = 1;
+            this.loseButton.Tag = "";
             this.loseButton.Text = "Lost.";
             this.loseButton.UseVisualStyleBackColor = true;
             this.loseButton.Click += new System.EventHandler(this.loseButton_Click);
             // 
             // winButton
             // 
+            this.winButton.CausesValidation = false;
             this.winButton.Location = new System.Drawing.Point(12, 295);
             this.winButton.Name = "winButton";
             this.winButton.Size = new System.Drawing.Size(98, 42);
             this.winButton.TabIndex = 2;
+            this.winButton.TabStop = false;
             this.winButton.Text = "Won!";
             this.winButton.UseVisualStyleBackColor = true;
             this.winButton.Click += new System.EventHandler(this.winButton_Click);
@@ -303,6 +306,7 @@ namespace Hearthstone_Counter
             this.moreLossesButton.Name = "moreLossesButton";
             this.moreLossesButton.Size = new System.Drawing.Size(59, 43);
             this.moreLossesButton.TabIndex = 46;
+            this.moreLossesButton.Tag = "";
             this.moreLossesButton.Text = "Add More...";
             this.moreLossesButton.UseVisualStyleBackColor = true;
             this.moreLossesButton.Click += new System.EventHandler(this.moreLossesButton_Click);
@@ -333,6 +337,8 @@ namespace Hearthstone_Counter
             this.Controls.Add(this.loseButton);
             this.Name = "HSCounter";
             this.Text = "Hearthstone GameCounter";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.HSCounter_KeyDown);
+            this.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.HSCounter_PreviewKeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -343,22 +349,22 @@ namespace Hearthstone_Counter
         private System.Windows.Forms.Label winCount;
         public System.Windows.Forms.Label label1;
         public System.Windows.Forms.Label lostLabel;
-        public System.Windows.Forms.Button loseButton;
-        public System.Windows.Forms.Button winButton;
-        public System.Windows.Forms.Button magebutton;
-        public System.Windows.Forms.Button paladinbutton;
-        public System.Windows.Forms.Button priestbutton;
-        public System.Windows.Forms.Button defaultbutton;
-        public System.Windows.Forms.Button druidbutton;
-        public System.Windows.Forms.Button shamanbutton;
-        public System.Windows.Forms.Button warlockbutton;
-        public System.Windows.Forms.Button hunterbutton;
-        public System.Windows.Forms.Button roguebutton;
-        public System.Windows.Forms.Button warriorbutton;
-        public System.Windows.Forms.Button resetbutton;
         public System.Windows.Forms.Label defwinPlabel;
-        private System.Windows.Forms.Button moreWinsButton;
-        private System.Windows.Forms.Button moreLossesButton;
+        public NoFocusCueButton loseButton;
+        public NoFocusCueButton winButton;
+        public NoFocusCueButton magebutton;
+        public NoFocusCueButton paladinbutton;
+        public NoFocusCueButton priestbutton;
+        public NoFocusCueButton defaultbutton;
+        public NoFocusCueButton druidbutton;
+        public NoFocusCueButton shamanbutton;
+        public NoFocusCueButton warlockbutton;
+        public NoFocusCueButton hunterbutton;
+        public NoFocusCueButton roguebutton;
+        public NoFocusCueButton warriorbutton;
+        public NoFocusCueButton resetbutton;
+        private NoFocusCueButton moreWinsButton;
+        private NoFocusCueButton moreLossesButton;
     }
 }
 
