@@ -49,11 +49,15 @@ namespace Hearthstone_Counter
         public void ResetButton_Clicked(HSCounter hsc)
         {
             DefaultCounter dfc = new DefaultCounter();
-            dfc.WriteWins(dfc.wins - wins);
-            dfc.WriteLosses(dfc.losses - losses);
+            dfc.WriteWins(dfc.Wins - wins);
+            dfc.WriteLosses(dfc.Losses - losses);
             WriteWins(0, 0);
             WriteLosses(0, 0);
-            HunterButton_Clicked(hsc); // useless-ish TO DO: refactor
+
+            wins = losses = 0;
+            hsc.label1.Text = "Won: 0";
+            hsc.lostLabel.Text = "Lost: 0";
+            CalculateWinPercentage(hsc);
         }
 
         // Add results when the "Add More" button is clicked

@@ -9,8 +9,10 @@ namespace Hearthstone_Counter
         Reader reader = new Reader();
 
         private static bool selected;
-        public int wins;
-        public int losses;
+        private int wins;
+        public int Wins { get { return wins; } }
+        private int losses;
+        public int Losses { get { return losses; } }
         private double winPercentage;
         private string winPercentageString;
         Druid druid = new Druid();
@@ -70,7 +72,11 @@ namespace Hearthstone_Counter
         public void ResetButton_Clicked(HSCounter hsc)
         {
             writer.ResetResults();
-            DefaultButton_Clicked(hsc); // useless-ish TO DO: refactor
+
+            wins = losses = 0;
+            hsc.label1.Text = "Won: 0";
+            hsc.lostLabel.Text = "Lost: 0";
+            CalculateWinPercentage(hsc);
         }
 
         // Add results when the "Add More" button is clicked
