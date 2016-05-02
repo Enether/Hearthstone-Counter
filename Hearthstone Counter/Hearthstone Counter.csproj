@@ -119,6 +119,7 @@
     <Compile Include="Classes\Paladin.cs" />
     <Compile Include="Classes\Priest.cs" />
     <Compile Include="HearthstoneCounter.cs" />
+    <Compile Include="LogFileSaver.cs" />
     <Compile Include="LoseButtonClicked.cs" />
     <Compile Include="NoFocusCueButton.cs">
       <SubType>Component</SubType>

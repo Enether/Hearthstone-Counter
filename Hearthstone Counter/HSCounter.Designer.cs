@@ -51,6 +51,7 @@ namespace Hearthstone_Counter
             this.defwinPlabel = new System.Windows.Forms.Label();
             this.moreWinsButton = new Hearthstone_Counter.NoFocusCueButton();
             this.moreLossesButton = new Hearthstone_Counter.NoFocusCueButton();
+            this.saveLogFileButton = new Hearthstone_Counter.NoFocusCueButton();
             this.SuspendLayout();
             // 
             // loseButton
@@ -311,11 +312,22 @@ namespace Hearthstone_Counter
             this.moreLossesButton.UseVisualStyleBackColor = true;
             this.moreLossesButton.Click += new System.EventHandler(this.moreLossesButton_Click);
             // 
+            // saveLogFileButton
+            // 
+            this.saveLogFileButton.Location = new System.Drawing.Point(409, 12);
+            this.saveLogFileButton.Name = "saveLogFileButton";
+            this.saveLogFileButton.Size = new System.Drawing.Size(96, 40);
+            this.saveLogFileButton.TabIndex = 47;
+            this.saveLogFileButton.Text = "Save Log File";
+            this.saveLogFileButton.UseVisualStyleBackColor = true;
+            this.saveLogFileButton.Click += new System.EventHandler(this.saveLogFileButton_Click);
+            // 
             // HSCounter
             // 
             this.BackColor = System.Drawing.SystemColors.Info;
             this.BackgroundImage = global::Hearthstone_Counter.Background.defaultBG;
             this.ClientSize = new System.Drawing.Size(517, 349);
+            this.Controls.Add(this.saveLogFileButton);
             this.Controls.Add(this.moreLossesButton);
             this.Controls.Add(this.moreWinsButton);
             this.Controls.Add(this.defwinPlabel);
@@ -365,6 +377,7 @@ namespace Hearthstone_Counter
         public NoFocusCueButton resetbutton;
         private NoFocusCueButton moreWinsButton;
         private NoFocusCueButton moreLossesButton;
+        private NoFocusCueButton saveLogFileButton;
     }
 }
 

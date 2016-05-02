@@ -24,6 +24,7 @@ namespace Hearthstone_Counter
         Paladin Paladin = new Paladin();
         Priest Priest = new Priest();
         DefaultCounter DFC = new DefaultCounter();
+        LogFileSaver LFS = new LogFileSaver();
         string[] classes =
         {
             "Default", "Warrior", "Rogue", "Paladin", "Hunter", "Warlock", "Priest", "Mage", "Shaman", "Druid"
@@ -276,6 +277,11 @@ namespace Hearthstone_Counter
                 if (index != 0) // checks if it's not at the leftmost class
                     SelectClass(classes[index - 1]); // selects the class to the left
             }
+        }
+
+        private void saveLogFileButton_Click(object sender, EventArgs e)
+        {
+            LFS.CreateLog();
         }
     }
 }

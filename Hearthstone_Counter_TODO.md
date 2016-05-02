@@ -7,7 +7,7 @@
 - [x] Bring down text files to 1
 - [x] Add ability to add multiple wins/losses at once.
 - [x] Refactor the reset/win/lose button code so that we have only 1 button, not 9
-- [ ] Maybe add some sort of a log file?
+- [x] Add the ability to save a log file
 - [x] Move the logic of adding wins to AddWins.cs(to fix a bug where when you reset the wins and add new wins it adds them onto the previously reset wins, due to the new constructors) and remove the form closed events.
 - [x] Add ability to select classes with the arrow keys
 - [x] Remove the (Class)ButtonClicked() method inside every class' ResetButtonClicked method and replace it with what's necessary(most likely only ReadWins & ReadLosses)

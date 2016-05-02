@@ -33,6 +33,7 @@ namespace Hearthstone_Counter
         public void Initialization(HSCounter hsc)
         {
             Directory.CreateDirectory("Textfiles");
+            Directory.CreateDirectory("Textfiles/LogFiles");
             DefaultButton_Clicked(hsc);
             ReadWins();
             hsc.label1.Text = "Won: " + wins;
